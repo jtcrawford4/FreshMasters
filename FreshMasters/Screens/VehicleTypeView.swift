@@ -25,18 +25,18 @@ struct VehicleTypeView: View {
                     .padding()
                 
                 HStack(spacing: 10){
-                    NavLinkButton(imageName: "car", buttonText: "Car", content: {ServiceTypeView()})
+                    NavLinkButton(image: Image("icons8-car-50"), buttonText: "Car", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
-                    NavLinkButton(imageName: "car", buttonText: "Truck", content: {ServiceTypeView()})
+                    NavLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                 }
                 .padding()
                 
                 HStack(spacing: 10){
-                    NavLinkButton(imageName: "car", buttonText: "Van", content: {ServiceTypeView()})
+                    NavLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                     
-                    NavLinkButton(imageName: "car", buttonText: "SUV", content: {ServiceTypeView()})
+                    NavLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                 }
                 Spacer()

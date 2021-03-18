@@ -53,7 +53,7 @@ struct MainView: View {
                     //                    .foregroundColor(.darkStart)
                     //                    .italic()
                     
-                    NavLinkButton(imageName: "chevron.right.circle.fill", buttonText: "Get Started", content: {VehicleTypeView()})
+                    NavLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Started", content: {VehicleTypeView()})
                         .frame(width: 250, height: 50)
 
                     .padding(40)
@@ -81,12 +81,12 @@ struct NavLinkButton<Content: View>: View{
     
     let desintation: () -> Content
     let buttonText: String
-    let imageName: String
+    let image: Image
         
-    init(imageName: String, buttonText: String, @ViewBuilder content: @escaping () -> Content) {
+    init(image: Image, buttonText: String, @ViewBuilder content: @escaping () -> Content) {
         self.desintation = content
         self.buttonText = buttonText
-        self.imageName = imageName
+        self.image = image
     }
     
     var body: some View{
@@ -98,7 +98,7 @@ struct NavLinkButton<Content: View>: View{
                         .fontWeight(.semibold)
                     Spacer()
                     LinearGradient(.red, .pink)
-                        .mask(Image(systemName: imageName)
+                        .mask(image
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width:25, height: 25)

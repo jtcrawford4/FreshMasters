@@ -82,7 +82,7 @@ struct ServiceTypeView: View {
                 }
                 .padding()
                 
-                NavLinkButton(imageName: "chevron.right.circle.fill", buttonText: "Next", content: {ServiceTypeView()})
+                NavLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {ServiceTypeView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     
