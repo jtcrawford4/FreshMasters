@@ -29,60 +29,15 @@ struct ServiceTypeView: View {
                     .padding()
                 
                 HStack(spacing: 10){
-                    VStack{
-                        Button(action: {
-                            print("interior")
-                            interiorIsToggled.toggle()
-                        }, label: {
-                            VStack{
-                                Image(systemName: "cart")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 35, height: 35)
-                                    .foregroundColor(interiorIsToggled ? .red : .black)
-                                    .padding(5)
-                                Text("Interior")
-                                    .font(.body)
-                                    .fontWeight(.light)
-//                                    .foregroundColor(interiorIsToggled ? .red : .black)
-                            }
-                            
-                            
-                        })
+                    ToggleButton(toggleState: $interiorIsToggled, imageToggled: Image("icons8-steering-wheel-50-red"), imageNotToggled: Image("icons8-steering-wheel-50"), buttonText: "Interior")
+                
+                    ToggleButton(toggleState: $exteriorIsToggled, imageToggled: Image("icons8-car-cleaning-50-red"), imageNotToggled: Image("icons8-car-cleaning-50"), buttonText: "Exterior")
                         .buttonStyle(SquareButtonStyle())
-                            
-                    }
-                    
-                    VStack{
-                        Button(action: {
-                            print("exterior")
-                            exteriorIsToggled.toggle()
-                        }, label: {
-                            
-                            VStack{
-                                Image(systemName: "cart")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 35, height: 35)
-                                    .foregroundColor(exteriorIsToggled ? .red : .black)
-                                    .padding(5)
-                                Text("Exterior")
-                                    .font(.body)
-                                    .fontWeight(.light)
-//                                    .foregroundColor(exteriorIsToggled ? .red : .black)
-                            }
-                            
-                        })
-//                            .shadow(color: .red, radius: 2, x: -3, y: -3)
-                        .buttonStyle(SquareButtonStyle())
-                                                    
-                        
-                    }
-                    
+
                 }
                 .padding()
                 
-                NavLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {ServiceTypeView()})
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {AdditionalServiceView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     

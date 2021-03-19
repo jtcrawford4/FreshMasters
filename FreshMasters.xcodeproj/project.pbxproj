@@ -15,6 +15,12 @@
 		E19B85A426004B5400C636B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B85A326004B5400C636B9 /* MainView.swift */; };
 		E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A954162602AE05005CBE82 /* VehicleTypeView.swift */; };
 		E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */; };
+		E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */; };
+		E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA70B26041167008C0747 /* NavLinkButton.swift */; };
+		E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA712260411FE008C0747 /* ColorExtension.swift */; };
+		E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */; };
+		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
+		E1ADA729260418F1008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* AppointmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		E19B85A326004B5400C636B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E1A954162602AE05005CBE82 /* VehicleTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTypeView.swift; sourceTree = "<group>"; };
 		E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTypeView.swift; sourceTree = "<group>"; };
+		E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalServiceView.swift; sourceTree = "<group>"; };
+		E1ADA70B26041167008C0747 /* NavLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLinkButton.swift; sourceTree = "<group>"; };
+		E1ADA712260411FE008C0747 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBtnStyle.swift; sourceTree = "<group>"; };
+		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
+		E1ADA728260418F1008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,8 @@
 		E19B857326004ADF00C636B9 /* FreshMasters */ = {
 			isa = PBXGroup;
 			children = (
+				E1ADA710260411CE008C0747 /* Utilities */,
+				E1ADA70A26041141008C0747 /* Buttons */,
 				E19B85A226004B2500C636B9 /* Screens */,
 				E19B857426004ADF00C636B9 /* FreshMastersApp.swift */,
 				E19B857826004AE100C636B9 /* Assets.xcassets */,
@@ -140,8 +154,44 @@
 				E19B85A326004B5400C636B9 /* MainView.swift */,
 				E1A954162602AE05005CBE82 /* VehicleTypeView.swift */,
 				E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */,
+				E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */,
+				E1ADA728260418F1008C0747 /* AppointmentView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		E1ADA70A26041141008C0747 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E1ADA71A26041229008C0747 /* Styles */,
+				E1ADA70B26041167008C0747 /* NavLinkButton.swift */,
+				E1ADA72326041649008C0747 /* ToggleBtn.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E1ADA710260411CE008C0747 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E1ADA711260411E5008C0747 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E1ADA711260411E5008C0747 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1ADA712260411FE008C0747 /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E1ADA71A26041229008C0747 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +323,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1ADA729260418F1008C0747 /* AppointmentView.swift in Sources */,
+				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
+				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
+				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
+				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
+				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
