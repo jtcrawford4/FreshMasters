@@ -20,7 +20,8 @@
 		E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA712260411FE008C0747 /* ColorExtension.swift */; };
 		E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */; };
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
-		E1ADA729260418F1008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* AppointmentView.swift */; };
+		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
+		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,8 @@
 		E1ADA712260411FE008C0747 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBtnStyle.swift; sourceTree = "<group>"; };
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
-		E1ADA728260418F1008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
+		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,8 @@
 				E1A954162602AE05005CBE82 /* VehicleTypeView.swift */,
 				E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */,
 				E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */,
-				E1ADA728260418F1008C0747 /* AppointmentView.swift */,
+				E1ADA728260418F1008C0747 /* ValidationView.swift */,
+				E1ADA730260445DB008C0747 /* AppointmentView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -323,10 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1ADA729260418F1008C0747 /* AppointmentView.swift in Sources */,
+				E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */,
 				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
+				E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,

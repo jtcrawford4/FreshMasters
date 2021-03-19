@@ -52,12 +52,13 @@ struct AdditionalServiceView: View {
 //                    Spacer()
                 }
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {AppointmentView()})
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {ValidationView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                 
                 Spacer()
             }
+            .offset(y: -40)
             
         }
     }
