@@ -14,8 +14,9 @@ struct AppointmentView: View {
     @State var email = ""
     @State var phone = ""
     @State var appointmentDate = Date()
-    @State var canContactByEmail = false
-    @State var canContactByPhoneText = false
+    @State var contactByEmail = false
+    @State var contactByPhone = false
+    @State var contactByText = false
     
     var body: some View {
         ZStack{
@@ -24,57 +25,54 @@ struct AppointmentView: View {
                 .fill(Color.offWhite)
                 .ignoresSafeArea()
             
-            NavigationView{
-                    Form{
-                        Section(header: Text("Contact Info")){
-                            TextField("First Name", text: $fname)
-                            TextField("Last Name", text: $lname)
-                            TextField("Phone", text: $phone)
-                                .keyboardType(.phonePad)
-                            TextField("Email", text: $email)
-                                .keyboardType(.emailAddress)
-                                .autocapitalization(.none)
-                                .disableAutocorrection(true)
-                            DatePicker("Appointment Date", selection: $appointmentDate, displayedComponents: .date)
-    //                        Button{
-    //                           viewModel.saveChanges()
-    //                        } label: {
-    //                            Text("Save Changes")
-    //                        }
-                        }
-                        Section(header: Text("Contact Type")){
-                            Toggle("Contact by email?", isOn: $canContactByEmail)
-                            Toggle("Contact by phone / text?", isOn: $canContactByPhoneText)
-                        }
-                        .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
-                        
-                        Section(){
-                            Button(action: {
-                                print("appointment sent")
-                            }, label: {
-                                Text("Submit")
-                                    .foregroundColor(.black)
-//                                    .buttonStyle(PlainButtonStyle())
-//                                    .background(Color.brand)
-//                                    .frame(width: 250, height: 50)
-//                                    .buttonStyle(SquareButtonStyle())
-                            })
-//                            .buttonStyle(PlainButtonStyle())
-                        }
-//                        .background(Color.brandPrimary)
-                        
-                        
+            VStack{
+                Form{
+                    Section(header: Text("Contact Info")){
+                        TextField("First Name", text: $fname)
+                        TextField("Last Name", text: $lname)
+                        TextField("Phone", text: $phone)
+                            .keyboardType(.phonePad)
+                        TextField("Email", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                        DatePicker("Appointment Date", selection: $appointmentDate, displayedComponents: .date)
                     }
-                    .navigationTitle("Appointment")
+                    Section(header: Text("Preferred Contact Method(s)")){
+                        Toggle("Email", isOn: $contactByEmail)
+                        Toggle("Phone", isOn: $contactByPhone)
+                        Toggle("Text", isOn: $contactByText)
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
+                    
+                    //MARK: - add reminder
+                    
+                }
+                .background(Color.offWhite)
                 
-                
-                
+                Button{
+                    print("appointment sent")
+                } label: {
+                    HStack{
+                        Text("Submit")
+                            .font(.body)
+                            .fontWeight(.semibold)
+                        Image(systemName: "paperplane.fill")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.brandPrimary)
+                            .shadow(color: .white, radius: 2, x: -3, y: -3)
+                            .shadow(color: .gray, radius: 2, x: 3, y: 3)
+                    }
+                    
+                }
+                .frame(width: 200, height: 50)
+                .buttonStyle(SquareButtonStyle())
+                .padding(40)
                 
             }
-//            .offset(y: -60)
-//            .onAppear{
-//                viewModel.retrieveUser()
-//            }
+            .navigationTitle("Appointment")
+
         }
     }
 }

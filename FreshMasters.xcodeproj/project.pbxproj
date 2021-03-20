@@ -22,6 +22,9 @@
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
 		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
 		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
+		E1E96D2E2605559200903599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D2D2605559200903599 /* Order.swift */; };
+		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
+		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
 		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
 		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		E1E96D2D2605559200903599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		E19B857326004ADF00C636B9 /* FreshMasters */ = {
 			isa = PBXGroup;
 			children = (
+				E1E96D2C2605532600903599 /* Model */,
 				E1ADA710260411CE008C0747 /* Utilities */,
 				E1ADA70A26041141008C0747 /* Buttons */,
 				E19B85A226004B2500C636B9 /* Screens */,
@@ -159,6 +166,7 @@
 				E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */,
 				E1ADA728260418F1008C0747 /* ValidationView.swift */,
 				E1ADA730260445DB008C0747 /* AppointmentView.swift */,
+				E1E96D3526059A1500903599 /* QuoteView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -195,6 +203,15 @@
 				E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		E1E96D2C2605532600903599 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1E96D2D2605559200903599 /* Order.swift */,
+				E1E96D3A26059EF100903599 /* QuoteCell.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,9 +347,12 @@
 				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
+				E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */,
 				E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
+				E1E96D2E2605559200903599 /* Order.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,
+				E1E96D3626059A1500903599 /* QuoteView.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
 				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,

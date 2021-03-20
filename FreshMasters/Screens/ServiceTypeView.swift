@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ServiceTypeView: View {
     
+    @EnvironmentObject var order: Order
     @State private var interiorIsToggled = false
     @State private var exteriorIsToggled = false
     
@@ -30,6 +31,8 @@ struct ServiceTypeView: View {
                 
                 HStack(spacing: 10){
                     ToggleButton(toggleState: $interiorIsToggled, imageToggled: Image("icons8-steering-wheel-50-red"), imageNotToggled: Image("icons8-steering-wheel-50"), buttonText: "Interior")
+                        .buttonStyle(SquareButtonStyle())
+                        
                 
                     ToggleButton(toggleState: $exteriorIsToggled, imageToggled: Image("icons8-car-cleaning-50-red"), imageNotToggled: Image("icons8-car-cleaning-50"), buttonText: "Exterior")
                         .buttonStyle(SquareButtonStyle())
@@ -40,6 +43,19 @@ struct ServiceTypeView: View {
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {AdditionalServiceView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
+                    .simultaneousGesture(TapGesture().onEnded{
+                        var temp = ""
+                        if (exteriorIsToggled && interiorIsToggled) {
+                            temp = serviceType.full.rawValue
+                        }
+                        else if (exteriorIsToggled){
+                            temp = serviceType.exterior.rawValue
+                        }
+                        else if (interiorIsToggled){
+                            temp = serviceType.interior.rawValue
+                        }
+                        order.serviceType = temp
+                    })
                     
                 Spacer()
             }

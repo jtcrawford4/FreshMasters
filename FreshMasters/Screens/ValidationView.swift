@@ -34,8 +34,8 @@ struct ValidationView: View {
                     .shadow(color: .white, radius: 2, x: -3, y: -3)
                     .shadow(color: .gray, radius: 2, x: 3, y: 3)
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", content: {AppointmentView()})
-                    .frame(width: 280, height: 80)
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", content: {QuoteView()})
+                    .frame(width: 180, height: 80)
                     .padding(.top, 40)
             }
             .offset(y: -60)

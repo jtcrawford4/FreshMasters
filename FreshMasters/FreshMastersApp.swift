@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+
+
 @main
 struct FreshMastersApp: App {
+    
+    var order = Order()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(order)
         }
     }
 }
