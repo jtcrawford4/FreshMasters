@@ -31,12 +31,12 @@ struct VehicleTypeView: View {
                     NavigationLinkButton(image: Image("icons8-car-50"), buttonText: "Car", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicleType = vehicleType.car.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleType.car.rawValue
                         })
                     NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicleType = vehicleType.truck.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleType.truck.rawValue
                         })
                 }
                 .padding()
@@ -45,13 +45,13 @@ struct VehicleTypeView: View {
                     NavigationLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicleType = vehicleType.van.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleType.van.rawValue
                         })
                     
                     NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicleType = vehicleType.suv.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleType.suv.rawValue
                         })
                 }
                 Spacer()

@@ -9,14 +9,7 @@ import SwiftUI
 
 struct AppointmentView: View {
     
-    @State var fname = ""
-    @State var lname = ""
-    @State var email = ""
-    @State var phone = ""
-    @State var appointmentDate = Date()
-    @State var contactByEmail = false
-    @State var contactByPhone = false
-    @State var contactByText = false
+    @EnvironmentObject var order: Order
     
     var body: some View {
         ZStack{
@@ -28,20 +21,20 @@ struct AppointmentView: View {
             VStack{
                 Form{
                     Section(header: Text("Contact Info")){
-                        TextField("First Name", text: $fname)
-                        TextField("Last Name", text: $lname)
-                        TextField("Phone", text: $phone)
+                        TextField("First Name", text: $order.customer.firstName)
+                        TextField("Last Name", text: $order.customer.lastName)
+                        TextField("Phone", text: $order.customer.phone)
                             .keyboardType(.phonePad)
-                        TextField("Email", text: $email)
+                        TextField("Email", text: $order.customer.email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                        DatePicker("Appointment Date", selection: $appointmentDate, displayedComponents: .date)
+                        DatePicker("Appointment Date", selection: $order.customer.appointmentDate, displayedComponents: .date)
                     }
                     Section(header: Text("Preferred Contact Method(s)")){
-                        Toggle("Email", isOn: $contactByEmail)
-                        Toggle("Phone", isOn: $contactByPhone)
-                        Toggle("Text", isOn: $contactByText)
+                        Toggle("Email", isOn: $order.customer.contactByEmail)
+                        Toggle("Phone", isOn: $order.customer.contactByPhone)
+                        Toggle("Text", isOn: $order.customer.contactByText)
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
                     

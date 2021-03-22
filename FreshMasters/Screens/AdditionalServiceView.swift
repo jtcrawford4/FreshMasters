@@ -36,12 +36,12 @@ struct AdditionalServiceView: View {
 
                     ToggleButton(toggleState: $polishIsToggled, imageToggled: Image("icons8-sparkling-diamond-50-red"), imageNotToggled: Image("icons8-sparkling-diamond-50"), buttonText: "Paint Polish")
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.polish = polishIsToggled
+                            order.vehicle.polish = polishIsToggled
                         })
 
                     ToggleButton(toggleState: $glazeIsToggled, imageToggled: Image("icons8-wet-50-red"), imageNotToggled: Image("icons8-wet-50"), buttonText: "Show Glaze")
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.glaze = glazeIsToggled
+                            order.vehicle.glaze = glazeIsToggled
                         })
                     
                 }
@@ -50,12 +50,12 @@ struct AdditionalServiceView: View {
 
                     ToggleButton(toggleState: $engineIsToggled, imageToggled: Image("icons8-engine-50-red"), imageNotToggled: Image("icons8-engine-50"), buttonText: "Engine Bay \nDetail")
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.engine = engineIsToggled
+                            order.vehicle.engine = engineIsToggled
                         })
 
                     ToggleButton(toggleState: $headlightIsToggled, imageToggled: Image("icons8-headlight-50-red"), imageNotToggled: Image("icons8-headlight-50"), buttonText: "Headlight \nRestoration")
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.headlightRestore = headlightIsToggled
+                            order.vehicle.headlightRestore = headlightIsToggled
                         })
                     
                 }
