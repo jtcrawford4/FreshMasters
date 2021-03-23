@@ -32,7 +32,7 @@ struct QuoteView: View {
                 
                 VStack{
 
-                    NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", content: {AppointmentView()})
+                    NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                         .frame(width: 280, height: 80)
                         .padding(.top, 40)
                     

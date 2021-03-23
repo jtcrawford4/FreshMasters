@@ -40,7 +40,7 @@ struct ServiceTypeView: View {
                 }
                 .padding()
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", content: {AdditionalServiceView()})
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", isEnabled: (exteriorIsToggled || interiorIsToggled), content: {AdditionalServiceView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     .simultaneousGesture(TapGesture().onEnded{
@@ -56,6 +56,7 @@ struct ServiceTypeView: View {
                         }
                         order.vehicle.serviceType = temp
                     })
+                    .disabled(!(exteriorIsToggled || interiorIsToggled))
                     
                 Spacer()
             }

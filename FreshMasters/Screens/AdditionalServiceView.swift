@@ -60,7 +60,7 @@ struct AdditionalServiceView: View {
                     
                 }
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", content: {QuoteView()})
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 200, height: 80)
                     .padding(.top, 40)
                 

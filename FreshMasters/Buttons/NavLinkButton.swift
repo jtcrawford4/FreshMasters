@@ -12,11 +12,13 @@ struct NavigationLinkButton<Content: View>: View{
     let desintation: () -> Content
     let buttonText: String
     let image: Image
+    let isEnabled: Bool
         
-    init(image: Image, buttonText: String, @ViewBuilder content: @escaping () -> Content) {
+    init(image: Image, buttonText: String, isEnabled: Bool, @ViewBuilder content: @escaping () -> Content) {
         self.desintation = content
         self.buttonText = buttonText
         self.image = image
+        self.isEnabled = isEnabled
     }
     
     var body: some View{
@@ -26,8 +28,10 @@ struct NavigationLinkButton<Content: View>: View{
                     Text(buttonText)
                         .font(.body)
                         .fontWeight(.semibold)
+                        .foregroundColor(isEnabled ? .black : .gray)
                     Spacer()
-                    LinearGradient(.red, .pink)
+                    LinearGradient(
+                        gradient: isEnabled ? Gradient(colors:[Color.red, Color.pink]) : Gradient(colors:[Color.gray, Color.gray]), startPoint: .topTrailing, endPoint: .bottomLeading)
                         .mask(image
                                 .resizable()
                                 .scaledToFit()

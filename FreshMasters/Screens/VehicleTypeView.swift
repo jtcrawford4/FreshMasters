@@ -28,12 +28,12 @@ struct VehicleTypeView: View {
                     .padding()
                 
                 HStack(spacing: 10){
-                    NavigationLinkButton(image: Image("icons8-car-50"), buttonText: "Car", content: {ServiceTypeView()})
+                    NavigationLinkButton(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.car.rawValue
                         })
-                    NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", content: {ServiceTypeView()})
+                    NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.truck.rawValue
@@ -42,13 +42,13 @@ struct VehicleTypeView: View {
                 .padding()
                 
                 HStack(spacing: 10){
-                    NavigationLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", content: {ServiceTypeView()})
+                    NavigationLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.van.rawValue
                         })
                     
-                    NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", content: {ServiceTypeView()})
+                    NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.suv.rawValue
