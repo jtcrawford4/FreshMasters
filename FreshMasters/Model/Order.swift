@@ -11,5 +11,7 @@ final class Order: ObservableObject{
     
     var vehicle = Vehicle()
     var customer = Customer()
+    //MARK: - any type of Prices
+    var prices =  CarPrices()
         
 }

@@ -16,6 +16,7 @@ final class Vehicle: ObservableObject{
     @Published var glaze = false
     @Published var engine = false
     
+    //MARK: - create prices object when selected?
     enum vehicleType: String{
         case car = "Car"
         case truck = "Truck"
@@ -24,9 +25,9 @@ final class Vehicle: ObservableObject{
     }
 
     enum serviceType: String{
-        case exterior = "Exterior"
-        case interior = "Interior"
-        case full = "Full"
+        case exterior = "Exterior Detail"
+        case interior = "Interior Detail"
+        case full = "Full Detail"
     }
 }
 

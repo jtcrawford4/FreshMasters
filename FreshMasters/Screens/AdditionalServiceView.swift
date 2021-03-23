@@ -10,10 +10,10 @@ import SwiftUI
 struct AdditionalServiceView: View {
     
     @EnvironmentObject var order: Order
-    @State var polishIsToggled = false
-    @State var headlightIsToggled = false
-    @State var engineIsToggled = false
-    @State var glazeIsToggled = false
+    @State private var polishIsToggled = false
+    @State private var headlightIsToggled = false
+    @State private var engineIsToggled = false
+    @State private var glazeIsToggled = false
     
     var body: some View {
         ZStack{
@@ -31,38 +31,27 @@ struct AdditionalServiceView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                                 
-                
                 HStack(spacing: 10){
-
                     ToggleButton(toggleState: $polishIsToggled, imageToggled: Image("icons8-sparkling-diamond-50-red"), imageNotToggled: Image("icons8-sparkling-diamond-50"), buttonText: "Paint Polish")
-                        .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.polish = polishIsToggled
-                        })
 
-                    ToggleButton(toggleState: $glazeIsToggled, imageToggled: Image("icons8-wet-50-red"), imageNotToggled: Image("icons8-wet-50"), buttonText: "Show Glaze")
-                        .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.glaze = glazeIsToggled
-                        })
-                    
+                    ToggleButton(toggleState: $glazeIsToggled, imageToggled: Image("icons8-wet-50-red"), imageNotToggled: Image("icons8-wet-50"), buttonText: "Paint Glaze")
                 }
 
                 HStack(spacing: 10){
-
                     ToggleButton(toggleState: $engineIsToggled, imageToggled: Image("icons8-engine-50-red"), imageNotToggled: Image("icons8-engine-50"), buttonText: "Engine Bay \nDetail")
-                        .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.engine = engineIsToggled
-                        })
 
                     ToggleButton(toggleState: $headlightIsToggled, imageToggled: Image("icons8-headlight-50-red"), imageNotToggled: Image("icons8-headlight-50"), buttonText: "Headlight \nRestoration")
-                        .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.headlightRestore = headlightIsToggled
-                        })
-                    
                 }
                 
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 200, height: 80)
                     .padding(.top, 40)
+                    .simultaneousGesture(TapGesture().onEnded{
+                        order.vehicle.polish = polishIsToggled
+                        order.vehicle.glaze = glazeIsToggled
+                        order.vehicle.engine = engineIsToggled
+                        order.vehicle.headlightRestore = headlightIsToggled
+                    })
                 
                 Spacer()
                 

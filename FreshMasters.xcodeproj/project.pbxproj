@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E196E0C126094AD60078E9EA /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C026094AD60078E9EA /* Vehicle.swift */; };
+		E196E0C6260977230078E9EA /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C5260977230078E9EA /* Prices.swift */; };
+		E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0CA260985F00078E9EA /* CarPrices.swift */; };
 		E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B857426004ADF00C636B9 /* FreshMastersApp.swift */; };
 		E19B857926004AE100C636B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19B857826004AE100C636B9 /* Assets.xcassets */; };
 		E19B857C26004AE100C636B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19B857B26004AE100C636B9 /* Preview Assets.xcassets */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		E196E0C026094AD60078E9EA /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		E196E0C5260977230078E9EA /* Prices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
+		E196E0CA260985F00078E9EA /* CarPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPrices.swift; sourceTree = "<group>"; };
 		E19B857126004ADF00C636B9 /* FreshMasters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshMasters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19B857426004ADF00C636B9 /* FreshMastersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreshMastersApp.swift; sourceTree = "<group>"; };
 		E19B857826004AE100C636B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				E1E96D3A26059EF100903599 /* QuoteCell.swift */,
 				E1F0273126082EF30013BBA1 /* Customer.swift */,
 				E196E0C026094AD60078E9EA /* Vehicle.swift */,
+				E196E0C5260977230078E9EA /* Prices.swift */,
+				E196E0CA260985F00078E9EA /* CarPrices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,7 +369,9 @@
 				E1E96D3626059A1500903599 /* QuoteView.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
 				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
+				E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
+				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

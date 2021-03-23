@@ -32,6 +32,7 @@ struct VehicleTypeView: View {
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.car.rawValue
+//                            order.prices = CarPrices()
                         })
                     NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
