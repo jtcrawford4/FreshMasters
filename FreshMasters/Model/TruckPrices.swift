@@ -1,19 +1,19 @@
 //
-//  CarPrices.swift
+//  TruckPrices.swift
 //  FreshMasters
 //
-//  Created by John Crawford on 3/22/21.
+//  Created by John Crawford on 3/23/21.
 //
 
 import SwiftUI
 
-final class CarPrices: Prices {
+final class TruckPrices: Prices {
     
     var interior: Double = 99
-    var exterior: Double = 99
-    var full: Double = 179
-    var paintGlaze: Double = 39
-    var paintPolish: Double = 349
+    var exterior: Double = 149
+    var full: Double = 229
+    var paintGlaze: Double = 49
+    var paintPolish: Double = 399
     
     init(){
         super.init(

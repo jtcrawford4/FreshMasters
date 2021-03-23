@@ -25,6 +25,9 @@
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
 		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
 		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
+		E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE396260AA3AF009726C0 /* TruckPrices.swift */; };
+		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
+		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
 		E1E96D2E2605559200903599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D2D2605559200903599 /* Order.swift */; };
 		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
@@ -73,6 +76,9 @@
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
 		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
 		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		E1CEE396260AA3AF009726C0 /* TruckPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckPrices.swift; sourceTree = "<group>"; };
+		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
+		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1E96D2D2605559200903599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
@@ -222,6 +228,9 @@
 				E196E0C026094AD60078E9EA /* Vehicle.swift */,
 				E196E0C5260977230078E9EA /* Prices.swift */,
 				E196E0CA260985F00078E9EA /* CarPrices.swift */,
+				E1CEE396260AA3AF009726C0 /* TruckPrices.swift */,
+				E1CEE39B260AA463009726C0 /* VanPrices.swift */,
+				E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,6 +369,8 @@
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
 				E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */,
+				E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */,
+				E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */,
 				E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */,
 				E1F0273226082EF30013BBA1 /* Customer.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
@@ -367,6 +378,7 @@
 				E1E96D2E2605559200903599 /* Order.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,
 				E1E96D3626059A1500903599 /* QuoteView.swift in Sources */,
+				E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
 				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
 				E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */,
