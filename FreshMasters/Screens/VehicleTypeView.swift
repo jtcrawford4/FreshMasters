@@ -32,12 +32,13 @@ struct VehicleTypeView: View {
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.car.rawValue
-//                            order.prices = CarPrices()
+                            order.prices = CarPrices()
                         })
                     NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.truck.rawValue
+                            order.prices = TruckPrices()
                         })
                 }
                 .padding()
@@ -47,12 +48,14 @@ struct VehicleTypeView: View {
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.van.rawValue
+                            order.prices = VanPrices()
                         })
                     
                     NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {ServiceTypeView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleType.suv.rawValue
+                            order.prices = SuvPrices()
                         })
                 }
                 Spacer()

@@ -15,7 +15,7 @@ final class CarPrices: Prices {
     var paintGlaze: Double = 39
     var paintPolish: Double = 349
     
-    init(){
+    override init(){
         super.init(
             interiorDetail: interior,
             exteriorDetail: exterior,

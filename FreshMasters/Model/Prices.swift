@@ -19,6 +19,14 @@ class Prices{
     let engine: Double = 69.99
     var polish: Double = 0
     
+    init(){
+        self.interiorDetail = 0
+        self.exteriorDetail = 0
+        self.fullDetail = 0
+        self.glaze = 0
+        self.polish = 0
+    }
+    
     init(interiorDetail: Double, exteriorDetail: Double, fullDetail: Double, glaze: Double, polish: Double){
         self.interiorDetail = interiorDetail
         self.exteriorDetail = exteriorDetail
@@ -30,30 +38,5 @@ class Prices{
     func getTotalPrice() -> Double{
         headlightRestoration + engine
     }
-    
-    //MARK: - reference only. delete
-//    let carInterior: Double = 0
-//    let carExterior: Double = 0
-//    let carFull: Double = 0
-//
-//    let truckInterior: Double = 0
-//    let truckExterior: Double = 0
-//    let truckFull: Double = 0
-//
-//    let vanInterior: Double = 0
-//    let vanExterior: Double = 0
-//    let vanFull: Double = 0
-//
-//    let suvInterior: Double = 0
-//    let suvExterior: Double = 0
-//    let suvFull: Double = 0
-    
-//    let headlightRestoration: Double = 79.99
-//    let glaze: Double = 49.99
-//    let engine: Double = 69.99
-//    let polish: Double = 399
-    
-//    var totalPrice: Double = 0
-    
     
 }
