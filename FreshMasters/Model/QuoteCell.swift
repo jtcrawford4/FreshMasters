@@ -15,12 +15,13 @@ struct QuoteCell: View {
     var body: some View {
         HStack{
             Text(title)
+                .fontWeight("Total" == title ? .semibold : .regular)
+                .foregroundColor("Total" == title ? .black : .secondary)
             Spacer()
-//            Text("$\(value, specifier: "%.2f")")
             if value is String{
                 Text(value as! String)
             }else if value is Double{
-                Text("\(value as! Double, specifier: "%.2f")")
+                Text("$\(value as! Double, specifier: "%.2f")")
             }else{
                 
             }

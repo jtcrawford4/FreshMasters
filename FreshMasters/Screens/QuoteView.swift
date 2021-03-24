@@ -19,18 +19,11 @@ struct QuoteView: View {
                 .ignoresSafeArea()
          
             VStack{
-//                Spacer()
                 
                 Text("$ \(order.vehicle.getTotalPrice(), specifier: "%.2f")")
                     .font(.system(size: 60))
                     .fontWeight(.bold)
-                
-                Text("$ \(549.99, specifier: "%.2f")")
-                    .font(.system(size: 60))
-                    .fontWeight(.bold)
-
-//                Spacer()
-                
+                                
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Itemized Quote", isEnabled: true, content: {ItemizedQuoteView()})
                     .frame(width: 280, height: 80)
                     .padding(.top, 40)

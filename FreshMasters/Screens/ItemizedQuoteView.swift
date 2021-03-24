@@ -23,27 +23,49 @@ struct ItemizedQuoteView: View {
                     .fill(Color.offWhite)
                     .ignoresSafeArea()
                 
-                List{
-                    QuoteCell(title: "Vehicle Type", value: order.vehicle.vehicleType)
-                    QuoteCell(title: "Service Type", value: order.vehicle.serviceType)
-                    if (order.vehicle.polish){
-                        QuoteCell(title: "Paint Polish", value: order.vehicle.prices.polish)
+                VStack{
+                    
+                    VStack{
+                        Text(order.vehicle.vehicleType)
+                            .font(.largeTitle)
+                            .fontWeight(.semibold)
+                        
+                        Text(order.vehicle.serviceType)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.secondary)
                     }
-                    if (order.vehicle.glaze){
-                        QuoteCell(title: "Paint Glaze", value: order.vehicle.prices.glaze)
-                    }
-                    if (order.vehicle.engine){
-                        QuoteCell(title: "Engine Bay Detail", value: order.vehicle.prices.engine)
-                    }
-                    if (order.vehicle.headlightRestore){
-                        QuoteCell(title: "Headlight Restoration", value: order.vehicle.prices.headlightRestoration)
-                    }
+                    .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
+                 
+                    List{
+//                        QuoteCell(title: "Vehicle Type", value: order.vehicle.vehicleType)
+//                        QuoteCell(title: "Service Type", value: order.vehicle.serviceType)
+                        //ugliest thing in the world
+                        QuoteCell(title: order.vehicle.serviceType,
+                                  value: order.vehicle.getServiceTypePrice(
+                                    service: Vehicle.serviceTypes(rawValue: order.vehicle.serviceType)!))
+                        
+                        if (order.vehicle.polish){
+                            QuoteCell(title: "Paint Polish", value: order.vehicle.prices.polish)
+                        }
+                        if (order.vehicle.glaze){
+                            QuoteCell(title: "Paint Glaze", value: order.vehicle.prices.glaze)
+                        }
+                        if (order.vehicle.engine){
+                            QuoteCell(title: "Engine Bay Detail", value: order.vehicle.prices.engine)
+                        }
+                        if (order.vehicle.headlightRestore){
+                            QuoteCell(title: "Headlight Restoration", value: order.vehicle.prices.headlightRestoration)
+                        }
+                        
+                        QuoteCell(title: "Total", value: order.vehicle.getTotalPrice())
+                            .font(.title2)
+                            .foregroundColor(.green)
 
-//                    QuoteCell(title: "Total", value: "\(order.price.getTotalPrice())")
-
+                    }
+                    .padding(.top)
+                    .navigationTitle("Itemized Quote")
                 }
-                .padding(.top)
-                .navigationTitle("Itemized Quote")
                 
                 //MARK: - back button
 //                VStack{

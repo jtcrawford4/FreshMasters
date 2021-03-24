@@ -30,9 +30,6 @@ final class Vehicle: ObservableObject{
     }
     
     func getServiceTypePrice(service: serviceTypes) -> Double{
-//        guard let animalType = serviceType(rawValue: $serviceType) else {
-//                return 0
-//        }
         switch service {
         case serviceTypes.exterior:
             return prices.exteriorDetail
