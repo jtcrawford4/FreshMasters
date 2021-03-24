@@ -68,5 +68,6 @@ struct ServiceTypeView: View {
 struct ServiceTypeView_Previews: PreviewProvider {
     static var previews: some View {
         ServiceTypeView()
+            .environmentObject(Order())
     }
 }

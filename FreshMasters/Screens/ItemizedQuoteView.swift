@@ -26,20 +26,24 @@ struct ItemizedQuoteView: View {
                 VStack{
                     
                     VStack{
-                        Text(order.vehicle.vehicleType)
-                            .font(.largeTitle)
-                            .fontWeight(.semibold)
+//                        LinearGradient(.red, .pink)
+//                            .mask(Image("icons8-pickup-90")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width:100, height: 125)
+//                            )
+//                            .frame(width:100, height: 125)
+//                            .shadow(color: .white, radius: 2, x: -3, y: -3)
+//                            .shadow(color: .gray, radius: 2, x: 3, y: 3)
                         
-                        Text(order.vehicle.serviceType)
+                        Text(order.vehicle.getYearMakeModel())
                             .font(.body)
                             .fontWeight(.semibold)
-                            .foregroundColor(.secondary)
+                        
                     }
                     .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
                  
                     List{
-//                        QuoteCell(title: "Vehicle Type", value: order.vehicle.vehicleType)
-//                        QuoteCell(title: "Service Type", value: order.vehicle.serviceType)
                         //ugliest thing in the world
                         QuoteCell(title: order.vehicle.serviceType,
                                   value: order.vehicle.getServiceTypePrice(
@@ -87,5 +91,6 @@ struct ItemizedQuoteView: View {
 struct ItemizedQuoteView_Previews: PreviewProvider {
     static var previews: some View {
         ItemizedQuoteView()
+            .environmentObject(Order())
     }
 }

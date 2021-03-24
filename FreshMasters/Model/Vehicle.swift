@@ -11,6 +11,9 @@ final class Vehicle: ObservableObject{
     
     @Published var vehicleType = ""
     @Published var serviceType = ""
+    @Published var year = ""
+    @Published var make = ""
+    @Published var model = ""
     @Published var polish = false
     @Published var headlightRestore = false
     @Published var glaze = false
@@ -38,6 +41,10 @@ final class Vehicle: ObservableObject{
         case serviceTypes.full:
             return prices.fullDetail
         }
+    }
+    
+    func getYearMakeModel() -> String{
+        "\(self.year) \(self.make) \(self.model)"
     }
     
     enum vehicleType: String{
