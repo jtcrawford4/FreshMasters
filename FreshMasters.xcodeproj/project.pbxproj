@@ -28,6 +28,7 @@
 		E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE396260AA3AF009726C0 /* TruckPrices.swift */; };
 		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
 		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
+		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
 		E1E96D2E2605559200903599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D2D2605559200903599 /* Order.swift */; };
 		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
@@ -79,6 +80,7 @@
 		E1CEE396260AA3AF009726C0 /* TruckPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckPrices.swift; sourceTree = "<group>"; };
 		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
+		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
 		E1E96D2D2605559200903599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				E1ADA728260418F1008C0747 /* ValidationView.swift */,
 				E1ADA730260445DB008C0747 /* AppointmentView.swift */,
 				E1E96D3526059A1500903599 /* QuoteView.swift */,
+				E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */,
 				E1F0273226082EF30013BBA1 /* Customer.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
+				E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */,
 				E196E0C126094AD60078E9EA /* Vehicle.swift in Sources */,
 				E1E96D2E2605559200903599 /* Order.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,

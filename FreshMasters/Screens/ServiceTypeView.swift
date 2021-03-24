@@ -46,13 +46,13 @@ struct ServiceTypeView: View {
                     .simultaneousGesture(TapGesture().onEnded{
                         var temp = ""
                         if (exteriorIsToggled && interiorIsToggled) {
-                            temp = Vehicle.serviceType.full.rawValue
+                            temp = Vehicle.serviceTypes.full.rawValue
                         }
                         else if (exteriorIsToggled){
-                            temp = Vehicle.serviceType.exterior.rawValue
+                            temp = Vehicle.serviceTypes.exterior.rawValue
                         }
                         else if (interiorIsToggled){
-                            temp = Vehicle.serviceType.interior.rawValue
+                            temp = Vehicle.serviceTypes.interior.rawValue
                         }
                         order.vehicle.serviceType = temp
                     })

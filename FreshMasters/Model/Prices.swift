@@ -34,9 +34,5 @@ class Prices{
         self.glaze = glaze
         self.polish = polish
     }
-    
-    func getTotalPrice() -> Double{
-        headlightRestoration + engine
-    }
-    
+        
 }
