@@ -31,13 +31,13 @@ struct VehicleTypeView: View {
                     NavigationLinkButton(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleType.car.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleTypes.car.rawValue
                             order.vehicle.prices = CarPrices()
                         })
                     NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleType.truck.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleTypes.truck.rawValue
                             order.vehicle.prices = TruckPrices()
                         })
                 }
@@ -47,14 +47,14 @@ struct VehicleTypeView: View {
                     NavigationLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleType.van.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleTypes.van.rawValue
                             order.vehicle.prices = VanPrices()
                         })
                     
                     NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 160, height: 80)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleType.suv.rawValue
+                            order.vehicle.vehicleType = Vehicle.vehicleTypes.suv.rawValue
                             order.vehicle.prices = SuvPrices()
                         })
                 }

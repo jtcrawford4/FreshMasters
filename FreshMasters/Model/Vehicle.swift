@@ -9,8 +9,8 @@ import SwiftUI
 
 final class Vehicle: ObservableObject{
     
-    @Published var vehicleType = ""
-    @Published var serviceType = ""
+    @Published var vehicleType = vehicleTypes.def.rawValue
+    @Published var serviceType = serviceTypes.def.rawValue
     @Published var year = ""
     @Published var make = ""
     @Published var model = ""
@@ -40,6 +40,8 @@ final class Vehicle: ObservableObject{
             return prices.interiorDetail
         case serviceTypes.full:
             return prices.fullDetail
+        case serviceTypes.def:
+            return 0.00
         }
     }
     
@@ -47,17 +49,19 @@ final class Vehicle: ObservableObject{
         "\(self.year) \(self.make) \(self.model)"
     }
     
-    enum vehicleType: String{
+    enum vehicleTypes: String{
         case car = "Car"
         case truck = "Truck"
         case van = "Van"
         case suv = "SUV"
+        case def = ""
     }
 
     enum serviceTypes: String{
         case exterior = "Exterior Detail"
         case interior = "Interior Detail"
         case full = "Full Detail"
+        case def = ""
     }
 }
 

@@ -32,17 +32,23 @@ struct QuoteView: View {
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.secondary)
-                                
-                //MARK: - turn into detail/.screen
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Itemized Quote", isEnabled: true, content: {ItemizedQuoteView()})
-                    .frame(width: 280, height: 80)
-                    .padding(.top, 40)
+                    .padding(.bottom, 30)
+                                                
+                NavigationLink(
+                    destination: ItemizedQuoteView(),
+                    label: {
+                        Text("Itemized Quote")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                    }
+                )
                 
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                     .frame(width: 280, height: 80)
                     .padding(.top, 40)
                 
             }
+            .offset(y: -50)
             
         }
     }
@@ -52,5 +58,6 @@ struct QuoteView: View {
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteView()
+            .environmentObject(Order())
     }
 }
