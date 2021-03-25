@@ -35,7 +35,8 @@ struct SquareButtonStyle: ButtonStyle{
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color.offWhite)
                             .shadow(color: Color.black.opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 10, y: 10)
-                            .shadow(color: Color.white.opacity(0.6), radius: 10, x: -5, y: -5)
+                            //MARK: - needs to be smidge darker than white
+                            .shadow(color: Color.white, radius: 10, x: -5, y: -5)
                     }
                 }
             )

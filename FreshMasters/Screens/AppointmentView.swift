@@ -73,5 +73,6 @@ struct AppointmentView: View {
 struct AppointmentView_Previews: PreviewProvider {
     static var previews: some View {
         AppointmentView()
+            .environmentObject(Order())
     }
 }
