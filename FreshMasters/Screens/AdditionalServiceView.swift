@@ -30,11 +30,14 @@ struct AdditionalServiceView: View {
                     .padding()
                     .multilineTextAlignment(.center)
                     .padding()
-                                
-                HStack(spacing: 10){
-                    ToggleButton(toggleState: $polishIsToggled, imageToggled: Image("icons8-sparkling-diamond-50-red"), imageNotToggled: Image("icons8-sparkling-diamond-50"), buttonText: "Paint Polish")
+                         
+                if order.vehicle.serviceType != Vehicle.serviceTypes.interior.rawValue{
+                    HStack(spacing: 10){
+                        ToggleButton(toggleState: $polishIsToggled, imageToggled: Image("icons8-sparkling-diamond-50-red"), imageNotToggled: Image("icons8-sparkling-diamond-50"), buttonText: "Paint Polish")
+                            
 
-                    ToggleButton(toggleState: $glazeIsToggled, imageToggled: Image("icons8-wet-50-red"), imageNotToggled: Image("icons8-wet-50"), buttonText: "Paint Glaze")
+                        ToggleButton(toggleState: $glazeIsToggled, imageToggled: Image("icons8-wet-50-red"), imageNotToggled: Image("icons8-wet-50"), buttonText: "Paint Glaze")
+                    }
                 }
 
                 HStack(spacing: 10){
