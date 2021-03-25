@@ -29,23 +29,25 @@ struct MainView: View {
                 VStack{
                     
                     LinearGradient(.red, .pink)
-                        .mask(Image(systemName: "location")
+                        .mask(Image("logo")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width:100, height: 125)
+                                .frame(width:150, height: 175)
                                 .padding(100)
                         )
-                        .frame(width:100, height: 125)
+                        .frame(width:150, height: 175)
                         .shadow(color: .white, radius: 2, x: -3, y: -3)
                         .shadow(color: .gray, radius: 2, x: 3, y: 3)
-                        .padding(.bottom)
+
                     
-                    //                Text("AUTOMOTIVE DETAILING")
-                    //                    .font(.title3)
-                    //                    .fontWeight(.semibold)
-                    //                    .foregroundColor(.darkStart)
-                    //                    .italic()
-                    
+                                    Text("AUTOMOTIVE DETAILING")
+                                        .font(.title3)
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.secondary)
+                                        .italic()
+                                        .padding(.bottom)
+                                        .shadow(radius: 2, x: 0, y: -3)
+                     
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Started", isEnabled: true, content: {VehicleTypeView()})
                         .frame(width: 250, height: 50)
 

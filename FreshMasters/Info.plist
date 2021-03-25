@@ -30,9 +30,9 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>
-		<string>brandPrimary</string>
+		<string>offWhite</string>
 		<key>UIImageName</key>
-		<string>icons8-sparkling-diamond-50</string>
+		<string>logo</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<true/>
 	</dict>
