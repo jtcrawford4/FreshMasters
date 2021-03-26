@@ -19,12 +19,7 @@ struct ServiceLocationView: View {
                 .ignoresSafeArea()
             
             VStack{
-                Text("Where would you like the service completed?")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 40)
+                TitleText(text: "Where would you like the service completed?")
                 
                 HStack(spacing: 20){
                     NavLinkButtonVStack(image: Image(systemName: "mappin"), buttonText: "You Come To Us", isEnabled: true, content: {QuoteView()})

@@ -22,12 +22,7 @@ struct ServiceTypeView: View {
             
             VStack{
                 Spacer()
-                Text("What detailing services are needed?")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .padding()
+                TitleText(text: "What detailing services are needed?")
                 
                 HStack(spacing: 10){
                     ToggleButton(toggleState: $interiorIsToggled, imageToggled: Image("icons8-steering-wheel-50-red"), imageNotToggled: Image("icons8-steering-wheel-50"), buttonText: "Interior")

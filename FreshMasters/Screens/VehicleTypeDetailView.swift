@@ -20,12 +20,7 @@ struct VehicleTypeDetailView: View {
                         
             VStack{
                 
-                Text("Tell us more about your \(order.vehicle.vehicleType)")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .padding()
+                TitleText(text: "Tell us more about your \(order.vehicle.vehicleType)")
                 
                 VStack{
                     TextField("Year", text: $order.vehicle.year)

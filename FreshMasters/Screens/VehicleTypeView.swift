@@ -20,12 +20,7 @@ struct VehicleTypeView: View {
 
             VStack{
                 Spacer()
-                Text("What type of vehicle will be serviced?")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .padding(.all, 40)
+                TitleText(text: "What type of vehicle will be serviced?")
                 
                 HStack(spacing: 15){
                     NavLinkButtonVStack(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {VehicleTypeDetailView()})

@@ -32,6 +32,7 @@
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
 		E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3635C260E952100E89C0D /* ServiceLocationView.swift */; };
 		E1E36362260E985700E89C0D /* NavLinkButtonVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */; };
+		E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E36366260EA5E700E89C0D /* TitleText.swift */; };
 		E1E96D2E2605559200903599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D2D2605559200903599 /* Order.swift */; };
 		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
@@ -87,6 +88,7 @@
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
 		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
 		E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLinkButtonVStack.swift; sourceTree = "<group>"; };
+		E1E36366260EA5E700E89C0D /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
 		E1E96D2D2605559200903599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				E1ADA711260411E5008C0747 /* Extensions */,
+				E1E36366260EA5E700E89C0D /* TitleText.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
+				E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

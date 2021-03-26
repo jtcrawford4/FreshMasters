@@ -24,12 +24,7 @@ struct AdditionalServiceView: View {
             
             VStack{
                 Spacer()
-                Text("Any additional services needed?")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding()
-                    .multilineTextAlignment(.center)
-                    .padding()
+                TitleText(text: "Any additional services needed?")
                          
                 if order.vehicle.serviceType != Vehicle.serviceTypes.interior.rawValue{
                     HStack(spacing: 10){
