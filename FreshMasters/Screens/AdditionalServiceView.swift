@@ -46,8 +46,8 @@ struct AdditionalServiceView: View {
                     ToggleButton(toggleState: $headlightIsToggled, imageToggled: Image("icons8-headlight-50-red"), imageNotToggled: Image("icons8-headlight-50"), buttonText: "Headlight \nRestoration")
                 }
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
-                    .frame(width: 200, height: 80)
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", isEnabled: true, content: {ServiceLocationView()})
+                    .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     .simultaneousGesture(TapGesture().onEnded{
                         order.vehicle.polish = polishIsToggled
@@ -68,5 +68,6 @@ struct AdditionalServiceView: View {
 struct AdditionalServiceView_Previews: PreviewProvider {
     static var previews: some View {
         AdditionalServiceView()
+            .environmentObject(Order())
     }
 }

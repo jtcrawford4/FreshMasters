@@ -49,7 +49,7 @@ struct MainView: View {
                                         .shadow(radius: 2, x: 0, y: -3)
                      
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Started", isEnabled: true, content: {VehicleTypeView()})
-                        .frame(width: 250, height: 50)
+                        .frame(width: 200, height: 50)
 
                     .padding(40)
                     .buttonStyle(SquareButtonStyle())

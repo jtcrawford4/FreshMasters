@@ -30,6 +30,8 @@
 		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
 		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
+		E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3635C260E952100E89C0D /* ServiceLocationView.swift */; };
+		E1E36362260E985700E89C0D /* NavLinkButtonVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */; };
 		E1E96D2E2605559200903599 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D2D2605559200903599 /* Order.swift */; };
 		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
@@ -83,6 +85,8 @@
 		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
+		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
+		E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLinkButtonVStack.swift; sourceTree = "<group>"; };
 		E1E96D2D2605559200903599 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				E1E96D3526059A1500903599 /* QuoteView.swift */,
 				E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */,
 				E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */,
+				E1E3635C260E952100E89C0D /* ServiceLocationView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				E1ADA71A26041229008C0747 /* Styles */,
 				E1ADA70B26041167008C0747 /* NavLinkButton.swift */,
 				E1ADA72326041649008C0747 /* ToggleBtn.swift */,
+				E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */,
+				E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */,
 				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
@@ -387,6 +394,7 @@
 				E1E96D3626059A1500903599 /* QuoteView.swift in Sources */,
 				E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
+				E1E36362260E985700E89C0D /* NavLinkButtonVStack.swift in Sources */,
 				E139A1CA260BD6C30095A2BD /* VehicleTypeDetailView.swift in Sources */,
 				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
 				E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */,

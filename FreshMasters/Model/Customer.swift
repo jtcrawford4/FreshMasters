@@ -16,4 +16,5 @@ final class Customer: ObservableObject{
     @Published var contactByEmail = false
     @Published var contactByPhone = false
     @Published var contactByText = false
+    @Published var mobileService = false
 }
