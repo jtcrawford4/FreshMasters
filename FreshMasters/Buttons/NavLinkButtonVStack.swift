@@ -33,11 +33,7 @@ struct NavLinkButtonVStack<Content: View>: View{
                                 .frame(width:40, height: 40)
                                 .padding(100)
                         )
-                        .frame(width:40, height: 40)
-//                        .shadow(color: .white, radius: 2, x: -3, y: -3)
-//                        .shadow(color: .gray, radius: 2, x: 3, y: 3)
-                    
-                    Spacer()
+                        .frame(width:60, height: 60)
                     
                     Text(buttonText)
                         .font(.body)

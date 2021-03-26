@@ -28,14 +28,14 @@ struct ServiceLocationView: View {
                 
                 HStack(spacing: 20){
                     NavLinkButtonVStack(image: Image(systemName: "mappin"), buttonText: "You Come To Us", isEnabled: true, content: {QuoteView()})
-                        .frame(width: 150, height: 160)
+                        .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.customer.mobileService = false
                         })
                     
                     //MARK: - address screen
                     NavLinkButtonVStack(image: Image(systemName: "house.fill"), buttonText: "We Come To You", isEnabled: true, content: {QuoteView()})
-                        .frame(width: 150, height: 160)
+                        .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.customer.mobileService = true
                         })

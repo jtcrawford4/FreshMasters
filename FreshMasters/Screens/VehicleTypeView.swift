@@ -25,34 +25,34 @@ struct VehicleTypeView: View {
                     .fontWeight(.semibold)
                     .padding()
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(.all, 40)
                 
-                HStack(spacing: 10){
-                    NavigationLinkButton(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {VehicleTypeDetailView()})
-                        .frame(width: 160, height: 80)
+                HStack(spacing: 15){
+                    NavLinkButtonVStack(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {VehicleTypeDetailView()})
+                        .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleTypes.car.rawValue
                             order.vehicle.prices = CarPrices()
                         })
-                    NavigationLinkButton(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {VehicleTypeDetailView()})
-                        .frame(width: 160, height: 80)
+                    NavLinkButtonVStack(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {VehicleTypeDetailView()})
+                        .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleTypes.truck.rawValue
                             order.vehicle.prices = TruckPrices()
                         })
                 }
-                .padding()
+                .padding(.bottom, 30)
                 
-                HStack(spacing: 10){
-                    NavigationLinkButton(image: Image("icons8-vanpool-30"), buttonText: "Van", isEnabled: true, content: {VehicleTypeDetailView()})
-                        .frame(width: 160, height: 80)
+                HStack(spacing: 15){
+                    NavLinkButtonVStack(image: Image("icons8-vanpool-30"), buttonText: "Van", isEnabled: true, content: {VehicleTypeDetailView()})
+                        .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleTypes.van.rawValue
                             order.vehicle.prices = VanPrices()
                         })
                     
-                    NavigationLinkButton(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {VehicleTypeDetailView()})
-                        .frame(width: 160, height: 80)
+                    NavLinkButtonVStack(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {VehicleTypeDetailView()})
+                        .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.vehicle.vehicleType = Vehicle.vehicleTypes.suv.rawValue
                             order.vehicle.prices = SuvPrices()
