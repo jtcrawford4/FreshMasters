@@ -10,6 +10,7 @@ import SwiftUI
 struct AppointmentView: View {
     
     @EnvironmentObject var order: Order
+    let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
     var body: some View {
         ZStack{
@@ -29,7 +30,10 @@ struct AppointmentView: View {
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
-                        DatePicker("Appointment Date", selection: $order.customer.appointmentDate, displayedComponents: .date)
+                        DatePicker("Appointment Date",
+                                   selection: $order.customer.appointmentDate,
+                                   in: tomorrow...,
+                                   displayedComponents: .date)
                     }
                     Section(header: Text("Preferred Contact Method(s)")){
                         Toggle("Email", isOn: $order.customer.contactByEmail)
