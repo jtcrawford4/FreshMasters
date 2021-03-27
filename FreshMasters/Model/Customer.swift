@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class Customer: ObservableObject{
+    @Published var address = Address()
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var phone = ""
