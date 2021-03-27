@@ -28,8 +28,7 @@ struct ServiceLocationView: View {
                             order.customer.mobileService = false
                         })
                     
-                    //MARK: - address screen
-                    NavLinkButtonVStack(image: Image(systemName: "house.fill"), buttonText: "We Come To You", isEnabled: true, content: {QuoteView()})
+                    NavLinkButtonVStack(image: Image(systemName: "house.fill"), buttonText: "We Come To You", isEnabled: true, content: {AddressView()})
                         .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
                             order.customer.mobileService = true

@@ -15,7 +15,7 @@ class Address{
     @Published var city = "Columbia"
     @Published var state = "MO"
     @Published var zip = "65201"
-    @Published var distanceToCustomer: Double = 0
+    @Published var distanceToCustomer: Int = 0
     private let shopCity = "Jefferson City"
     private let shopState = "MO"
     
@@ -40,7 +40,7 @@ class Address{
                         directions.calculate(completionHandler: { (response: MKDirections.Response?, error: Error?) in
                             if let routes = response?.routes {
                                 let route = routes[0]
-                                self.distanceToCustomer = round(route.distance / 1609) //1609 meters per mile
+                                self.distanceToCustomer = Int(route.distance / 1609) //1609 meters per mile
                             }
                         })
                     }
