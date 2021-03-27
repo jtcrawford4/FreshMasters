@@ -62,6 +62,10 @@ struct ItemizedQuoteView: View {
                             QuoteCell(title: "Headlight Restoration", value: order.vehicle.prices.headlightRestoration)
                         }
                         
+                        if (order.vehicle.mobileService){
+                            QuoteCell(title: "Mileage", value: order.vehicle.prices.mileage)
+                        }
+                        
                         QuoteCell(title: "Total", value: order.vehicle.getTotalPrice())
                             .font(.title2)
                             .foregroundColor(.green)
@@ -71,14 +75,6 @@ struct ItemizedQuoteView: View {
                     .navigationTitle("Itemized Quote")
                 }
                 
-                //MARK: - back button
-//                VStack{
-//
-//                    NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
-//                        .frame(width: 280, height: 80)
-//                        .padding(.top, 40)
-//
-//                }
             }
             .background(Color.clear)
             .onAppear(perform: {

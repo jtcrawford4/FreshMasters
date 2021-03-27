@@ -30,6 +30,15 @@ struct AddressView: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .disableAutocorrection(true)
+                
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
+                    .frame(width: 200, height: 80)
+                    .padding(.top, 40)
+                    .simultaneousGesture(TapGesture().onEnded{
+                        order.customer.address.calcDistanceToCustomer()
+                        order.vehicle.prices.calculateMileageCost(milesToCustomer:
+                                                                    order.customer.address.distanceToCustomer)
+                    })
             }
         }
     }

@@ -39,7 +39,7 @@ struct VehicleTypeDetailView: View {
                     
             }
             .padding(.bottom, 60)
-//            .position(y: 10)
+
         }
     }
 }

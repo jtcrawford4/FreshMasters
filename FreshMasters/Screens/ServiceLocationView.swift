@@ -25,13 +25,13 @@ struct ServiceLocationView: View {
                     NavLinkButtonVStack(image: Image(systemName: "mappin"), buttonText: "You Come To Us", isEnabled: true, content: {QuoteView()})
                         .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.customer.mobileService = false
+                            order.vehicle.mobileService = false
                         })
                     
                     NavLinkButtonVStack(image: Image(systemName: "house.fill"), buttonText: "We Come To You", isEnabled: true, content: {AddressView()})
                         .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.customer.mobileService = true
+                            order.vehicle.mobileService = true
                         })
                 }
             }

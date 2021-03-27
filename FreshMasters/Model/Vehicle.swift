@@ -18,6 +18,7 @@ final class Vehicle: ObservableObject{
     @Published var headlightRestore = false
     @Published var glaze = false
     @Published var engine = false
+    @Published var mobileService = false
     
     var prices =  Prices()
     var totalPrice: Double = 0
@@ -29,6 +30,7 @@ final class Vehicle: ObservableObject{
         total += headlightRestore ? prices.headlightRestoration : 0
         total += glaze ? prices.glaze : 0
         total += engine ? prices.engine : 0
+        total += mobileService ? prices.mileage : 0
         return total
     }
     

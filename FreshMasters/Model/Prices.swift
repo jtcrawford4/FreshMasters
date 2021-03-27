@@ -19,6 +19,8 @@ class Prices{
     let engine: Double = 69.99
     var polish: Double = 0
     
+    var mileage: Double = 0
+    
     init(){
         self.interiorDetail = 0
         self.exteriorDetail = 0
@@ -34,5 +36,9 @@ class Prices{
         self.glaze = glaze
         self.polish = polish
     }
-        
+    
+    func calculateMileageCost(milesToCustomer: Double){
+        self.mileage = 25.00
+    }
+    
 }
