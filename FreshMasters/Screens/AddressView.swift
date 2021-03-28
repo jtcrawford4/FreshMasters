@@ -31,15 +31,32 @@ struct AddressView: View {
                 .multilineTextAlignment(.center)
                 .disableAutocorrection(true)
                 
+//                Button(action: {
+//                    order.customer.address.calcDistanceToCustomer2()
+//                }, label: {
+//                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+//                })
+                
+                //MARK: - disable until address filled out
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 200, height: 80)
                     .padding(.top, 40)
+//                    .onTapGesture {
+//                                                print("getting address info...")
+//                                                order.customer.address.calcDistanceToCustomer2()
+//                    }
                     .simultaneousGesture(TapGesture().onEnded{
-                        order.customer.address.calcDistanceToCustomer()
-                        order.vehicle.prices.calculateMileageCost(milesToCustomer:
-                                                                    order.customer.address.distanceToCustomer)
+                        print("getting address info...")
+                        let group = DispatchGroup()
+                        group.enter()
+                        order.vehicle.prices.milesToCustomer = order.customer.address.calcDistanceToCustomer()
+                        group.leave()
+//                        order.customer.address.calcDistanceToCustomer()
+//                        order.vehicle.prices.calculateMileageCost(milesToCustomer:
+//                                                                    order.customer.address.distanceToCustomer)
                     })
             }
+            .offset(y: -60)
         }
     }
 }

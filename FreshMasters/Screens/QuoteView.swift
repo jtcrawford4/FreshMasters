@@ -51,6 +51,10 @@ struct QuoteView: View {
             .offset(y: -50)
             
         }
+//        .onAppear(perform: {
+//            order.vehicle.prices.calculateMileageCost(milesToCustomer:
+//                                                        order.customer.address.calcDistanceToCustomer())
+//        })
     }
     
 }

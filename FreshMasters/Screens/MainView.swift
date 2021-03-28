@@ -55,7 +55,7 @@ struct MainView: View {
                     .buttonStyle(SquareButtonStyle())
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
