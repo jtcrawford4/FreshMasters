@@ -10,6 +10,8 @@ import SwiftUI
 struct AddressView: View {
     
     @EnvironmentObject var order: Order
+    @State var city = ""
+    @State var zip = ""
     
     var body: some View {
         ZStack{
@@ -23,8 +25,9 @@ struct AddressView: View {
                 
                 VStack{
                     TextField("Street Address", text: $order.customer.address.streetAddress)
-                    TextField("City", text: $order.customer.address.city)
-                    TextField("Zip", text: $order.customer.address.zip)
+                        
+                    TextField("City", text: $city)
+                    TextField("Zip", text: $zip)
                 }
                 .padding()
                 .font(.title)
@@ -32,11 +35,16 @@ struct AddressView: View {
                 .disableAutocorrection(true)
                 
                 //MARK: - disable until address filled out. error handling
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Validate", isEnabled: true, content: {ValidationView()})
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Validate", isEnabled: (!city.isEmpty && !zip.isEmpty), content: {ValidationView()})
                     .frame(width: 200, height: 80)
                     .padding(.top, 40)
+                    .disabled(city.isEmpty || zip.isEmpty)
                     .simultaneousGesture(TapGesture().onEnded{
-                        order.customer.address.calcDistanceToCustomer()
+                        if (!city.isEmpty && !zip.isEmpty){
+                            order.customer.address.city = city
+                            order.customer.address.zip = zip
+                            order.customer.address.calcDistanceToCustomer()
+                        }
                     })
             }
             .offset(y: -60)
