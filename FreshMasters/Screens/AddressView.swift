@@ -17,7 +17,7 @@ struct AddressView: View {
         ZStack{
             
             Rectangle()
-                .fill(Color.offWhite)
+                .fill(Color.background)
                 .ignoresSafeArea()
             
             VStack{

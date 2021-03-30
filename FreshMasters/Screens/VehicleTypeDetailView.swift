@@ -15,12 +15,12 @@ struct VehicleTypeDetailView: View {
         ZStack{
             
             Rectangle()
-                .fill(Color.offWhite)
+                .fill(Color.background)
                 .ignoresSafeArea()
                         
             VStack{
                 
-                TitleText(text: "Tell us more about your \(order.vehicle.vehicleType)")
+                TitleText(text: "Tell us more about your \(order.vehicle.vehicleType.lowercased())")
                 
                 VStack{
                     TextField("Year", text: $order.vehicle.year)

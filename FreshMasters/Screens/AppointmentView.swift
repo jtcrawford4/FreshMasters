@@ -16,7 +16,7 @@ struct AppointmentView: View {
         ZStack{
             
             Rectangle()
-                .fill(Color.offWhite)
+                .fill(Color.background)
                 .ignoresSafeArea()
             
             VStack{
@@ -45,7 +45,7 @@ struct AppointmentView: View {
                     //MARK: - add reminder
                     
                 }
-                .background(Color.offWhite)
+                .background(Color.background)
                 
                 Button{
                     print("appointment sent")

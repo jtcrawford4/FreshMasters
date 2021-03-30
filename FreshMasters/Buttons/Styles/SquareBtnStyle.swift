@@ -16,7 +16,7 @@ struct SquareButtonStyle: ButtonStyle{
                 Group{
                     if configuration.isPressed {
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.offWhite)
+                            .fill(Color.background)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.gray, lineWidth: 4)
@@ -33,7 +33,7 @@ struct SquareButtonStyle: ButtonStyle{
                             )
                     } else {
                         RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.offWhite)
+                            .fill(Color.background)
                             .shadow(color: Color.black.opacity(0.2), radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 10, y: 10)
                             //MARK: - needs to be smidge darker than white
                             .shadow(color: Color.white, radius: 10, x: -5, y: -5)

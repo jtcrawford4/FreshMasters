@@ -12,7 +12,7 @@ struct ItemizedQuoteView: View {
     @EnvironmentObject var order: Order
     
     init() {
-        UITableView.appearance().backgroundColor = UIColor(Color.offWhite)
+        UITableView.appearance().backgroundColor = UIColor(Color.background)
     }
     
     var body: some View {
@@ -20,7 +20,7 @@ struct ItemizedQuoteView: View {
             ZStack{
                 
                 Rectangle()
-                    .fill(Color.offWhite)
+                    .fill(Color.background)
                     .ignoresSafeArea()
                 
                 VStack{
@@ -77,10 +77,7 @@ struct ItemizedQuoteView: View {
                 
             }
             .background(Color.clear)
-            .onAppear(perform: {
-                print("quote up")
-            })
-
+        
     }
 }
 

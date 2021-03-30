@@ -27,7 +27,7 @@ struct QuoteCell: View {
             }
             
         }
-        .listRowBackground(Color.offWhite)
+        .listRowBackground(Color.background)
     }
 }
 

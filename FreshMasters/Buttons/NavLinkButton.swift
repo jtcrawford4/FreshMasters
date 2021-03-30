@@ -28,7 +28,7 @@ struct NavigationLinkButton<Content: View>: View{
                     Text(buttonText)
                         .font(.body)
                         .fontWeight(.semibold)
-                        .foregroundColor(isEnabled ? .black : .gray)
+                        .foregroundColor(isEnabled ? .primary : .gray)
                     Spacer()
                     LinearGradient(
                         gradient: isEnabled ? Gradient(colors:[Color.red, Color.pink]) : Gradient(colors:[Color.gray, Color.gray]), startPoint: .topTrailing, endPoint: .bottomLeading)
