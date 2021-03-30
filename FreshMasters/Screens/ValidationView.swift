@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ValidationView: View {
+    
+    @EnvironmentObject var order: Order
+    
     var body: some View {
         ZStack{
             
@@ -37,6 +40,9 @@ struct ValidationView: View {
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 180, height: 80)
                     .padding(.top, 40)
+                    .simultaneousGesture(TapGesture().onEnded{
+                        order.vehicle.prices.calculateMileageCost(milesToCustomer: order.customer.address.distanceToCustomer)
+                    })
             }
             .offset(y: -60)
             
@@ -47,5 +53,6 @@ struct ValidationView: View {
 struct ValidationView_Previews: PreviewProvider {
     static var previews: some View {
         ValidationView()
+            .environmentObject(Order())
     }
 }

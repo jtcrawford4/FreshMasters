@@ -18,15 +18,12 @@ class Address{
     private let shopCity = "Jefferson City"
     private let shopState = "MO"
     private let shopZip = "65109"
+    var distanceToCustomer: Double = 0
     
-    func calcDistanceToCustomer() -> Double{
-//        let semaphore = DispatchSemaphore(value: 0)
+    func calcDistanceToCustomer(){
         let group = DispatchGroup()
-        var miles: Double = 0
-        
         let shopAddress = "Jefferson City, MO 65109"
-        //        let customerAddress = "\(self.streetAddress) \(self.city),\(self.state) \(self.zip)"
-        let customerAddress = "Linn, MO 65051"
+        let customerAddress = "\(self.streetAddress) \(self.city),\(self.state) \(self.zip)"
         var shopCoordinate = CLLocationCoordinate2D()
         var customerCoordinate = CLLocationCoordinate2D()
         
@@ -57,17 +54,14 @@ class Address{
             request.requestsAlternateRoutes = false
 
             let directions = MKDirections(request: request)
+
             directions.calculate { (response, error) in
                 if let response = response, let route = response.routes.first {
                     print("distance: \(round(route.distance / 1609)) miles") //1609 meters per mile
-                    miles = round(route.distance / 1609)
+                    self.distanceToCustomer = round(route.distance / 1609)
                 }
             }
-//            semaphore.signal()
         }
-//        semaphore.wait()
-        print("miles calc: \(miles)")
-        return miles
     }
         
     private func getCoordinates(address: String, completion: @escaping ((CLLocationCoordinate2D) -> ())){
@@ -77,7 +71,6 @@ class Address{
             let placemark = placemarks?.first
             let shopLat = (placemark?.location?.coordinate.latitude)!
             let shopLong = (placemark?.location?.coordinate.longitude)!
-//            print("address Lat: \(String(describing: shopLat)), Lon: \(String(describing: shopLong))")
             let coordinate = CLLocationCoordinate2D(latitude: shopLat, longitude: shopLong)
             DispatchQueue.main.async {
                 completion(coordinate)

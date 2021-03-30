@@ -42,14 +42,14 @@ class Prices{
     func calculateMileageCost(milesToCustomer: Double){
         print("miles: \(milesToCustomer)")
         switch milesToCustomer{
-            case 0...10:
+            case 0..<10:
                 self.mileage = 0
-            case 11...20:
+            case 11..<20:
+                self.mileage = 25.00
+            case 20..<40:
                 self.mileage = 45.00
-            case 25...40:
-                self.mileage = 65.00
             case 40...:
-                self.mileage = 100.00
+                self.mileage = 65.00
             default:
                 self.mileage = 0
         }
