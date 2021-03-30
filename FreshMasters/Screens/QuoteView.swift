@@ -26,6 +26,7 @@ struct QuoteView: View {
                 
                 Text(order.vehicle.getYearMakeModel())
                     .font(.body)
+                    .foregroundColor(.secondary)
                     .fontWeight(.semibold)
                 
                 Text(order.vehicle.serviceType)

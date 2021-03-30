@@ -36,8 +36,8 @@ struct MainView: View {
                                 .frame(width:150, height: 175)
                         )
                         .frame(width:150, height: 175)
-                        .shadow(color: .white, radius: 2, x: -3, y: -3)
-                        .shadow(color: .gray, radius: 2, x: 3, y: 3)
+                        .shadow(color: .backgroundHighlight, radius: 2, x: -3, y: -3)
+                        .shadow(color: .backgroundShadow, radius: 2, x: 3, y: 3)
 
                     Text("AUTOMOTIVE DETAILING")
                         .font(.footnote)
@@ -58,6 +58,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .preferredColorScheme(.light)
+            .preferredColorScheme(.dark)
     }
 }

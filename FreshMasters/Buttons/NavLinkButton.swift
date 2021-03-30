@@ -39,8 +39,8 @@ struct NavigationLinkButton<Content: View>: View{
                                 .padding(100)
                         )
                         .frame(width:25, height: 25)
-                        .shadow(color: .white, radius: 2, x: -3, y: -3)
-                        .shadow(color: .gray, radius: 2, x: 3, y: 3)
+                        .shadow(color: .backgroundHighlight, radius: 2, x: -3, y: -3)
+                        .shadow(color: .backgroundShadow, radius: 2, x: 3, y: 3)
                 }
            }
         )

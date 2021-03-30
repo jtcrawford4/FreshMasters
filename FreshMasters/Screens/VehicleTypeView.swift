@@ -64,5 +64,6 @@ struct VehicleTypeView: View {
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
         VehicleTypeView()
+            .preferredColorScheme(.dark)
     }
 }

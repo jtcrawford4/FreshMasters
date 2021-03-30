@@ -58,8 +58,8 @@ struct AppointmentView: View {
                             .resizable()
                             .frame(width: 25, height: 25)
                             .foregroundColor(.brandPrimary)
-                            .shadow(color: .white, radius: 2, x: -3, y: -3)
-                            .shadow(color: .gray, radius: 2, x: 3, y: 3)
+                            .shadow(color: .backgroundHighlight, radius: 2, x: -3, y: -3)
+                            .shadow(color: .backgroundShadow, radius: 2, x: 3, y: 3)
                     }
                     
                 }
@@ -77,6 +77,7 @@ struct AppointmentView: View {
 struct AppointmentView_Previews: PreviewProvider {
     static var previews: some View {
         AppointmentView()
+            .preferredColorScheme(.light)
             .environmentObject(Order())
     }
 }

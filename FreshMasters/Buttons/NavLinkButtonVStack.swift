@@ -38,7 +38,7 @@ struct NavLinkButtonVStack<Content: View>: View{
                     Text(buttonText)
                         .font(.body)
                         .fontWeight(.light)
-                        .foregroundColor(isEnabled ? .black : .gray)
+                        .foregroundColor(isEnabled ? .primary : .gray)
                         .multilineTextAlignment(.center)
                 }
            }

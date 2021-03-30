@@ -16,7 +16,7 @@ struct QuoteCell: View {
         HStack{
             Text(title)
                 .fontWeight("Total" == title ? .semibold : .regular)
-                .foregroundColor("Total" == title ? .black : .secondary)
+                .foregroundColor("Total" == title ? .primary : .secondary)
             Spacer()
             if value is String{
                 Text(value as! String)
