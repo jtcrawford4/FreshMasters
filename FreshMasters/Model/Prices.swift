@@ -44,7 +44,7 @@ class Prices{
         switch milesToCustomer{
             case 0..<10:
                 self.mileage = 0
-            case 11..<20:
+            case 10..<20:
                 self.mileage = 25.00
             case 20..<40:
                 self.mileage = 45.00

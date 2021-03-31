@@ -20,7 +20,8 @@ class Address{
     private let shopZip = "65109"
     var distanceToCustomer: Double = 0
     
-    func calcDistanceToCustomer(){
+    func getDistanceToCustomer(completed: @escaping (Result<Double, FmError>) -> Void){
+//    func calcDistanceToCustomer(){
         let group = DispatchGroup()
         let shopAddress = "Jefferson City, MO 65109"
         let customerAddress = "\(self.streetAddress) \(self.city),\(self.state) \(self.zip)"
@@ -28,14 +29,31 @@ class Address{
         var customerCoordinate = CLLocationCoordinate2D()
         
         group.enter()
-        getCoordinates(address: shopAddress) {  loc in
-            shopCoordinate = loc
+        getCoordinates(address: shopAddress) {  result in
+            switch result {
+                case .success(let coordinate):
+                    shopCoordinate = coordinate
+                case .failure(let error):
+                    switch error {
+                        case .invalidCoordinate:
+                            //MARK: - return errors, modal
+                            print("Invalid coordinate")
+                    }
+            }
             group.leave()
         }
     
         group.enter()
-        getCoordinates(address: customerAddress) {  loc in
-            customerCoordinate = loc
+        getCoordinates(address: customerAddress) {  result in
+            switch result {
+                case .success(let coordinate):
+                    customerCoordinate = coordinate
+                case .failure(let error):
+                    switch error {
+                        case .invalidCoordinate:
+                            print("Invalid coordinate")
+                    }
+            }
             group.leave()
         }
         
@@ -58,14 +76,16 @@ class Address{
             directions.calculate { (response, error) in
                 if let response = response, let route = response.routes.first {
                     print("distance: \(round(route.distance / 1609)) miles") //1609 meters per mile
-                    self.distanceToCustomer = round(route.distance / 1609)
+//                    self.distanceToCustomer = round(route.distance / 1609)
+                    completed(.success(round(route.distance / 1609)))
                 }
             }
         }
     }
         
-    private func getCoordinates(address: String, completion: @escaping ((CLLocationCoordinate2D) -> ())){
+    private func getCoordinates(address: String, completion: @escaping (Result<CLLocationCoordinate2D, AddressError>) -> Void){
         let geocoder = CLGeocoder()
+        //MARK: - do try catch
         geocoder.geocodeAddressString(address) {
             placemarks, error in
             let placemark = placemarks?.first
@@ -73,13 +93,12 @@ class Address{
             let long = (placemark?.location?.coordinate.longitude)
             var coordinate = CLLocationCoordinate2D()
             if(lat == nil || long == nil){
-                //MARK: - error handle
-                coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+                completion(.failure(.invalidCoordinate))
             }else{
                 coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
             }
             DispatchQueue.main.async {
-                completion(coordinate)
+                completion(.success(coordinate))
             }
         }
     }

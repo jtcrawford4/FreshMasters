@@ -25,7 +25,6 @@ struct AddressView: View {
                 
                 VStack{
                     TextField("Street Address", text: $order.customer.address.streetAddress)
-                        
                     TextField("City", text: $city)
                     TextField("Zip", text: $zip)
                 }
@@ -43,7 +42,28 @@ struct AddressView: View {
                         if (!city.isEmpty && !zip.isEmpty){
                             order.customer.address.city = city
                             order.customer.address.zip = zip
-                            order.customer.address.calcDistanceToCustomer()
+
+                            order.customer.address.getDistanceToCustomer(){ result in
+                                switch result {
+                                case .success(let miles):
+                                    print("async return: \(miles)")
+                                    //MARK: - redundant eh?
+                                    order.vehicle.prices.milesToCustomer = miles
+                                    order.vehicle.prices.calculateMileageCost(milesToCustomer: miles)
+                                case .failure(let error):
+                                    switch error {
+                                    case .invalidCityZip:
+                                        print("Invalid city/zip combo")
+                                    case .invalidStreetCityZip:
+                                        print("Invalid street/city/zip combo")
+                                    case .unknown:
+                                        print("Unknown error")
+                                    }
+                                }
+                            }
+                        }else{
+                            //MARK: - throw error blank city/zip
+                            print("blank city or zip")
                         }
                     })
             }
