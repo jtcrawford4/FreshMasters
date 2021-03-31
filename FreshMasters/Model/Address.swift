@@ -69,9 +69,15 @@ class Address{
         geocoder.geocodeAddressString(address) {
             placemarks, error in
             let placemark = placemarks?.first
-            let shopLat = (placemark?.location?.coordinate.latitude)!
-            let shopLong = (placemark?.location?.coordinate.longitude)!
-            let coordinate = CLLocationCoordinate2D(latitude: shopLat, longitude: shopLong)
+            let lat = (placemark?.location?.coordinate.latitude)
+            let long = (placemark?.location?.coordinate.longitude)
+            var coordinate = CLLocationCoordinate2D()
+            if(lat == nil || long == nil){
+                //MARK: - error handle
+                coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+            }else{
+                coordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+            }
             DispatchQueue.main.async {
                 completion(coordinate)
             }
