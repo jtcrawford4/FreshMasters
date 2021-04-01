@@ -10,8 +10,8 @@ import SwiftUI
 struct AddressView: View {
     
     @EnvironmentObject var order: Order
-    @State var city = ""
-    @State var zip = ""
+    @State var isValidated = false
+    @State var alertItem: AlertItem?
     
     var body: some View {
         ZStack{
@@ -25,49 +25,60 @@ struct AddressView: View {
                 
                 VStack{
                     TextField("Street Address", text: $order.customer.address.streetAddress)
-                    TextField("City", text: $city)
-                    TextField("Zip", text: $zip)
+                    TextField("City", text: $order.customer.address.city)
+                    TextField("State", text: $order.customer.address.state)
+                    TextField("Zip", text: $order.customer.address.zip)
+                        .keyboardType(.numberPad)
                 }
-                .padding()
+                .padding(20)
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .disableAutocorrection(true)
                 
-                //MARK: - disable until address filled out. error handling
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Validate", isEnabled: (!city.isEmpty && !zip.isEmpty), content: {ValidationView()})
+                Button(action: {
+                    order.customer.address.getDistanceToCustomer(){ result in
+                        switch result {
+                        case .success(let miles):
+                            print("async return: \(miles)")
+                            isValidated = true
+                            //MARK: - redundant eh?
+                            order.vehicle.prices.milesToCustomer = miles
+                            order.vehicle.prices.calculateMileageCost(milesToCustomer: miles)
+                        case .failure(let error):
+                            switch error {
+                            case .invalidAddress:
+                                print("invalid address")
+                                alertItem = AlertContext.invalidAddress
+                            case .invalidCityZip:
+                                print("Invalid city/zip combo")
+                            case .invalidStreetCityZip:
+                                print("Invalid street/city/zip combo")
+                            case .invalidCoordinate:
+                                print("invalid coordinate")
+                                alertItem = AlertContext.invalidCoordinate
+                            case .unknown:
+                                print("Unknown error")
+                            }
+                        }
+                    }
+                }, label: {
+                    Text("Validate")
+                })
+                .buttonStyle(SquareButtonStyle())
+                .opacity(isValidated ? 0 : 1)
+                                
+                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 200, height: 80)
                     .padding(.top, 40)
-                    .disabled(city.isEmpty || zip.isEmpty)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        if (!city.isEmpty && !zip.isEmpty){
-                            order.customer.address.city = city
-                            order.customer.address.zip = zip
-
-                            order.customer.address.getDistanceToCustomer(){ result in
-                                switch result {
-                                case .success(let miles):
-                                    print("async return: \(miles)")
-                                    //MARK: - redundant eh?
-                                    order.vehicle.prices.milesToCustomer = miles
-                                    order.vehicle.prices.calculateMileageCost(milesToCustomer: miles)
-                                case .failure(let error):
-                                    switch error {
-                                    case .invalidCityZip:
-                                        print("Invalid city/zip combo")
-                                    case .invalidStreetCityZip:
-                                        print("Invalid street/city/zip combo")
-                                    case .unknown:
-                                        print("Unknown error")
-                                    }
-                                }
-                            }
-                        }else{
-                            //MARK: - throw error blank city/zip
-                            print("blank city or zip")
-                        }
-                    })
+                    .opacity(isValidated ? 1 : 0)
+                }
+                .offset(y: -60)
+                .alert(item: $alertItem){ alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
             }
-            .offset(y: -60)
+            .onAppear(perform: {
+                isValidated = false
+            })
         }
     }
 }

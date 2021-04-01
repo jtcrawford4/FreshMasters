@@ -31,7 +31,7 @@
 		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
 		E1DC42F0261505D400C12550 /* FmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42EF261505D400C12550 /* FmError.swift */; };
-		E1DC42F626150B1C00C12550 /* AddressError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42F526150B1C00C12550 /* AddressError.swift */; };
+		E1DC42FB26153BBA00C12550 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42FA26153BBA00C12550 /* Alert.swift */; };
 		E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3635C260E952100E89C0D /* ServiceLocationView.swift */; };
 		E1E36362260E985700E89C0D /* NavLinkButtonVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */; };
 		E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E36366260EA5E700E89C0D /* TitleText.swift */; };
@@ -41,6 +41,7 @@
 		E1E96D3626059A1500903599 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3526059A1500903599 /* QuoteView.swift */; };
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
 		E1F0273226082EF30013BBA1 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0273126082EF30013BBA1 /* Customer.swift */; };
+		E1F0640E26164B2F005446AD /* AddressError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0640D26164B2F005446AD /* AddressError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +92,7 @@
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
 		E1DC42EF261505D400C12550 /* FmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmError.swift; sourceTree = "<group>"; };
-		E1DC42F526150B1C00C12550 /* AddressError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressError.swift; sourceTree = "<group>"; };
+		E1DC42FA26153BBA00C12550 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
 		E1E36361260E985700E89C0D /* NavLinkButtonVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavLinkButtonVStack.swift; sourceTree = "<group>"; };
 		E1E36366260EA5E700E89C0D /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		E1E96D3526059A1500903599 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		E1F0273126082EF30013BBA1 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		E1F0640D26164B2F005446AD /* AddressError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				E1DC42EF261505D400C12550 /* FmError.swift */,
-				E1DC42F526150B1C00C12550 /* AddressError.swift */,
+				E1DC42FA26153BBA00C12550 /* Alert.swift */,
+				E1F0640D26164B2F005446AD /* AddressError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -418,12 +421,13 @@
 				E1E96D3626059A1500903599 /* QuoteView.swift in Sources */,
 				E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */,
 				E1A9541F2602DAB0005CBE82 /* ServiceTypeView.swift in Sources */,
-				E1DC42F626150B1C00C12550 /* AddressError.swift in Sources */,
 				E1E36362260E985700E89C0D /* NavLinkButtonVStack.swift in Sources */,
 				E139A1CA260BD6C30095A2BD /* VehicleTypeDetailView.swift in Sources */,
 				E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */,
 				E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */,
+				E1DC42FB26153BBA00C12550 /* Alert.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
+				E1F0640E26164B2F005446AD /* AddressError.swift in Sources */,
 				E1E3636C260EBB4A00E89C0D /* AddressView.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,

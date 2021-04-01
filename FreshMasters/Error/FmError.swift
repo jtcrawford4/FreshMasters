@@ -8,7 +8,9 @@
 import SwiftUI
 
 enum FmError: Error{
+    case invalidAddress
     case invalidStreetCityZip
     case invalidCityZip
+    case invalidCoordinate
     case unknown
 }
