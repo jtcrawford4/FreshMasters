@@ -42,6 +42,8 @@
 		E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E96D3A26059EF100903599 /* QuoteCell.swift */; };
 		E1F0273226082EF30013BBA1 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0273126082EF30013BBA1 /* Customer.swift */; };
 		E1F0640E26164B2F005446AD /* AddressError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0640D26164B2F005446AD /* AddressError.swift */; };
+		E1F0641326167C71005446AD /* AppointmentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */; };
+		E1F0642026168513005446AD /* AppointmentCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0641F26168513005446AD /* AppointmentCalendar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		E1E96D3A26059EF100903599 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		E1F0273126082EF30013BBA1 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		E1F0640D26164B2F005446AD /* AddressError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressError.swift; sourceTree = "<group>"; };
+		E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentConfirmationView.swift; sourceTree = "<group>"; };
+		E1F0641F26168513005446AD /* AppointmentCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCalendar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 				E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */,
 				E1E3635C260E952100E89C0D /* ServiceLocationView.swift */,
 				E1E3636B260EBB4A00E89C0D /* AddressView.swift */,
+				E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			children = (
 				E1ADA711260411E5008C0747 /* Extensions */,
 				E1E36366260EA5E700E89C0D /* TitleText.swift */,
+				E1F0641F26168513005446AD /* AppointmentCalendar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
 				E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */,
+				E1F0642026168513005446AD /* AppointmentCalendar.swift in Sources */,
 				E1E36371260ECCE300E89C0D /* Address.swift in Sources */,
 				E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */,
 				E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */,
@@ -415,6 +422,7 @@
 				E1F0273226082EF30013BBA1 /* Customer.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
 				E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */,
+				E1F0641326167C71005446AD /* AppointmentConfirmationView.swift in Sources */,
 				E196E0C126094AD60078E9EA /* Vehicle.swift in Sources */,
 				E1E96D2E2605559200903599 /* Order.swift in Sources */,
 				E19B85A426004B5400C636B9 /* MainView.swift in Sources */,

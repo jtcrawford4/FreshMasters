@@ -47,17 +47,15 @@ struct AddressView: View {
                         case .failure(let error):
                             switch error {
                             case .invalidAddress:
-                                print("invalid address")
                                 alertItem = AlertContext.invalidAddress
                             case .invalidCityZip:
-                                print("Invalid city/zip combo")
+                                alertItem = AlertContext.invalidCityZip
                             case .invalidStreetCityZip:
-                                print("Invalid street/city/zip combo")
+                                alertItem = AlertContext.invalidStreetCityZip
                             case .invalidCoordinate:
-                                print("invalid coordinate")
                                 alertItem = AlertContext.invalidCoordinate
                             case .unknown:
-                                print("Unknown error")
+                                alertItem = AlertContext.unknown
                             }
                         }
                     }

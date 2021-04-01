@@ -10,6 +10,7 @@ import SwiftUI
 struct AppointmentView: View {
     
     @EnvironmentObject var order: Order
+    @State var showingConfirmation = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
     var body: some View {
@@ -42,13 +43,13 @@ struct AppointmentView: View {
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
                     
-                    //MARK: - add reminder
-                    
                 }
                 .background(Color.background)
                 
                 Button{
-                    print("appointment sent")
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
+                    showingConfirmation.toggle()
                 } label: {
                     HStack{
                         Text("Submit")
@@ -66,6 +67,9 @@ struct AppointmentView: View {
                 .frame(width: 200, height: 50)
                 .buttonStyle(SquareButtonStyle())
                 .padding(40)
+                .sheet(isPresented: $showingConfirmation) {
+                    AppointmentConfirmationView()
+                }
                 
             }
             .navigationTitle("Appointment")
@@ -77,7 +81,6 @@ struct AppointmentView: View {
 struct AppointmentView_Previews: PreviewProvider {
     static var previews: some View {
         AppointmentView()
-            .preferredColorScheme(.light)
             .environmentObject(Order())
     }
 }
