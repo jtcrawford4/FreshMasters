@@ -26,9 +26,10 @@ struct AppointmentConfirmationView: View {
                     .padding(.bottom, 40)
                 
                 Button(action: {
-                    //MARK: - add function/permissions
                     let impactMed = UIImpactFeedbackGenerator(style: .medium)
                     impactMed.impactOccurred()
+                    addReminder(title: "FreshMasters detailing appointment tomorrow", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
+                                date: order.customer.appointmentDate)
                 }, label: {
                     VStack{
                         Image(systemName: "deskclock")
@@ -47,7 +48,6 @@ struct AppointmentConfirmationView: View {
                     .multilineTextAlignment(.center)
                 
             }
-
         }
     }
 }
