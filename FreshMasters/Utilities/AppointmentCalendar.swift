@@ -25,40 +25,34 @@ struct AppointmentCalendar: View {
     }
     
     var body: some View {
-        
-        ZStack{
-            
-            Rectangle()
-                .fill(Color.background)
-                .ignoresSafeArea()
-        
-            VStack{
+        VStack{
+            ZStack{
+                RoundedRectangle(cornerRadius: 4)
+                    .frame(width: 200, height: 200)
+                    .foregroundColor(.white)
+                    .shadow(radius: 10)
+                
                 ZStack{
-                    RoundedRectangle(cornerRadius: 4)
-                        .frame(width: 200, height: 200)
-                        .foregroundColor(.white)
-                    
-                    ZStack{
-                        //MARK: - dont round bottom l or r
-                        RoundedRectangle(cornerRadius: 4)
-                            .frame(width: 200, height: 60)
-                            .foregroundColor(.red)
-                            .offset(y: -70)
-                        Text(appointmentMonth)
-                            .offset(y: -70)
-                            .foregroundColor(.white)
-                            .font(.title2)
-                        Text("\(appointmentDate)")
-                            .fontWeight(.bold)
-                            .font(.system(size: 60))
-                            
-                    }
-                    Text(appointmentDay)
+                    //MARK: - dont round bottom l or r
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.pink]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                        .frame(width: 200, height: 60)
+                        .offset(y: -70)
+                    Text(appointmentMonth)
                         .fontWeight(.semibold)
-                        .foregroundColor(.secondary)
-                        .offset(y: 50)
+                        .offset(y: -70)
+                        .foregroundColor(.white)
+                        .font(.title2)
+                    Text("\(appointmentDate)")
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        .font(.system(size: 60))
                 }
                 
+                Text(appointmentDay)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.gray)
+                    .offset(y: 50)
             }
         }
     }
