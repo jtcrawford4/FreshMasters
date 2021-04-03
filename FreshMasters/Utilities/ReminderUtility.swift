@@ -14,7 +14,6 @@ func addReminder(title: String, note: String, date: Date) {
     
     eventStore.requestAccess(to: EKEntityType.reminder, completion: {granted, error in
         if (granted) && (error == nil) {
-            print("granted \(granted)")
 
             let reminder:EKReminder = EKReminder(eventStore: eventStore)
             let alarm = EKAlarm(absoluteDate: dayBeforeAppointment)
