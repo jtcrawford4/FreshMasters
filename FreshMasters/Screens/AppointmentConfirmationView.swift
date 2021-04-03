@@ -10,6 +10,7 @@ import SwiftUI
 struct AppointmentConfirmationView: View {
     
     @EnvironmentObject var order: Order
+    @Binding var showingModal:Bool
     
     var body: some View {
         
@@ -46,6 +47,14 @@ struct AppointmentConfirmationView: View {
                 Text("Set Reminder")
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
+                    .padding(.bottom, 25)
+                
+                Button(action: {
+                    self.showingModal = false
+                }, label: {
+                    Text("Close")
+                        .fontWeight(.semibold)
+                })
                 
             }
         }
@@ -54,7 +63,7 @@ struct AppointmentConfirmationView: View {
 
 struct AppointmentConfirmationView_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentConfirmationView()
+        AppointmentConfirmationView(showingModal: .constant(true))
             .environmentObject(Order())
     }
 }

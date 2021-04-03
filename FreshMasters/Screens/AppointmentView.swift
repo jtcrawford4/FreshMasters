@@ -68,7 +68,7 @@ struct AppointmentView: View {
                 .buttonStyle(SquareButtonStyle())
                 .padding(40)
                 .sheet(isPresented: $showingConfirmation) {
-                    AppointmentConfirmationView()
+                    AppointmentConfirmationView(showingModal: $showingConfirmation)
                 }
                 
             }
