@@ -66,6 +66,11 @@ struct ItemizedQuoteView: View {
                             QuoteCell(title: "Mileage", value: order.vehicle.prices.mileage)
                         }
                         
+                        //MARK: - add info button that clicks and gives explanation
+                        if (order.vehicle.hasAgeSurcharge){
+                            QuoteCell(title: "Vehicle Age Surcharge", value: order.vehicle.prices.yearSurcharge)
+                        }
+                        
                         QuoteCell(title: "Total", value: order.vehicle.getTotalPrice())
                             .font(.title2)
                             .foregroundColor(.green)

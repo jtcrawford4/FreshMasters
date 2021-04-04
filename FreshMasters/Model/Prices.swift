@@ -22,6 +22,9 @@ class Prices{
     var milesToCustomer: Double = 0
     var mileage: Double = 0
     
+    var yearSurcharge: Double = 0
+    var yearSurchargePercentage: Float = 15
+    
     init(){
         self.interiorDetail = 0
         self.exteriorDetail = 0
@@ -37,6 +40,21 @@ class Prices{
         self.fullDetail = fullDetail
         self.glaze = glaze
         self.polish = polish
+    }
+    
+    func vehicleHasAgeSurcharge(year: String) -> Bool{
+        if (year.isEmpty){
+            return false
+        }
+        let currentYear = Calendar.current.component(.year, from: Date())
+        let vehicleYear = Int(year)!
+        return (currentYear - vehicleYear > 6)
+    }
+    
+    func calculateAgeSurcharge(totalPrice: Double) -> Double{
+        let surcharge = totalPrice * Double((self.yearSurchargePercentage / 100))
+        self.yearSurcharge = surcharge
+        return surcharge
     }
     
     func calculateMileageCost(milesToCustomer: Double){

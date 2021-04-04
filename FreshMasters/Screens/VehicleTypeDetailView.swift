@@ -36,7 +36,10 @@ struct VehicleTypeDetailView: View {
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", isEnabled: true, content: {ServiceTypeView()})
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
-                    
+                    .simultaneousGesture(TapGesture().onEnded{
+                        order.vehicle.hasAgeSurcharge = order.vehicle.prices.vehicleHasAgeSurcharge(year: order.vehicle.year)
+                    })
+
             }
             .padding(.bottom, 60)
 

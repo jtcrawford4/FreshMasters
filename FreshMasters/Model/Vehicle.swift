@@ -19,6 +19,7 @@ final class Vehicle: ObservableObject{
     @Published var glaze = false
     @Published var engine = false
     @Published var mobileService = false
+    @Published var hasAgeSurcharge = false
     
     var prices =  Prices()
     var totalPrice: Double = 0
@@ -31,6 +32,7 @@ final class Vehicle: ObservableObject{
         total += glaze ? prices.glaze : 0
         total += engine ? prices.engine : 0
         total += mobileService ? prices.mileage : 0
+        total += hasAgeSurcharge ? prices.calculateAgeSurcharge(totalPrice: total) : 0
         return total
     }
     
@@ -66,5 +68,3 @@ final class Vehicle: ObservableObject{
         case def = ""
     }
 }
-
-
