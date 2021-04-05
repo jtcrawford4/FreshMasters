@@ -11,6 +11,10 @@ struct AddressView: View {
     
     @EnvironmentObject var order: Order
     @State var isValidated = false
+    @State var street = ""
+    @State var city = ""
+    @State var state = ""
+    @State var zip = ""
     @State var alertItem: AlertItem?
     
     var body: some View {
@@ -24,10 +28,22 @@ struct AddressView: View {
                 TitleText(text: "Where would you like the service completed?")
                 
                 VStack{
-                    TextField("Street Address", text: $order.customer.address.streetAddress)
-                    TextField("City", text: $order.customer.address.city)
-                    TextField("State", text: $order.customer.address.state)
-                    TextField("Zip", text: $order.customer.address.zip)
+                    TextField("Street Address", text: $street)
+                        .onChange(of: street, perform: { value in
+                            isValidated = false
+                        })
+                    TextField("City", text: $city)
+                        .onChange(of: city, perform: { value in
+                            isValidated = false
+                        })
+                    TextField("State", text: $state)
+                        .onChange(of: state, perform: { value in
+                            isValidated = false
+                        })
+                    TextField("Zip", text: $zip)
+                        .onChange(of: zip, perform: { value in
+                            isValidated = false
+                        })
                         .keyboardType(.numberPad)
                 }
                 .padding(20)
@@ -36,12 +52,14 @@ struct AddressView: View {
                 .disableAutocorrection(true)
                 
                 Button(action: {
+                    order.customer.address.streetAddress = street
+                    order.customer.address.city = city
+                    order.customer.address.state = state
+                    order.customer.address.zip = zip
                     order.customer.address.getDistanceToCustomer(){ result in
                         switch result {
                         case .success(let miles):
-                            print("async return: \(miles)")
                             isValidated = true
-                            //MARK: - redundant eh?
                             order.vehicle.prices.milesToCustomer = miles
                             order.vehicle.prices.calculateMileageCost(milesToCustomer: miles)
                         case .failure(let error):
