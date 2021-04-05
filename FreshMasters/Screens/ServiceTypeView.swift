@@ -50,6 +50,11 @@ struct ServiceTypeView: View {
                             temp = Vehicle.serviceTypes.interior.rawValue
                         }
                         order.vehicle.serviceType = temp
+                        let vtype = order.vehicle.vehicleType
+                        let stype = order.vehicle.serviceType
+                        order.vehicle.hours.setBaseHours(
+                            vehicleType: Vehicle.vehicleTypes(rawValue: vtype)!,
+                            serviceType: Vehicle.serviceTypes(rawValue: stype)!)
                     })
                     .disabled(!(exteriorIsToggled || interiorIsToggled))
                     

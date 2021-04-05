@@ -22,6 +22,7 @@ final class Vehicle: ObservableObject{
     @Published var hasAgeSurcharge = false
     
     var prices =  Prices()
+    var hours = Hours()
     var totalPrice: Double = 0
     
     func getTotalPrice() -> Double{

@@ -45,6 +45,7 @@
 		E1F0640E26164B2F005446AD /* AddressError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0640D26164B2F005446AD /* AddressError.swift */; };
 		E1F0641326167C71005446AD /* AppointmentConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */; };
 		E1F0642026168513005446AD /* AppointmentCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F0641F26168513005446AD /* AppointmentCalendar.swift */; };
+		E1F83CA2261A96C5004BADCC /* Hours.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F83CA1261A96C5004BADCC /* Hours.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		E1F0640D26164B2F005446AD /* AddressError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressError.swift; sourceTree = "<group>"; };
 		E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentConfirmationView.swift; sourceTree = "<group>"; };
 		E1F0641F26168513005446AD /* AppointmentCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCalendar.swift; sourceTree = "<group>"; };
+		E1F83CA1261A96C5004BADCC /* Hours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hours.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				E1CEE39B260AA463009726C0 /* VanPrices.swift */,
 				E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */,
 				E1E36370260ECCE300E89C0D /* Address.swift */,
+				E1F83CA1261A96C5004BADCC /* Hours.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				E1E3636C260EBB4A00E89C0D /* AddressView.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
+				E1F83CA2261A96C5004BADCC /* Hours.swift in Sources */,
 				E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */,
 				E1DC42F0261505D400C12550 /* FmError.swift in Sources */,
 			);
