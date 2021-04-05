@@ -82,6 +82,10 @@ class Hours: ObservableObject{
         }
     }
     
+    func addAdditionalHours(hours: Int){
+        additionalHours += hours
+    }
+    
     func getTotalHoursLow() -> Int{
         return baseHoursLow + additionalHours
     }

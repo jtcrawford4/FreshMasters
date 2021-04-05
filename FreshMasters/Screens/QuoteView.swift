@@ -23,13 +23,19 @@ struct QuoteView: View {
                 Text("$ \(order.vehicle.getTotalPrice(), specifier: "%.2f")")
                     .font(.system(size: 60))
                     .fontWeight(.bold)
+                    .padding(.bottom, 30)
                 
                 Text(order.vehicle.getYearMakeModel())
                     .font(.body)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.primary)
                     .fontWeight(.semibold)
                 
                 Text(order.vehicle.serviceType)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.secondary)
+                
+                Text("Est Completion Time: \(order.vehicle.hours.getTotalHoursLow()) - \(order.vehicle.hours.getTotalHoursHigh()) hours")
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.secondary)

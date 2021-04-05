@@ -11,7 +11,7 @@ struct ItemizedQuoteView: View {
     
     @EnvironmentObject var order: Order
     @State var infoPresented = false
-    let ageSurchargeInfoText: String = "Older vehicles, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nThis surcharge can potentially be voided after in-person vehicle inspection."
+    let ageSurchargeInfoText: String = "Vehicle models older than 5 years, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nSurcharge is potentially void after in-person vehicle inspection."
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(Color.background)

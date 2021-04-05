@@ -45,10 +45,11 @@ struct AdditionalServiceView: View {
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     .simultaneousGesture(TapGesture().onEnded{
-                        order.vehicle.polish = polishIsToggled
-                        order.vehicle.glaze = glazeIsToggled
-                        order.vehicle.engine = engineIsToggled
-                        order.vehicle.headlightRestore = headlightIsToggled
+                        let vehicle = order.vehicle
+                        vehicle.polish = polishIsToggled
+                        vehicle.glaze = glazeIsToggled
+                        vehicle.engine = engineIsToggled
+                        vehicle.headlightRestore = headlightIsToggled
                     })
                 
                 Spacer()

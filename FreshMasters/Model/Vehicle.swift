@@ -27,11 +27,24 @@ final class Vehicle: ObservableObject{
     
     func getTotalPrice() -> Double{
         var total = 0.00
+        hours.additionalHours = 0
         total += getServiceTypePrice(service: serviceTypes(rawValue: self.serviceType)!)
-        total += polish ? prices.polish : 0
-        total += headlightRestore ? prices.headlightRestoration : 0
-        total += glaze ? prices.glaze : 0
-        total += engine ? prices.engine : 0
+        if (polish){
+            total += prices.polish
+            hours.addAdditionalHours(hours: 4)
+        }
+        if (headlightRestore){
+            total += prices.headlightRestoration
+            hours.addAdditionalHours(hours: 1)
+        }
+        if (glaze){
+            total += prices.glaze
+            hours.addAdditionalHours(hours: 2)
+        }
+        if (engine){
+            total += prices.engine
+            hours.addAdditionalHours(hours: 1)
+        }
         total += mobileService ? prices.mileage : 0
         total += hasAgeSurcharge ? prices.calculateAgeSurcharge(totalPrice: total) : 0
         return total
