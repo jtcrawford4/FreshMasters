@@ -10,13 +10,17 @@ import EventKit
 
 func addReminder(title: String, note: String, date: Date) {
     let eventStore = EKEventStore()
-    let dayBeforeAppointment = Calendar.current.date(byAdding: .day, value: -1, to: date)!
+    //MARK: - set reminder for morning of appointment at 8am
+    let appointmentReminderDate = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: date)
+    print("appointmentReminder: \(String(describing: appointmentReminderDate))")
+    
+//    let dayBeforeAppointment = Calendar.current.date(byAdding: .day, value: -1, to: date)!
     
     eventStore.requestAccess(to: EKEntityType.reminder, completion: {granted, error in
         if (granted) && (error == nil) {
 
             let reminder:EKReminder = EKReminder(eventStore: eventStore)
-            let alarm = EKAlarm(absoluteDate: dayBeforeAppointment)
+            let alarm = EKAlarm(absoluteDate: appointmentReminderDate!)
             
             reminder.title = title
             reminder.notes = note

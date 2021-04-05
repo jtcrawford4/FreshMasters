@@ -30,7 +30,7 @@ struct AppointmentConfirmationView: View {
                 Button(action: {
                     let impactMed = UIImpactFeedbackGenerator(style: .medium)
                     impactMed.impactOccurred()
-                    addReminder(title: "FreshMasters detailing appointment tomorrow", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
+                    addReminder(title: "FreshMasters detailing appointment today", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
                                 date: order.customer.appointmentDate)
                     showingReminderNotification.toggle()
                 }, label: {

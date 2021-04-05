@@ -33,7 +33,6 @@ struct AppointmentCalendar: View {
                     .shadow(radius: 10)
                 
                 ZStack{
-                    //MARK: - dont round bottom l or r
                     RoundedRectangle(cornerRadius: 2)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.pink]), startPoint: .topLeading, endPoint: .bottomTrailing))
                         .frame(width: 200, height: 60)
