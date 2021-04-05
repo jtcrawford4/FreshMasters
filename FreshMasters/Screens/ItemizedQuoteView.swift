@@ -10,6 +10,8 @@ import SwiftUI
 struct ItemizedQuoteView: View {
     
     @EnvironmentObject var order: Order
+    @State var infoPresented = false
+    let ageSurchargeInfoText: String = "Older vehicles, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nThis surcharge can potentially be voided after in-person vehicle inspection."
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(Color.background)
@@ -66,9 +68,25 @@ struct ItemizedQuoteView: View {
                             QuoteCell(title: "Mileage", value: order.vehicle.prices.mileage)
                         }
                         
-                        //MARK: - add info button that clicks and gives explanation
                         if (order.vehicle.hasAgeSurcharge){
-                            QuoteCell(title: "Vehicle Age Surcharge", value: order.vehicle.prices.yearSurcharge)
+                            HStack{
+                                Text("Vehicle Age Surcharge")
+                                    .fontWeight(.regular)
+                                    .foregroundColor(.secondary)
+                                
+                                Button(action: {
+                                    infoPresented.toggle()
+                                }, label: {
+                                    Image(systemName: "info.circle")
+                                })
+                                .alert(isPresented: $infoPresented) {
+                                    Alert(title: Text("Vehicle Age Surcharge"), message: Text(ageSurchargeInfoText), dismissButton: .default(Text("Close")))
+                                }
+                                
+                                Spacer()
+                                Text("$\(order.vehicle.prices.yearSurcharge, specifier: "%.2f")")
+                            }
+                            .listRowBackground(Color.background)
                         }
                         
                         QuoteCell(title: "Total", value: order.vehicle.getTotalPrice())
