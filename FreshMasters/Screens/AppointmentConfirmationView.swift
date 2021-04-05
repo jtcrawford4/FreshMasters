@@ -10,7 +10,8 @@ import SwiftUI
 struct AppointmentConfirmationView: View {
     
     @EnvironmentObject var order: Order
-    @Binding var showingModal:Bool
+    @Binding var showingModal: Bool
+    @State var showingReminderNotification = false
     
     var body: some View {
         
@@ -31,6 +32,7 @@ struct AppointmentConfirmationView: View {
                     impactMed.impactOccurred()
                     addReminder(title: "FreshMasters detailing appointment tomorrow", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
                                 date: order.customer.appointmentDate)
+                    showingReminderNotification.toggle()
                 }, label: {
                     VStack{
                         Image(systemName: "deskclock")
@@ -43,6 +45,9 @@ struct AppointmentConfirmationView: View {
                 .frame(width: 60, height: 60)
                 .background(Color.green)
                 .clipShape(Circle())
+                .alert(isPresented: $showingReminderNotification) {
+                    Alert(title: Text("Reminder Set"), message: Text(""), dismissButton: .default(Text("Close")))
+                }
                 
                 Text("Set Reminder")
                     .foregroundColor(.secondary)
