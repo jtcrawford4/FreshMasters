@@ -40,9 +40,7 @@ struct ValidationView: View {
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 180, height: 80)
                     .padding(.top, 40)
-//                    .simultaneousGesture(TapGesture().onEnded{
-//                        order.vehicle.prices.calculateMileageCost(milesToCustomer: order.customer.address.distanceToCustomer)
-//                    })
+
             }
             .offset(y: -60)
             

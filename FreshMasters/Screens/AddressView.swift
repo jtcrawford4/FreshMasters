@@ -16,6 +16,7 @@ struct AddressView: View {
     @State var state = ""
     @State var zip = ""
     @State var alertItem: AlertItem?
+    @State var alertOutOfServiceArea = false
     
     var body: some View {
         ZStack{
@@ -72,6 +73,8 @@ struct AddressView: View {
                                 alertItem = AlertContext.invalidStreetCityZip
                             case .invalidCoordinate:
                                 alertItem = AlertContext.invalidCoordinate
+                            case .outsideServiceArea:
+                                alertItem = AlertContext.outsideServiceArea
                             case .unknown:
                                 alertItem = AlertContext.unknown
                             }
@@ -82,6 +85,7 @@ struct AddressView: View {
                 })
                 .buttonStyle(SquareButtonStyle())
                 .opacity(isValidated ? 0 : 1)
+                
                                 
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
                     .frame(width: 200, height: 80)
@@ -91,6 +95,7 @@ struct AddressView: View {
                 .offset(y: -60)
                 .alert(item: $alertItem){ alertItem in
                     Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+
             }
             .onAppear(perform: {
                 isValidated = false

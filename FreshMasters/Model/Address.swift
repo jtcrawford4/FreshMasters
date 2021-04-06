@@ -19,6 +19,7 @@ class Address{
     private let shopState = "MO"
     private let shopZip = "65109"
     var distanceToCustomer: Double = 0
+    private let mileageThreshold: Double = 60
     
     func getDistanceToCustomer(completed: @escaping (Result<Double, FmError>) -> Void){
         let group = DispatchGroup()
@@ -75,7 +76,12 @@ class Address{
 
             directions.calculate { (response, error) in
                 if let response = response, let route = response.routes.first {
-                    completed(.success(round(route.distance / 1609))) //1609 meters per mile
+                    let distance = round(route.distance / 1609) //1609 meters per mile
+                    if (distance <= self.mileageThreshold){
+                        return completed(.success(distance))
+                    }else{
+                        return completed(.failure(.outsideServiceArea))
+                    }
                 }
             }
         }

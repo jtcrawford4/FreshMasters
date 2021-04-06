@@ -20,7 +20,7 @@ class Prices{
     var polish: Double = 0
     
     var milesToCustomer: Double = 0
-    var mileage: Double = 0
+    var mileageSurcharge: Double = 0
     
     var yearSurcharge: Double = 0
     var yearSurchargePercentage: Float = 15
@@ -31,7 +31,7 @@ class Prices{
         self.fullDetail = 0
         self.glaze = 0
         self.polish = 0
-        self.mileage = 0
+        self.mileageSurcharge = 0
     }
     
     init(interiorDetail: Double, exteriorDetail: Double, fullDetail: Double, glaze: Double, polish: Double){
@@ -60,15 +60,25 @@ class Prices{
     func calculateMileageCost(milesToCustomer: Double){
         switch milesToCustomer{
             case 0..<10:
-                self.mileage = 0
-            case 10..<20:
-                self.mileage = 25.00
-            case 20..<40:
-                self.mileage = 45.00
-            case 40...:
-                self.mileage = 65.00
+                self.mileageSurcharge = 0
+            case 10..<15:
+                self.mileageSurcharge = 19.99
+            case 15..<20:
+                self.mileageSurcharge = 24.99
+            case 20..<25:
+                self.mileageSurcharge = 29.99
+            case 25..<30:
+                self.mileageSurcharge = 34.99
+            case 30..<40:
+                self.mileageSurcharge = 39.99
+            case 40..<50:
+                self.mileageSurcharge = 49.99
+            case 50..<60:
+                self.mileageSurcharge = 59.99
+            case 60...:
+                self.mileageSurcharge = -1
             default:
-                self.mileage = 0
+                self.mileageSurcharge = 0
         }
     }
     

@@ -11,7 +11,7 @@ struct ItemizedQuoteView: View {
     
     @EnvironmentObject var order: Order
     @State var infoPresented = false
-    let ageSurchargeInfoText: String = "Vehicle models older than 5 years, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nSurcharge is potentially void after in-person vehicle inspection."
+    let ageSurchargeInfoText: String = "Vehicles older than 5 years, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nSurcharge can potentially be void after in-person vehicle inspection."
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(Color.background)
@@ -65,7 +65,7 @@ struct ItemizedQuoteView: View {
                         }
                         
                         if (order.vehicle.mobileService){
-                            QuoteCell(title: "Mileage", value: order.vehicle.prices.mileage)
+                            QuoteCell(title: "Mobile Service", value: order.vehicle.prices.mileageSurcharge)
                         }
                         
                         if (order.vehicle.hasAgeSurcharge){

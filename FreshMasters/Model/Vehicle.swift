@@ -45,7 +45,7 @@ final class Vehicle: ObservableObject{
             total += prices.engine
             hours.addAdditionalHours(hours: 1)
         }
-        total += mobileService ? prices.mileage : 0
+        total += mobileService ? prices.mileageSurcharge : 0
         total += hasAgeSurcharge ? prices.calculateAgeSurcharge(totalPrice: total) : 0
         return total
     }

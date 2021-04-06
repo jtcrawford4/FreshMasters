@@ -21,6 +21,8 @@ struct AlertContext{
     
     static let invalidCityZip = AlertItem(title: Text("Invalid Address"), message: Text("City and zip code combination not valid"), dismissButton: .default(Text("OK")))
     
+    static let outsideServiceArea = AlertItem(title: Text("Outside of Service Area"), message: Text("The location provided is outside of the available service area. Please contact FreshMasters for special accommodations."), dismissButton: .default(Text("OK")))
+    
     static let invalidCoordinate = AlertItem(title: Text("Invalid Address"), message: Text("Address provided could not be found"), dismissButton: .default(Text("OK")))
     
     static let unknown = AlertItem(title: Text("System Error"), message: Text("Unexpected error occurred"), dismissButton: .default(Text("OK")))
