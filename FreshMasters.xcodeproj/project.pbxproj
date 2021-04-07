@@ -99,8 +99,8 @@
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
 		E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtility.swift; sourceTree = "<group>"; };
-		E1D32DBE261E51A400DE3678 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E1D32DCA261E569200DE3678 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E1D32DCF261E572A00DE3678 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		E1DC42EF261505D400C12550 /* FmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmError.swift; sourceTree = "<group>"; };
 		E1DC42FA26153BBA00C12550 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 		E19B856826004ADF00C636B9 = {
 			isa = PBXGroup;
 			children = (
+				E1D32DCF261E572A00DE3678 /* Config.xcconfig */,
 				E1D32DCA261E569200DE3678 /* .gitignore */,
 				E19B857326004ADF00C636B9 /* FreshMasters */,
 				E19B858526004AE100C636B9 /* FreshMastersTests */,
@@ -176,7 +177,6 @@
 				E19B857826004AE100C636B9 /* Assets.xcassets */,
 				E19B857D26004AE100C636B9 /* Info.plist */,
 				E19B857A26004AE100C636B9 /* Preview Content */,
-				E1D32DBE261E51A400DE3678 /* Config.xcconfig */,
 			);
 			path = FreshMasters;
 			sourceTree = "<group>";
@@ -496,6 +496,7 @@
 /* Begin XCBuildConfiguration section */
 		E19B859426004AE100C636B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1D32DCF261E572A00DE3678 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -558,6 +559,7 @@
 		};
 		E19B859526004AE100C636B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1D32DCF261E572A00DE3678 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -626,7 +628,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcb.FreshMasters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -649,7 +651,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jcb.FreshMasters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

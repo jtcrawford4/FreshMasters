@@ -9,11 +9,13 @@ import Foundation
 
 func sendEmail(){
     let semaphore = DispatchSemaphore (value: 0)
-    let apiKey = "key-06190b3a88fabecaddb630e36b94e847"
-    let id = "sandboxd409118c4c4045509f9c80f9fd37aaad.mailgun.org"
+    //MARK: - error if nil. guard let xyz...
+    let apiKey = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_API") as! String
+    let id = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_ID") as! String
+    let url = "https://api:\(apiKey)@api.mailgun.net/v3/\(id)/messages"
+    //MARK: - receiver email plist
     let parameters = "from= Swift Email <mailgun@\(id)>&to=drivingfresh@gmail.com&subject=Hello&text=Testing_some_Mailgun_awesomness"
     let postData =  parameters.data(using: .utf8)
-    let url = "https://api:\(apiKey)@api.mailgun.net/v3/\(id)/messages"
     var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
     
     request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -33,7 +35,6 @@ func sendEmail(){
     task.resume()
     semaphore.wait()
 }
-
 
 extension String {
 
