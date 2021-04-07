@@ -31,6 +31,7 @@
 		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
 		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
+		E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */; };
 		E1DC42F0261505D400C12550 /* FmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42EF261505D400C12550 /* FmError.swift */; };
 		E1DC42FB26153BBA00C12550 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42FA26153BBA00C12550 /* Alert.swift */; };
 		E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3635C260E952100E89C0D /* ServiceLocationView.swift */; };
@@ -96,6 +97,7 @@
 		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
+		E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtility.swift; sourceTree = "<group>"; };
 		E1DC42EF261505D400C12550 /* FmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmError.swift; sourceTree = "<group>"; };
 		E1DC42FA26153BBA00C12550 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				E1E36366260EA5E700E89C0D /* TitleText.swift */,
 				E1F0641F26168513005446AD /* AppointmentCalendar.swift */,
 				E1CA542D2617D13900B679C8 /* ReminderUtility.swift */,
+				E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				E1CA542E2617D13900B679C8 /* ReminderUtility.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
 				E1F0640E26164B2F005446AD /* AddressError.swift in Sources */,
+				E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */,
 				E1E3636C260EBB4A00E89C0D /* AddressView.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,

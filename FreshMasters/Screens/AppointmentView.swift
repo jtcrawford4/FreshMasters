@@ -49,6 +49,7 @@ struct AppointmentView: View {
                 Button{
                     let impactMed = UIImpactFeedbackGenerator(style: .medium)
                     impactMed.impactOccurred()
+                    sendEmail()
                     showingConfirmation.toggle()
                 } label: {
                     HStack{
