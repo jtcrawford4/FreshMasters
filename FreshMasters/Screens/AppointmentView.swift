@@ -12,6 +12,7 @@ struct AppointmentView: View {
     @EnvironmentObject var order: Order
     @State var showingConfirmation = false
     @State var alertItem: AlertItem?
+    @State var isSendingAppointment = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
     var body: some View {
@@ -20,7 +21,7 @@ struct AppointmentView: View {
             Rectangle()
                 .fill(Color.background)
                 .ignoresSafeArea()
-            
+                   
             VStack{
                 Form{
                     Section(header: Text("Contact Info")){
@@ -48,6 +49,7 @@ struct AppointmentView: View {
                 .background(Color.background)
                 
                 Button{
+                    isSendingAppointment = true
                     let impactMed = UIImpactFeedbackGenerator(style: .medium)
                     impactMed.impactOccurred()
                     sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
@@ -62,8 +64,8 @@ struct AppointmentView: View {
                         case .success(false):
                             print("unknown error?")
                         }
+                        isSendingAppointment = false
                     }
-                    
                 } label: {
                     HStack{
                         Text("Submit")
@@ -90,7 +92,12 @@ struct AppointmentView: View {
                 
             }
             .navigationTitle("Appointment")
-
+            .blur(radius: isSendingAppointment ? 10 : 0)
+            .disabled(isSendingAppointment)
+            
+            if(isSendingAppointment){
+                ActivityIndicator(shouldAnimate: $isSendingAppointment)
+            }
         }
     }
 }

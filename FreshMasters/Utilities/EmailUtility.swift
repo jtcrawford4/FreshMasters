@@ -9,52 +9,56 @@ import Foundation
 
 func sendEmail(customer: Customer, vehicle: Vehicle, completed: @escaping (Result<Bool, EmailError>) -> Void){
     let semaphore = DispatchSemaphore (value: 0)
-    let customerText = getCustomerText(customer: customer)
-    let vehicleText  = getVehicleText(vehicle: vehicle)
-    let text = "\(customerText)\n\n\(vehicleText)"
-    let apiKey = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_API") as! String
-    let id = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_ID") as! String
-    let receiverEmail = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_RECEIVER") as! String
-    
-    if(apiKey == "" || id == "" || receiverEmail == ""){
-        completed(.failure(EmailError.emailFailure))
-        return
-    }
-    
-    let url = "https://api:\(apiKey)@api.mailgun.net/v3/\(id)/messages"
-    let parameters = "from= FreshMasters <mailgun@\(id)>&to=\(receiverEmail)&subject=Detailing Apopintment&text=\(text)"
-    let postData =  parameters.data(using: .utf8)
-    var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
-    
-    request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    request.httpMethod = "POST"
-    request.httpBody = postData
-
-    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-      guard let data = data else {
-        print(String(describing: error))
-        completed(.failure(EmailError.emailFailure))
-        semaphore.signal()
-        return
-      }
+    let dispatchQueue = DispatchQueue.global(qos: .background)
+    dispatchQueue.async {
+        let customerText = getCustomerText(customer: customer)
+        let vehicleText  = getVehicleText(vehicle: vehicle)
+        let text = "\(customerText)\n\n\(vehicleText)"
+        let apiKey = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_API") as! String
+        let id = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_ID") as! String
+        let receiverEmail = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_RECEIVER") as! String
         
-        if let httpResponse = response as? HTTPURLResponse{
-            if httpResponse.statusCode == 200{
-                print(String(data: data, encoding: .utf8)!)
-                completed(.success(true))
-                semaphore.signal()
-                return
-            }
-            else{
-                completed(.failure(EmailError.emailFailure))
-                semaphore.signal()
-                return
+        if(apiKey == "" || id == "" || receiverEmail == ""){
+            completed(.failure(EmailError.emailFailure))
+            return
+        }
+        
+        let url = "https://api:\(apiKey)@api.mailgun.net/v3/\(id)/messages"
+        let parameters = "from= FreshMasters <mailgun@\(id)>&to=\(receiverEmail)&subject=Detailing Apopintment&text=\(text)"
+        let postData =  parameters.data(using: .utf8)
+        var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
+        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+          guard let data = data else {
+            print(String(describing: error))
+            completed(.failure(EmailError.emailFailure))
+            semaphore.signal()
+            return
+          }
+            
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode == 200{
+                    print(String(data: data, encoding: .utf8)!)
+                    completed(.success(true))
+                    semaphore.signal()
+                    return
+                }
+                else{
+                    completed(.failure(EmailError.emailFailure))
+                    semaphore.signal()
+                    return
+                }
             }
         }
+        
+        task.resume()
+        semaphore.wait()
     }
     
-    task.resume()
-    semaphore.wait()
 }
 
 private func getCustomerText(customer: Customer) -> String {
