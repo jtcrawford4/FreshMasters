@@ -11,6 +11,7 @@ struct AppointmentView: View {
     
     @EnvironmentObject var order: Order
     @State var showingConfirmation = false
+    @State var alertItem: AlertItem?
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     
     var body: some View {
@@ -49,8 +50,20 @@ struct AppointmentView: View {
                 Button{
                     let impactMed = UIImpactFeedbackGenerator(style: .medium)
                     impactMed.impactOccurred()
-                    sendEmail(customer: order.customer, vehicle: order.vehicle)
-                    showingConfirmation.toggle()
+                    sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+                        switch result {
+                        case .success(true):
+                            showingConfirmation.toggle()
+                        case .failure(let error):
+                            switch error {
+                            case .emailFailure:
+                                alertItem = AlertContext.emailFailure
+                            }
+                        case .success(false):
+                            print("unknown error?")
+                        }
+                    }
+                    
                 } label: {
                     HStack{
                         Text("Submit")
@@ -70,6 +83,9 @@ struct AppointmentView: View {
                 .padding(40)
                 .sheet(isPresented: $showingConfirmation) {
                     AppointmentConfirmationView(showingModal: $showingConfirmation)
+                }
+                .alert(item: $alertItem){ alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                 }
                 
             }

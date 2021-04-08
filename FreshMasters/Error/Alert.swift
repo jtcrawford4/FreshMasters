@@ -26,4 +26,6 @@ struct AlertContext{
     static let invalidCoordinate = AlertItem(title: Text("Invalid Address"), message: Text("Address provided could not be found"), dismissButton: .default(Text("OK")))
     
     static let unknown = AlertItem(title: Text("System Error"), message: Text("Unexpected error occurred"), dismissButton: .default(Text("OK")))
+    
+    static let emailFailure = AlertItem(title: Text("System Error"), message: Text("Appointment could not be sent. Please try again later or contact FreshMasters support at drivingfresh@gmail.com to complete appointment."), dismissButton: .default(Text("OK")))
 }

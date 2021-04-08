@@ -33,6 +33,7 @@
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
 		E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */; };
 		E1D32DCB261E569200DE3678 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E1D32DCA261E569200DE3678 /* .gitignore */; };
+		E1D32DE0261E878100DE3678 /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D32DDF261E878100DE3678 /* EmailError.swift */; };
 		E1DC42F0261505D400C12550 /* FmError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42EF261505D400C12550 /* FmError.swift */; };
 		E1DC42FB26153BBA00C12550 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC42FA26153BBA00C12550 /* Alert.swift */; };
 		E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3635C260E952100E89C0D /* ServiceLocationView.swift */; };
@@ -101,6 +102,7 @@
 		E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtility.swift; sourceTree = "<group>"; };
 		E1D32DCA261E569200DE3678 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E1D32DCF261E572A00DE3678 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E1D32DDF261E878100DE3678 /* EmailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailError.swift; sourceTree = "<group>"; };
 		E1DC42EF261505D400C12550 /* FmError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FmError.swift; sourceTree = "<group>"; };
 		E1DC42FA26153BBA00C12550 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E1E3635C260E952100E89C0D /* ServiceLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocationView.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				E1DC42EF261505D400C12550 /* FmError.swift */,
 				E1DC42FA26153BBA00C12550 /* Alert.swift */,
 				E1F0640D26164B2F005446AD /* AddressError.swift */,
+				E1D32DDF261E878100DE3678 /* EmailError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
 				E1F83CA2261A96C5004BADCC /* Hours.swift in Sources */,
 				E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */,
+				E1D32DE0261E878100DE3678 /* EmailError.swift in Sources */,
 				E1DC42F0261505D400C12550 /* FmError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
