@@ -7,14 +7,18 @@
 
 import Foundation
 
-func sendEmail(){
+func sendEmail(customer: Customer, vehicle: Vehicle){
     let semaphore = DispatchSemaphore (value: 0)
+    let customerText = getCustomerText(customer: customer)
+    let vehicleText  = getVehicleText(vehicle: vehicle)
+    let text = "\(customerText)\n\n\(vehicleText)"
     //MARK: - error if nil. guard let xyz...
     let apiKey = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_API") as! String
     let id = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_ID") as! String
+    let receiverEmail = Bundle.main.object(forInfoDictionaryKey:"MAILGUN_RECEIVER") as! String
+    
     let url = "https://api:\(apiKey)@api.mailgun.net/v3/\(id)/messages"
-    //MARK: - receiver email plist
-    let parameters = "from= Swift Email <mailgun@\(id)>&to=drivingfresh@gmail.com&subject=Hello&text=Testing_some_Mailgun_awesomness"
+    let parameters = "from= FreshMasters <mailgun@\(id)>&to=\(receiverEmail)&subject=Detailing Apopintment&text=\(text)"
     let postData =  parameters.data(using: .utf8)
     var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
     
@@ -36,17 +40,30 @@ func sendEmail(){
     semaphore.wait()
 }
 
-extension String {
+private func getCustomerText(customer: Customer) -> String {
+    return """
+        Name: \(customer.firstName) \(customer.lastName)
+        Address: \(customer.address.city) \(customer.address.state) \(customer.address.zip)
+        Phone: \(customer.phone)
+        Email: \(customer.email)
+        Appt Date: \(customer.appointmentDate)
+        Contact Text: \(customer.contactByText)
+        Contact Phone: \(customer.contactByPhone)
+        Contact Email: \(customer.contactByEmail)
+    """
+}
 
-    func fromBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-
-        return String(data: data, encoding: .utf8)
-    }
-
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
-    }
+private func getVehicleText(vehicle: Vehicle) -> String{
+    return """
+        Vehicle: \(vehicle.getYearMakeModel())
+        Service Type: \(vehicle.serviceType)
+        Price: $\(vehicle.getTotalPrice())
+        Hours: \(vehicle.hours.getTotalHoursLow()) - \(vehicle.hours.getTotalHoursHigh())
+        Polish: \(vehicle.polish)
+        Headlight Restoration: \(vehicle.headlightRestore)
+        Glaze: \(vehicle.glaze)
+        Engine Detail: \(vehicle.engine)
+        Mobile Service: \(vehicle.mobileService)
+        Age Surcharge: \(vehicle.hasAgeSurcharge)
+    """
 }
