@@ -28,4 +28,6 @@ struct AlertContext{
     static let unknown = AlertItem(title: Text("System Error"), message: Text("Unexpected error occurred"), dismissButton: .default(Text("OK")))
     
     static let emailFailure = AlertItem(title: Text("System Error"), message: Text("Appointment could not be sent. Please try again later or contact FreshMasters support at drivingfresh@gmail.com to complete appointment."), dismissButton: .default(Text("OK")))
+    
+    static let invalidAppointmentForm = AlertItem(title: Text("Appointment Error"), message: Text("First and last name required. \nPhone number OR email required."), dismissButton: .default(Text("OK")))
 }

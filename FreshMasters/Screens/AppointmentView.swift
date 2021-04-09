@@ -14,6 +14,8 @@ struct AppointmentView: View {
     @State var alertItem: AlertItem?
     @State var isSendingAppointment = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @State var phone = ""
+    @State var email = ""
     
     var body: some View {
         ZStack{
@@ -27,9 +29,9 @@ struct AppointmentView: View {
                     Section(header: Text("Contact Info")){
                         TextField("First Name", text: $order.customer.firstName)
                         TextField("Last Name", text: $order.customer.lastName)
-                        TextField("Phone", text: $order.customer.phone)
+                        TextField("Phone", text: $phone)
                             .keyboardType(.phonePad)
-                        TextField("Email", text: $order.customer.email)
+                        TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
@@ -40,8 +42,11 @@ struct AppointmentView: View {
                     }
                     Section(header: Text("Preferred Contact Method(s)")){
                         Toggle("Email", isOn: $order.customer.contactByEmail)
+                            .disabled(email.isEmpty)
                         Toggle("Phone", isOn: $order.customer.contactByPhone)
+                            .disabled(phone.isEmpty)
                         Toggle("Text", isOn: $order.customer.contactByText)
+                            .disabled(phone.isEmpty)
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
                     
@@ -49,22 +54,28 @@ struct AppointmentView: View {
                 .background(Color.background)
                 
                 Button{
-                    isSendingAppointment = true
-                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                    impactMed.impactOccurred()
-                    sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
-                        switch result {
-                        case .success(true):
-                            showingConfirmation.toggle()
-                        case .failure(let error):
-                            switch error {
-                            case .emailFailure:
-                                alertItem = AlertContext.emailFailure
+                    order.customer.phone = phone
+                    order.customer.email = email
+                    if(order.customer.isValidForm()){
+                        isSendingAppointment = true
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
+                        sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+                            switch result {
+                                case .success(true):
+                                    showingConfirmation.toggle()
+                                case .success(false):
+                                    print("unknown error?")
+                                case .failure(let error):
+                                    switch error {
+                                        case .emailFailure:
+                                            alertItem = AlertContext.emailFailure
+                                    }
                             }
-                        case .success(false):
-                            print("unknown error?")
+                            isSendingAppointment = false
                         }
-                        isSendingAppointment = false
+                    }else{
+                        alertItem = AlertContext.invalidAppointmentForm
                     }
                 } label: {
                     HStack{
