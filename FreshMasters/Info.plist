@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>FreshMasters</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +24,10 @@
 	<true/>
 	<key>MAILGUN_API</key>
 	<string>$(MAILGUN_API)</string>
-	<key>MAILGUN_RECEIVER</key>
-	<string>$(MAILGUN_RECEIVER)</string>
 	<key>MAILGUN_ID</key>
 	<string>$(MAILGUN_ID)</string>
+	<key>MAILGUN_RECEIVER</key>
+	<string>$(MAILGUN_RECEIVER)</string>
 	<key>NSRemindersUsageDescription</key>
 	<string></string>
 	<key>UIApplicationSceneManifest</key>
