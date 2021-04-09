@@ -32,6 +32,10 @@ class Address{
             return completed(.failure(.invalidAddress))
         }
         
+        if(self.state.lowercased() == "va" || self.state.lowercased() == "virginia"){
+            return completed(.failure(.virginia))
+        }
+        
         group.enter()
         getCoordinates(address: shopAddress) {  result in
             switch result {

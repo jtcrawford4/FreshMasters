@@ -13,5 +13,6 @@ enum FmError: Error{
     case invalidCityZip
     case invalidCoordinate
     case outsideServiceArea
+    case virginia
     case unknown
 }

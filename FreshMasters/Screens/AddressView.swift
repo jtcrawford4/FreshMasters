@@ -75,6 +75,8 @@ struct AddressView: View {
                                 alertItem = AlertContext.invalidCoordinate
                             case .outsideServiceArea:
                                 alertItem = AlertContext.outsideServiceArea
+                            case .virginia:
+                                alertItem = AlertContext.virginia
                             case .unknown:
                                 alertItem = AlertContext.unknown
                             }
