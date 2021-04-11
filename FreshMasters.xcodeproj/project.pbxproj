@@ -26,6 +26,7 @@
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
 		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
 		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
+		E1B3F52826239B43004E4A56 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3F52726239B43004E4A56 /* FormValidation.swift */; };
 		E1CA542E2617D13900B679C8 /* ReminderUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA542D2617D13900B679C8 /* ReminderUtility.swift */; };
 		E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE396260AA3AF009726C0 /* TruckPrices.swift */; };
 		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
@@ -95,6 +96,7 @@
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
 		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
 		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		E1B3F52726239B43004E4A56 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
 		E1CA542D2617D13900B679C8 /* ReminderUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUtility.swift; sourceTree = "<group>"; };
 		E1CEE396260AA3AF009726C0 /* TruckPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckPrices.swift; sourceTree = "<group>"; };
 		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				E1DC42FA26153BBA00C12550 /* Alert.swift */,
 				E1F0640D26164B2F005446AD /* AddressError.swift */,
 				E1D32DDF261E878100DE3678 /* EmailError.swift */,
+				E1B3F52726239B43004E4A56 /* FormValidation.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */,
 				E1DC42FB26153BBA00C12550 /* Alert.swift in Sources */,
 				E1CA542E2617D13900B679C8 /* ReminderUtility.swift in Sources */,
+				E1B3F52826239B43004E4A56 /* FormValidation.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
 				E1F0640E26164B2F005446AD /* AddressError.swift in Sources */,
 				E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */,

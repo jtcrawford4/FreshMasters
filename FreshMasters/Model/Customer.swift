@@ -18,22 +18,24 @@ final class Customer: ObservableObject{
     @Published var contactByPhone = false
     @Published var contactByText = false
     
-    func isValidForm() -> Bool{
+    func isValidForm() -> FormValidation{
         if(!self.firstName.isEmpty && !self.lastName.isEmpty){
             if(self.email.isEmpty && !self.phone.isEmpty){
-                return true
+                return .valid
             }
-            else if (!self.email.isEmpty && isValidEmail(emailAddress: self.email)){
-                return true
+            else if(!self.email.isEmpty){
+                return isValidEmail(emailAddress: email) ? .valid : .invalidEmail
             }
             else{
-                return false
+                return .invalidPhoneEmail
             }
         }
-        return false
+        else{
+            return .invalidForm
+        }
     }
     
-    private func isValidEmail(emailAddress: String) -> Bool{
+    func isValidEmail(emailAddress: String) -> Bool{
         let emailFormat         = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate      = NSPredicate(format: "SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: emailAddress)

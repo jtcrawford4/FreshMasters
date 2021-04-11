@@ -56,26 +56,32 @@ struct AppointmentView: View {
                 Button{
                     order.customer.phone = phone
                     order.customer.email = email
-                    if(order.customer.isValidForm()){
-                        isSendingAppointment = true
-                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                        impactMed.impactOccurred()
-                        sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
-                            switch result {
-                                case .success(true):
-                                    showingConfirmation.toggle()
-                                case .success(false):
-                                    print("unknown error?")
-                                case .failure(let error):
-                                    switch error {
-                                        case .emailFailure:
-                                            alertItem = AlertContext.emailFailure
-                                    }
+                    let validation = order.customer.isValidForm()
+                    switch validation{
+                        case .valid:
+                            isSendingAppointment = true
+                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            impactMed.impactOccurred()
+                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+                                switch result {
+                                    case .success(true):
+                                        showingConfirmation.toggle()
+                                    case .success(false):
+                                        print("unknown error?")
+                                    case .failure(let error):
+                                        switch error {
+                                            case .emailFailure:
+                                                alertItem = AlertContext.emailFailure
+                                        }
+                                }
+                                isSendingAppointment = false
                             }
-                            isSendingAppointment = false
-                        }
-                    }else{
+                    case .invalidForm:
                         alertItem = AlertContext.invalidAppointmentForm
+                    case .invalidPhoneEmail:
+                        alertItem = AlertContext.invalidPhoneEmail
+                    case .invalidEmail:
+                        alertItem = AlertContext.invalidEmail
                     }
                 } label: {
                     HStack{
