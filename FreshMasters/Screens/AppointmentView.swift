@@ -62,20 +62,25 @@ struct AppointmentView: View {
                             isSendingAppointment = true
                             let impactMed = UIImpactFeedbackGenerator(style: .medium)
                             impactMed.impactOccurred()
-                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
-                                switch result {
-                                    case .success(true):
-                                        showingConfirmation.toggle()
-                                    case .success(false):
-                                        print("unknown error?")
-                                    case .failure(let error):
-                                        switch error {
-                                            case .emailFailure:
-                                                alertItem = AlertContext.emailFailure
-                                        }
-                                }
-                                isSendingAppointment = false
-                            }
+//                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+//                                switch result {
+//                                    case .success(true):
+//                                        showingConfirmation.toggle()
+//                                    case .success(false):
+//                                        print("unknown error?")
+//                                    case .failure(let error):
+//                                        switch error {
+//                                            case .emailFailure:
+//                                                alertItem = AlertContext.emailFailure
+//                                        }
+//                                }
+//                                isSendingAppointment = false
+//                            }
+                            //remove
+                            showingConfirmation.toggle()
+                            isSendingAppointment = false
+                            
+                            
                     case .invalidForm:
                         alertItem = AlertContext.invalidAppointmentForm
                     case .invalidPhoneEmail:
