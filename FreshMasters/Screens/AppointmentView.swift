@@ -16,7 +16,7 @@ struct AppointmentView: View {
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     @State var phone = ""
     @State var email = ""
-    
+        
     var body: some View {
         ZStack{
             
@@ -50,64 +50,60 @@ struct AppointmentView: View {
                     }
                     .toggleStyle(SwitchToggleStyle(tint: .brandPrimary))
                     
-                }
-                .background(Color.background)
-                
-                Button{
-                    order.customer.phone = phone
-                    order.customer.email = email
-                    let validation = order.customer.isValidForm()
-                    switch validation{
-                        case .valid:
-                            isSendingAppointment = true
-                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                            impactMed.impactOccurred()
-                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
-                                switch result {
-                                    case .success(true):
-                                        showingConfirmation.toggle()
-                                    case .success(false):
-                                        print("unknown error?")
-                                    case .failure(let error):
-                                        switch error {
-                                            case .emailFailure:
-                                                alertItem = AlertContext.emailFailure
+                    Section(){
+                        Button(action: {
+                            order.customer.phone = phone
+                            order.customer.email = email
+                            let validation = order.customer.isValidForm()
+                            switch validation{
+                                case .valid:
+                                    isSendingAppointment = true
+                                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
+                                    sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+                                        switch result {
+                                            case .success(true):
+                                                showingConfirmation.toggle()
+                                            case .success(false):
+                                                print("unknown error?")
+                                            case .failure(let error):
+                                                switch error {
+                                                    case .emailFailure:
+                                                        alertItem = AlertContext.emailFailure
+                                                }
                                         }
-                                }
-                                isSendingAppointment = false
+                                        isSendingAppointment = false
+                                    }
+                                case .invalidForm:
+                                    alertItem = AlertContext.invalidAppointmentForm
+                                case .missingPhoneEmail:
+                                    alertItem = AlertContext.missingPhoneEmail
+                                case .invalidEmail:
+                                    alertItem = AlertContext.invalidEmail
+                                case .invalidPhone:
+                                    alertItem = AlertContext.invalidPhone
                             }
-                        case .invalidForm:
-                            alertItem = AlertContext.invalidAppointmentForm
-                        case .missingPhoneEmail:
-                            alertItem = AlertContext.missingPhoneEmail
-                        case .invalidEmail:
-                            alertItem = AlertContext.invalidEmail
-                        case .invalidPhone:
-                            alertItem = AlertContext.invalidPhone
+                        }, label: {
+                            HStack{
+                                Text("Submit")
+                                    .font(.body)
+                                    .fontWeight(.semibold)
+                            }
+                        })
+                        .buttonStyle(PlainButtonStyle())
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .sheet(isPresented: $showingConfirmation) {
+                            AppointmentConfirmationView(showingModal: $showingConfirmation)
+                        }
+                        .alert(item: $alertItem){ alertItem in
+                            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+                        }
                     }
-                } label: {
-                    HStack{
-                        Text("Submit")
-                            .font(.body)
-                            .fontWeight(.semibold)
-                        Image(systemName: "paperplane.fill")
-                            .resizable()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(.brandPrimary)
-                            .shadow(color: .backgroundHighlight, radius: 2, x: -3, y: -3)
-                            .shadow(color: .backgroundShadow, radius: 2, x: 3, y: 3)
-                    }
+                    .listRowBackground(Color.blue)
                     
                 }
-                .frame(width: 200, height: 50)
-                .buttonStyle(SquareButtonStyle())
-                .padding(40)
-                .sheet(isPresented: $showingConfirmation) {
-                    AppointmentConfirmationView(showingModal: $showingConfirmation)
-                }
-                .alert(item: $alertItem){ alertItem in
-                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
-                }
+                .background(Color.background)
                 
             }
             .navigationTitle("Appointment")
