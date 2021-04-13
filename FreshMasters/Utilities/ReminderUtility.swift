@@ -50,7 +50,7 @@ func checkReminderAuthorizationStatus() -> Bool {
 }
 
 struct ReminderAlerts{
-    static let reminderNotAuthorized = AlertItem(title: Text("Permissions Required"), message: Text("Update settings to allow FreshMasters to create appointment reminders."), dismissButton: .default(Text("OK")))
+    static let reminderNotAuthorized = AlertItem(title: Text("Permissions Required"), message: Text("Update settings to allow FreshMasters to create appointment reminders. \n\nChanging settings will restart app."), dismissButton: .default(Text("OK")))
     
     static let reminderSet = AlertItem(title: Text("Reminder Set"), message: Text("Alarm set for 8 am the morning of appointment."), dismissButton: .default(Text("OK")))
 }

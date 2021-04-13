@@ -62,31 +62,26 @@ struct AppointmentView: View {
                             isSendingAppointment = true
                             let impactMed = UIImpactFeedbackGenerator(style: .medium)
                             impactMed.impactOccurred()
-//                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
-//                                switch result {
-//                                    case .success(true):
-//                                        showingConfirmation.toggle()
-//                                    case .success(false):
-//                                        print("unknown error?")
-//                                    case .failure(let error):
-//                                        switch error {
-//                                            case .emailFailure:
-//                                                alertItem = AlertContext.emailFailure
-//                                        }
-//                                }
-//                                isSendingAppointment = false
-//                            }
-                            //remove
-                            showingConfirmation.toggle()
-                            isSendingAppointment = false
-                            
-                            
-                    case .invalidForm:
-                        alertItem = AlertContext.invalidAppointmentForm
-                    case .invalidPhoneEmail:
-                        alertItem = AlertContext.invalidPhoneEmail
-                    case .invalidEmail:
-                        alertItem = AlertContext.invalidEmail
+                            sendEmail(customer: order.customer, vehicle: order.vehicle){ result in
+                                switch result {
+                                    case .success(true):
+                                        showingConfirmation.toggle()
+                                    case .success(false):
+                                        print("unknown error?")
+                                    case .failure(let error):
+                                        switch error {
+                                            case .emailFailure:
+                                                alertItem = AlertContext.emailFailure
+                                        }
+                                }
+                                isSendingAppointment = false
+                            }
+                        case .invalidForm:
+                            alertItem = AlertContext.invalidAppointmentForm
+                        case .invalidPhoneEmail:
+                            alertItem = AlertContext.invalidPhoneEmail
+                        case .invalidEmail:
+                            alertItem = AlertContext.invalidEmail
                     }
                 } label: {
                     HStack{
