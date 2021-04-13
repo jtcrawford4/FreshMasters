@@ -21,13 +21,18 @@ final class Customer: ObservableObject{
     func isValidForm() -> FormValidation{
         if(!self.firstName.isEmpty && !self.lastName.isEmpty){
             if(self.email.isEmpty && !self.phone.isEmpty){
-                return .valid
+                if(isValidPhone(phoneNum: self.phone)){
+                    return .valid
+                }
+                else{
+                    return .invalidPhone
+                }
             }
             else if(!self.email.isEmpty){
                 return isValidEmail(emailAddress: email) ? .valid : .invalidEmail
             }
             else{
-                return .invalidPhoneEmail
+                return .missingPhoneEmail
             }
         }
         else{
@@ -39,6 +44,13 @@ final class Customer: ObservableObject{
         let emailFormat         = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate      = NSPredicate(format: "SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: emailAddress)
+    }
+    
+    func isValidPhone(phoneNum: String) -> Bool {
+
+        let phoneRegEx = "^(\\d{7}|\\d{10})$"
+        let phoneNumber = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
+        return phoneNumber.evaluate(with: phoneNum)
     }
     
 }

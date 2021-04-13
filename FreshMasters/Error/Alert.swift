@@ -33,7 +33,9 @@ struct AlertContext{
     
     static let invalidAppointmentForm = AlertItem(title: Text("Appointment Error"), message: Text("First and last name required."), dismissButton: .default(Text("OK")))
     
-    static let invalidPhoneEmail = AlertItem(title: Text("Appointment Error"), message: Text("Phone number or email required."), dismissButton: .default(Text("OK")))
+    static let missingPhoneEmail = AlertItem(title: Text("Appointment Error"), message: Text("Phone number or email required."), dismissButton: .default(Text("OK")))
     
     static let invalidEmail = AlertItem(title: Text("Appointment Error"), message: Text("Invalid email format."), dismissButton: .default(Text("OK")))
+    
+    static let invalidPhone = AlertItem(title: Text("Appointment Error"), message: Text("Invalid phone number."), dismissButton: .default(Text("OK")))
 }

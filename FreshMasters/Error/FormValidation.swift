@@ -11,5 +11,6 @@ enum FormValidation: Error{
     case valid
     case invalidForm
     case invalidEmail
-    case invalidPhoneEmail
+    case invalidPhone
+    case missingPhoneEmail
 }

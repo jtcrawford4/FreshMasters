@@ -78,10 +78,12 @@ struct AppointmentView: View {
                             }
                         case .invalidForm:
                             alertItem = AlertContext.invalidAppointmentForm
-                        case .invalidPhoneEmail:
-                            alertItem = AlertContext.invalidPhoneEmail
+                        case .missingPhoneEmail:
+                            alertItem = AlertContext.missingPhoneEmail
                         case .invalidEmail:
                             alertItem = AlertContext.invalidEmail
+                        case .invalidPhone:
+                            alertItem = AlertContext.invalidPhone
                     }
                 } label: {
                     HStack{
