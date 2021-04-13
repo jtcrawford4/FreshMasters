@@ -47,10 +47,10 @@ final class Customer: ObservableObject{
     }
     
     func isValidPhone(phoneNum: String) -> Bool {
-
         let phoneRegEx = "^(\\d{7}|\\d{10})$"
+        let cleanPhone = phoneNum.filter("0123456789".contains)
         let phoneNumber = NSPredicate(format:"SELF MATCHES %@", phoneRegEx)
-        return phoneNumber.evaluate(with: phoneNum)
+        return phoneNumber.evaluate(with: cleanPhone)
     }
     
 }
