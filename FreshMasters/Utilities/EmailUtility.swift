@@ -77,6 +77,7 @@ private func getCustomerText(customer: Customer) -> String {
 private func getVehicleText(vehicle: Vehicle) -> String{
     return """
         Vehicle: \(vehicle.getYearMakeModel())
+        Vehicle Tyep: \(vehicle.vehicleType)
         Service Type: \(vehicle.serviceType)
         Price: $\(vehicle.getTotalPrice())
         Hours: \(vehicle.hours.getTotalHoursLow()) - \(vehicle.hours.getTotalHoursHigh())
