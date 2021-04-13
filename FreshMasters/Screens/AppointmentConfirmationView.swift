@@ -81,13 +81,17 @@ struct AppointmentConfirmationView: View {
                 
                 Button(action: {
                     self.showingModal = false
+                    if let window = UIApplication.shared.windows.first {
+                        window.rootViewController = UIHostingController(rootView: MainView().environmentObject(Order()))
+                        window.makeKeyAndVisible()
+                    }
                 }, label: {
-                    Text("Close")
+                    Text("Done")
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                 })
                 .frame(width: 200, height: 50)
-                .background(Color.red)
+                .background(Color.blue)
                 .cornerRadius(8)
                 
             }
