@@ -28,16 +28,17 @@ struct AppointmentCalendar: View {
         VStack{
             ZStack{
                 RoundedRectangle(cornerRadius: 4)
-                    .frame(width: 200, height: 200)
+                    .frame(width: 135, height: 90)
                     .foregroundColor(.white)
                     .shadow(radius: 10)
+                    .offset(y: -10)
                 
                 ZStack{
                     RoundedRectangle(cornerRadius: 2)
                         .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.pink]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                        .frame(width: 200, height: 60)
+                        .frame(width: 135, height: 40)
                         .offset(y: -70)
-                    Text(appointmentMonth)
+                    Text("\(appointmentMonth)")
                         .fontWeight(.semibold)
                         .offset(y: -70)
                         .foregroundColor(.white)
@@ -45,13 +46,14 @@ struct AppointmentCalendar: View {
                     Text("\(appointmentDate)")
                         .fontWeight(.bold)
                         .foregroundColor(.black)
-                        .font(.system(size: 60))
+                        .font(.system(size: 45))
+                        .offset(y: -20)
                 }
                 
                 Text(appointmentDay)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
-                    .offset(y: 50)
+                    .offset(y: 15)
             }
         }
     }

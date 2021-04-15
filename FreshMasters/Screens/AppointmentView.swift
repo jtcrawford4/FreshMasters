@@ -93,9 +93,6 @@ struct AppointmentView: View {
                         .buttonStyle(PlainButtonStyle())
                         .foregroundColor(.white)
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-                        .sheet(isPresented: $showingConfirmation) {
-                            AppointmentConfirmationView(showingModal: $showingConfirmation)
-                        }
                         .alert(item: $alertItem){ alertItem in
                             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
                         }
@@ -112,6 +109,11 @@ struct AppointmentView: View {
             
             if(isSendingAppointment){
                 ActivityIndicator(shouldAnimate: $isSendingAppointment)
+            }
+            if(showingConfirmation){
+                AppointmentConfirmationView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.6)))
+                    .zIndex(1)
             }
         }
     }
