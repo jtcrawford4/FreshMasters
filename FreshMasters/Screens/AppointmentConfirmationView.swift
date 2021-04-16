@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct AppointmentConfirmationView: View {
     
     @EnvironmentObject var order: Order
     @State var alertItem: AlertItem?
+    @State var safariModalPresented = false
     
     var body: some View {
-        
+        var safariURL = ""
         ZStack{
 
             Image("backgroundAppointmentImage")
@@ -40,30 +42,39 @@ struct AppointmentConfirmationView: View {
                             .foregroundColor(.white)
                             .padding(.bottom, 80)
                        
-                        
                         AppointmentCalendar(date: order.customer.appointmentDate)
                             .padding(.bottom, 20)
                         
-                        Text("We value your trust in us")
-                            .foregroundColor(.white)
-                            .font(.title3)
-                            .fontWeight(.semibold)
-                            .padding(.bottom, 20)
-                            .multilineTextAlignment(.center)
-                        
-                        Text("Please reach out if any questions or comments arise before your appointment.")
+                        Text("Please reach out if any questions or comments arise regarding your appointment.")
                             .foregroundColor(.white)
                             .padding(.bottom, 20)
                             .multilineTextAlignment(.center)
                         
                         HStack{
-                            Link("Contact", destination: URL(string: "http://freshmastersdetail.com/contact/")!)
-                                .foregroundColor(.white)
+                            
+                            Button(action: {
+                                safariURL = "http://freshmastersdetail.com/contact/"
+                                safariModalPresented.toggle()
+                            }, label: {
+                                Text("Contact")
+                                    .foregroundColor(.white)
+                            })
+                            .frame(width: 100, height: 40)
+                            .background(Color.black)
+                            .cornerRadius(4.0)
                             
                             Spacer()
                             
-                            Link("Gallery", destination: URL(string: "http://freshmastersdetail.com/gallery/")!)
-                                .foregroundColor(.white)
+                            Button(action: {
+                                safariURL = "http://freshmastersdetail.com/gallery/"
+                                safariModalPresented.toggle()
+                            }, label: {
+                                Text("Gallery")
+                                    .foregroundColor(.white)
+                            })
+                            .frame(width: 100, height: 40)
+                            .background(Color.black)
+                            .cornerRadius(4.0)
                         }
                         .frame(width: 200, height: 40)
                         .padding(.bottom, 20)
@@ -140,7 +151,22 @@ struct AppointmentConfirmationView: View {
                 
             }
             .navigationBarHidden(true)
+            .sheet(isPresented: $safariModalPresented) {
+                SafariView(url:URL(string: safariURL)!)
+            }
         }
+    }
+}
+
+struct SafariView: UIViewControllerRepresentable {
+    let url: URL
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
+        return SFSafariViewController(url: url)
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
+
     }
 }
 
