@@ -47,7 +47,7 @@ class Prices{
             return false
         }
         let currentYear = Calendar.current.component(.year, from: Date())
-        let vehicleYear = Int(year)!
+        let vehicleYear = Int(year) ?? 0
         return (currentYear - vehicleYear > 6)
     }
     
