@@ -23,7 +23,7 @@ struct AlertContext{
     
     static let outsideServiceArea = AlertItem(title: Text("Outside of Service Area"), message: Text("The location provided is outside of the available service area. Please contact FreshMasters for special accommodations."), dismissButton: .default(Text("OK")))
     
-    static let virginia = AlertItem(title: Text("Nice try Harrison"), message: Text("You were so desperate to find a bug that you failed to remind yourself that I am smarter and more powerful than you will ever be."), dismissButton: .default(Text("OK")))
+    static let pennsylvania = AlertItem(title: Text("Nice try Harrison"), message: Text("You really tried this one again huh?"), dismissButton: .default(Text("OK")))
     
     static let invalidCoordinate = AlertItem(title: Text("Invalid Address"), message: Text("Address provided could not be found"), dismissButton: .default(Text("OK")))
     

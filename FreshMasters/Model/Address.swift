@@ -32,8 +32,8 @@ class Address{
             return completed(.failure(.invalidAddress))
         }
         
-        if(self.state.lowercased() == "va" || self.state.lowercased() == "virginia"){
-            return completed(.failure(.virginia))
+        if(self.state.lowercased() == "pa" || self.state.lowercased() == "pennsylvania"){
+            return completed(.failure(.pennsylvania))
         }
         
         group.enter()
