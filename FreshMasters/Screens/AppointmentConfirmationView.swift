@@ -157,22 +157,3 @@ struct AppointmentConfirmationView: View {
         }
     }
 }
-
-struct SafariView: UIViewControllerRepresentable {
-    let url: URL
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
-        return SFSafariViewController(url: url)
-    }
-    
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
-
-    }
-}
-
-struct AppointmentConfirmationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppointmentConfirmationView()
-            .environmentObject(Order())
-    }
-}

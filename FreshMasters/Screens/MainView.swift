@@ -17,8 +17,10 @@ struct MainView: View {
     
     @State private var isToggled = false
     @State private var isPressed = false
+    @State var safariModalPresented = false
     
     var body: some View {
+        let safariURL = "http://freshmastersdetail.com/"
         NavigationView{
             ZStack{
                 
@@ -43,13 +45,23 @@ struct MainView: View {
                         .font(.footnote)
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
-                        .padding(.bottom)
+                        .padding(.bottom, 5)
+                    
+                    Button(action: {
+                        safariModalPresented.toggle()
+                    }, label: {
+                        Text("freshmastersdetail.com")
+                            .font(.caption)
+                    })
                      
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Started", isEnabled: true, content: {VehicleTypeView()})
                         .frame(width: 200, height: 50)
                     .padding(40)
                     
                 }
+            }
+            .sheet(isPresented: $safariModalPresented) {
+                SafariView(url:URL(string: safariURL)!)
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -58,6 +70,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
 }

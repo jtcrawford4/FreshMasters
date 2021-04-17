@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E139A1CA260BD6C30095A2BD /* VehicleTypeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */; };
+		E181DAA6262A88FC00CC5236 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181DAA5262A88FC00CC5236 /* SafariView.swift */; };
 		E196E0C126094AD60078E9EA /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C026094AD60078E9EA /* Vehicle.swift */; };
 		E196E0C6260977230078E9EA /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C5260977230078E9EA /* Prices.swift */; };
 		E196E0CB260985F00078E9EA /* CarPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0CA260985F00078E9EA /* CarPrices.swift */; };
@@ -72,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTypeDetailView.swift; sourceTree = "<group>"; };
+		E181DAA5262A88FC00CC5236 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		E196E0C026094AD60078E9EA /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		E196E0C5260977230078E9EA /* Prices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
 		E196E0CA260985F00078E9EA /* CarPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPrices.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				E1CA542D2617D13900B679C8 /* ReminderUtility.swift */,
 				E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */,
 				E1D32DE4261E9C1E00DE3678 /* LoadingView.swift */,
+				E181DAA5262A88FC00CC5236 /* SafariView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */,
 				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
+				E181DAA6262A88FC00CC5236 /* SafariView.swift in Sources */,
 				E1ADA70C26041167008C0747 /* NavLinkButton.swift in Sources */,
 				E1E96D3B26059EF100903599 /* QuoteCell.swift in Sources */,
 				E1F0642026168513005446AD /* AppointmentCalendar.swift in Sources */,
