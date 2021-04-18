@@ -73,7 +73,7 @@ struct ServiceTypeView: View {
             .sheet(isPresented: $infoModalShowing) {
                 ServiceInfoSheet(modalShow: $infoModalShowing)
             }
-//            .offset(y: -60)
+
         }
     }
 }
@@ -83,51 +83,32 @@ struct ServiceInfoSheet: View{
     @Binding var modalShow: Bool
     @State private var selectedTag = 0
     
-    init(modalShow: Binding<Bool>) {
-//    init(){
-        self._modalShow = modalShow
-        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [
-                .font: UIFont.boldSystemFont(ofSize: 24),
-                .foregroundColor: UIColor.white
-        ], for: .selected)
-
-        UISegmentedControl.appearance().setTitleTextAttributes(
-            [
-                .font: UIFont.boldSystemFont(ofSize: 12),
-                .foregroundColor: UIColor.black
-        ], for: .normal)
-    }
-    
     var body: some View{
-//        let interiorServices = ["Carpets Vacuumed",
-//                                "Floor Mats Cleaned",
-//                                "Trunk Vacuumed",
-//                                "Seats Cleaned/Vacuumed",
-//                                "Carpets Steam Cleaned",
-//                                "Seats Steam Cleaned",
-//                                "Glass Cleaned",
-//                                "Dash Cleaned/Dressed",
-//                                "Door Panels Cleaned/Dressed",
-//                                "Cup Holders/Console Cleaned",
-//                                "Seat Base Cleaned",
-//                                "Vents Cleaned",
-//                                "Leather Cleaned/Conditioned",
-//                                "Mild to Moderate Stain Removal"]
-//
-//        let exteriorServices = ["Hand Wash",
-//                                "Glass Cleaned",
-//                                "Wheels Cleaned",
-//                                "Door Jambs Cleaned",
-//                                "Tires Cleaned/Dressed",
-//                                "Wheel Wells Dressed",
-//                                "Chrome/Stainless Polished",
-//                                "Clay Painted Surfaces",
-//                                "High Quality Wax Application",
-//                                "Rain-X Application"]
-        let interiorServices = ["test1","test1223","test1","test1223","test1","test1223","test1","test1223"]
-        let exteriorServices = ["test2","test2"]
+        let interiorServices = ["Carpets Vacuumed",
+                                "Floor Mats Cleaned",
+                                "Trunk Vacuumed",
+                                "Seats Cleaned/Vacuumed",
+                                "Carpets Steam Cleaned",
+                                "Seats Steam Cleaned",
+                                "Glass Cleaned",
+                                "Dash Cleaned/Dressed",
+                                "Door Panels Cleaned/Dressed",
+                                "Cup Holders/Console Cleaned",
+                                "Seat Base Cleaned",
+                                "Vents Cleaned",
+                                "Leather Cleaned/Conditioned",
+                                "Mild to Moderate Stain Removal"]
+
+        let exteriorServices = ["Hand Wash",
+                                "Glass Cleaned",
+                                "Wheels Cleaned",
+                                "Door Jambs Cleaned",
+                                "Tires Cleaned/Dressed",
+                                "Wheel Wells Dressed",
+                                "Chrome/Stainless Polished",
+                                "Clay Painted Surfaces",
+                                "High Quality Wax Application",
+                                "Rain-X Application"]
         
         ZStack{
             
@@ -136,6 +117,14 @@ struct ServiceInfoSheet: View{
                 .ignoresSafeArea()
         
             VStack{
+                Image("logo")
+                    .resizable()
+                    .frame(width: 60, height: 40)
+                
+                Text("Service Detail")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
                 Picker("", selection: $selectedTag) {
                     Text("Interior").tag(0)
                     Text("Exterior").tag(1)
@@ -158,10 +147,10 @@ struct ServiceInfoSheet: View{
                 }, label: {
                     Text("Close")
                 })
-                .frame(width: 280, height: 40)
-                .cornerRadius(8.0)
+                .frame(width: 140, height: 40)
                 .foregroundColor(.white)
                 .background(Color.blue)
+                .cornerRadius(4.0)
             }
             
         }
