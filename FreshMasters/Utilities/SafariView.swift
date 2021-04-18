@@ -19,10 +19,3 @@ struct SafariView: UIViewControllerRepresentable {
 
     }
 }
-
-struct AppointmentConfirmationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppointmentConfirmationView()
-            .environmentObject(Order())
-    }
-}

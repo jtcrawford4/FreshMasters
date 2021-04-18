@@ -33,8 +33,9 @@ struct AppointmentConfirmationView: View {
                 ZStack{
                     
                     Rectangle()
-                        .edgesIgnoringSafeArea(.all)
+                        .fill(Color.black)
                         .opacity(0.4)
+                        .edgesIgnoringSafeArea(.all)
                     
                     VStack{
                         Text("Appointment Confirmed")
@@ -155,5 +156,12 @@ struct AppointmentConfirmationView: View {
                 SafariView(url:URL(string: safariURL)!)
             }
         }
+    }
+}
+
+struct AppointmentConfirmationView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppointmentConfirmationView()
+            .environmentObject(Order())
     }
 }
