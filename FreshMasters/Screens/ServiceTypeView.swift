@@ -12,6 +12,7 @@ struct ServiceTypeView: View {
     @EnvironmentObject var order: Order
     @State private var interiorIsToggled = false
     @State private var exteriorIsToggled = false
+    @State private var infoModalShowing = false
     
     var body: some View {
         ZStack{
@@ -33,34 +34,136 @@ struct ServiceTypeView: View {
                         .buttonStyle(SquareButtonStyle())
 
                 }
-                .padding()
+                .padding(.bottom, 40)
                 
-                NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", isEnabled: (exteriorIsToggled || interiorIsToggled), content: {AdditionalServiceView()})
-                    .frame(width: 160, height: 80)
-                    .padding(.top, 40)
-                    .simultaneousGesture(TapGesture().onEnded{
-                        var temp = ""
-                        if (exteriorIsToggled && interiorIsToggled) {
-                            temp = Vehicle.serviceTypes.full.rawValue
-                        }
-                        else if (exteriorIsToggled){
-                            temp = Vehicle.serviceTypes.exterior.rawValue
-                        }
-                        else if (interiorIsToggled){
-                            temp = Vehicle.serviceTypes.interior.rawValue
-                        }
-                        order.vehicle.serviceType = temp
-                        let vtype = order.vehicle.vehicleType
-                        let stype = order.vehicle.serviceType
-                        order.vehicle.hours.setBaseHours(
-                            vehicleType: Vehicle.vehicleTypes(rawValue: vtype)!,
-                            serviceType: Vehicle.serviceTypes(rawValue: stype)!)
+                VStack{
+                    Button(action: {
+                        infoModalShowing.toggle()
+                    }, label: {
+                        Text("What's included?")
                     })
-                    .disabled(!(exteriorIsToggled || interiorIsToggled))
                     
+                    NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Next", isEnabled: (exteriorIsToggled || interiorIsToggled), content: {AdditionalServiceView()})
+                        .frame(width: 160, height: 80)
+                        .padding(.top, 40)
+                        .simultaneousGesture(TapGesture().onEnded{
+                            var temp = ""
+                            if (exteriorIsToggled && interiorIsToggled) {
+                                temp = Vehicle.serviceTypes.full.rawValue
+                            }
+                            else if (exteriorIsToggled){
+                                temp = Vehicle.serviceTypes.exterior.rawValue
+                            }
+                            else if (interiorIsToggled){
+                                temp = Vehicle.serviceTypes.interior.rawValue
+                            }
+                            order.vehicle.serviceType = temp
+                            let vtype = order.vehicle.vehicleType
+                            let stype = order.vehicle.serviceType
+                            order.vehicle.hours.setBaseHours(
+                                vehicleType: Vehicle.vehicleTypes(rawValue: vtype)!,
+                                serviceType: Vehicle.serviceTypes(rawValue: stype)!)
+                        })
+                        .disabled(!(exteriorIsToggled || interiorIsToggled))
+                }
+        
                 Spacer()
+                
             }
-            .offset(y: -60)
+            .sheet(isPresented: $infoModalShowing) {
+                ServiceInfoSheet(modalShow: $infoModalShowing)
+            }
+//            .offset(y: -60)
+        }
+    }
+}
+
+struct ServiceInfoSheet: View{
+    
+    @Binding var modalShow: Bool
+    @State private var selectedTag = 0
+    
+    init(modalShow: Binding<Bool>) {
+//    init(){
+        self._modalShow = modalShow
+        UISegmentedControl.appearance().selectedSegmentTintColor = .blue
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [
+                .font: UIFont.boldSystemFont(ofSize: 24),
+                .foregroundColor: UIColor.white
+        ], for: .selected)
+
+        UISegmentedControl.appearance().setTitleTextAttributes(
+            [
+                .font: UIFont.boldSystemFont(ofSize: 12),
+                .foregroundColor: UIColor.black
+        ], for: .normal)
+    }
+    
+    var body: some View{
+//        let interiorServices = ["Carpets Vacuumed",
+//                                "Floor Mats Cleaned",
+//                                "Trunk Vacuumed",
+//                                "Seats Cleaned/Vacuumed",
+//                                "Carpets Steam Cleaned",
+//                                "Seats Steam Cleaned",
+//                                "Glass Cleaned",
+//                                "Dash Cleaned/Dressed",
+//                                "Door Panels Cleaned/Dressed",
+//                                "Cup Holders/Console Cleaned",
+//                                "Seat Base Cleaned",
+//                                "Vents Cleaned",
+//                                "Leather Cleaned/Conditioned",
+//                                "Mild to Moderate Stain Removal"]
+//
+//        let exteriorServices = ["Hand Wash",
+//                                "Glass Cleaned",
+//                                "Wheels Cleaned",
+//                                "Door Jambs Cleaned",
+//                                "Tires Cleaned/Dressed",
+//                                "Wheel Wells Dressed",
+//                                "Chrome/Stainless Polished",
+//                                "Clay Painted Surfaces",
+//                                "High Quality Wax Application",
+//                                "Rain-X Application"]
+        let interiorServices = ["test1","test1223","test1","test1223","test1","test1223","test1","test1223"]
+        let exteriorServices = ["test2","test2"]
+        
+        ZStack{
+            
+            Rectangle()
+                .fill(Color.background)
+                .ignoresSafeArea()
+        
+            VStack{
+                Picker("", selection: $selectedTag) {
+                    Text("Interior").tag(0)
+                    Text("Exterior").tag(1)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .foregroundColor(.blue)
+                .padding(25)
+    
+                ScrollView (.vertical, showsIndicators: true) {
+                    let serviceList = (selectedTag == 0 ? interiorServices : exteriorServices)
+                    ForEach(serviceList, id: \.self){ service in
+                        Text("\(service)\n")
+                            .frame(maxWidth: .infinity)
+                    }
+                }
+                .frame(height: 400)
+                
+                Button(action: {
+                    modalShow.toggle()
+                }, label: {
+                    Text("Close")
+                })
+                .frame(width: 280, height: 40)
+                .cornerRadius(8.0)
+                .foregroundColor(.white)
+                .background(Color.blue)
+            }
+            
         }
     }
 }

@@ -26,7 +26,6 @@ struct MainView: View {
                 
                 Rectangle()
                     .fill(Color.background)
-//                    .fill(LinearGradient(gradient: Gradient(colors: [Color.background, Color.backgroundShadow]), startPoint: .topLeading, endPoint: .bottomTrailing))
                     .ignoresSafeArea()
                 
                 VStack{
@@ -35,11 +34,17 @@ struct MainView: View {
                         .mask(Image("logo")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width:150, height: 175)
+                                .frame(width:150, height: 125)
                         )
-                        .frame(width:150, height: 175)
+                        .frame(width:150, height: 125)
                         .shadow(color: .backgroundHighlight, radius: 2, x: -3, y: -3)
                         .shadow(color: .backgroundShadow, radius: 2, x: 3, y: 3)
+                        .padding(.bottom, 5)
+                    
+                    Text("FRESHMASTERS")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .italic()
 
                     Text("AUTOMOTIVE DETAILING")
                         .font(.footnote)
