@@ -85,23 +85,24 @@ struct AppointmentConfirmationView: View {
                             let impactMed = UIImpactFeedbackGenerator(style: .medium)
                             impactMed.impactOccurred()
                             
-                            if(checkReminderAuthorizationStatus()){
+                            if(checkCalendarAuthorizationStatus()){
                                 //MARK: - todo check if successful
-                                addReminder(title: "FreshMasters detailing appointment today", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
+                                addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
                                             date: order.customer.appointmentDate)
                                 
-                                alertItem = ReminderAlerts.reminderSet
+                                alertItem = CalendarAlerts.calendarSet
+                               
                             }else{
-                                alertItem = ReminderAlerts.reminderNotAuthorized
+                                alertItem = CalendarAlerts.calendarNotAuthorized
                             }
                             
                         }, label: {
                             VStack{
                                 HStack{
-                                    Image(systemName: "deskclock")
+                                    Image(systemName: "calendar.badge.plus")
                                         .resizable()
                                         .frame(width: 15, height: 15)
-                                    Text("Set Reminder")
+                                    Text("Add to Calendar")
                                 }
                                 
                             }
@@ -112,7 +113,7 @@ struct AppointmentConfirmationView: View {
                         .cornerRadius(8)
                         .alert(item: $alertItem){ alertItem in
                             switch alertItem.title{
-                                case Text("Reminder Set"):
+                                case Text("Calendar Set"), Text("Calendar Error") :
                                     return Alert(title: alertItem.title, message: alertItem.message,
                                              dismissButton: alertItem.dismissButton)
                                 case Text("Permissions Required"):

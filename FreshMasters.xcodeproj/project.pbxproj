@@ -29,6 +29,7 @@
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
 		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
 		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
+		E1B36C94262F4CA000E2CDB3 /* CalendarUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B36C93262F4CA000E2CDB3 /* CalendarUtility.swift */; };
 		E1B3F52826239B43004E4A56 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3F52726239B43004E4A56 /* FormValidation.swift */; };
 		E1CA542E2617D13900B679C8 /* ReminderUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CA542D2617D13900B679C8 /* ReminderUtility.swift */; };
 		E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE396260AA3AF009726C0 /* TruckPrices.swift */; };
@@ -102,6 +103,7 @@
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
 		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
 		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
+		E1B36C93262F4CA000E2CDB3 /* CalendarUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUtility.swift; sourceTree = "<group>"; };
 		E1B3F52726239B43004E4A56 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
 		E1CA542D2617D13900B679C8 /* ReminderUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderUtility.swift; sourceTree = "<group>"; };
 		E1CEE396260AA3AF009726C0 /* TruckPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckPrices.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */,
 				E1D32DE4261E9C1E00DE3678 /* LoadingView.swift */,
 				E181DAA5262A88FC00CC5236 /* SafariView.swift */,
+				E1B36C93262F4CA000E2CDB3 /* CalendarUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				E1E36371260ECCE300E89C0D /* Address.swift in Sources */,
 				E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */,
 				E1CEE397260AA3AF009726C0 /* TruckPrices.swift in Sources */,
+				E1B36C94262F4CA000E2CDB3 /* CalendarUtility.swift in Sources */,
 				E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */,
 				E1F0273226082EF30013BBA1 /* Customer.swift in Sources */,
 				E1A954172602AE05005CBE82 /* VehicleTypeView.swift in Sources */,
