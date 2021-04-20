@@ -13,6 +13,7 @@ struct AppointmentConfirmationView: View {
     @EnvironmentObject var order: Order
     @State var alertItem: AlertItem?
     @State var safariModalPresented = false
+    @State var appointmentSaved = false
     
     var body: some View {
         var safariURL = ""
@@ -91,6 +92,7 @@ struct AppointmentConfirmationView: View {
                                             date: order.customer.appointmentDate,
                                             workHours: order.vehicle.hours.getTotalHoursHigh())
                                 
+                                appointmentSaved = true
                                 alertItem = CalendarAlerts.calendarSet
                                
                             }else{
@@ -100,17 +102,17 @@ struct AppointmentConfirmationView: View {
                         }, label: {
                             VStack{
                                 HStack{
-                                    Image(systemName: "calendar.badge.plus")
+                                    Image(systemName: appointmentSaved ? "checkmark.circle" : "calendar.badge.plus")
                                         .resizable()
                                         .frame(width: 15, height: 15)
-                                    Text("Add to Calendar")
+                                    Text(appointmentSaved ? "Added" : "Add to Calendar")
                                 }
-                                
                             }
                             .foregroundColor(.white)
                         })
+                        .disabled(appointmentSaved)
                         .frame(width: 200, height: 50)
-                        .background(Color.green)
+                        .background(appointmentSaved ? Color.gray : Color.green)
                         .cornerRadius(8)
                         .alert(item: $alertItem){ alertItem in
                             switch alertItem.title{
