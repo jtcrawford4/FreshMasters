@@ -32,18 +32,22 @@ struct AddressView: View {
                     TextField("Street Address", text: $street)
                         .onChange(of: street, perform: { value in
                             isValidated = false
+                            self.street = street.limit(characterLimit: 30, string: value)
                         })
                     TextField("City", text: $city)
                         .onChange(of: city, perform: { value in
                             isValidated = false
+                            self.city = city.limit(characterLimit: 30, string: value)
                         })
                     TextField("State", text: $state)
                         .onChange(of: state, perform: { value in
                             isValidated = false
+                            self.state = state.limit(characterLimit: 30, string: value)
                         })
                     TextField("Zip", text: $zip)
                         .onChange(of: zip, perform: { value in
                             isValidated = false
+                            self.zip = zip.limit(characterLimit: 5, string: value)
                         })
                         .keyboardType(.numberPad)
                 }

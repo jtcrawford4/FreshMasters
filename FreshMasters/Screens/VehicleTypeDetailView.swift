@@ -31,20 +31,20 @@ struct VehicleTypeDetailView: View {
                     TextField("Year", text: $year)
                         .onChange(of: year, perform: { value in
                         isValidated = false
-                        self.year = year.StringLimit(characterLimit: 4, string: year)
+                        self.year = year.limit(characterLimit: 4, string: value)
                     })
                     .keyboardType(.numberPad)
 
                     TextField("Make", text: $make)
                         .onChange(of: make, perform: { value in
                         isValidated = false
-                        self.make = make.StringLimit(characterLimit: 20, string: make)
+                        self.make = make.limit(characterLimit: 20, string: value)
                     })
                     
                     TextField("Model", text: $model)
                         .onChange(of: model, perform: { value in
                         isValidated = false
-                        self.model = model.StringLimit(characterLimit: 20, string: model)
+                        self.model = model.limit(characterLimit: 20, string: value)
                     })
 
                 }

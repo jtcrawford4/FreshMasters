@@ -13,7 +13,7 @@ extension String {
      return !(self.isEmpty) && self.allSatisfy { $0.isNumber }
     }
     
-    func StringLimit(characterLimit: Int, string: String) -> String{
+    func limit(characterLimit: Int, string: String) -> String{
         if(string.count > characterLimit){
             return String(string.prefix(characterLimit))
         }
