@@ -67,6 +67,33 @@ final class Vehicle: ObservableObject{
         "\(self.year) \(self.make) \(self.model)"
     }
     
+    func isValidYearMakeModel() -> VehicleValidation{
+        if(!isValidYear(year: self.year)){
+            return .invalidYear
+        }
+        if(self.make.isEmpty){
+            return .invalidMake
+        }
+        if(self.model.isEmpty){
+            return .invalidModel
+        }
+        return .valid
+    }
+    
+    func isValidYear(year: String) -> Bool{
+        if (year.count == 4 && year.isNumeric){
+            let yearInt = Int(year)!
+            let currentYear = Calendar.current.component(.year, from: Date())
+            let maxModelYear = currentYear + 1
+            if (1900 < yearInt && yearInt < maxModelYear){
+                return true
+            }else{
+                return false
+            }
+        }
+        return false
+    }
+    
     enum vehicleTypes: String{
         case car = "Car"
         case truck = "Truck"
@@ -81,4 +108,5 @@ final class Vehicle: ObservableObject{
         case full = "Full Detail"
         case def = ""
     }
+    
 }

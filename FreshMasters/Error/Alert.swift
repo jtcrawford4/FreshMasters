@@ -38,4 +38,10 @@ struct AlertContext{
     static let invalidEmail = AlertItem(title: Text("Appointment Error"), message: Text("Invalid email format."), dismissButton: .default(Text("OK")))
     
     static let invalidPhone = AlertItem(title: Text("Appointment Error"), message: Text("Invalid phone number."), dismissButton: .default(Text("OK")))
+    
+    static let invalidYear = AlertItem(title: Text("Invalid Year"), message: Text("Please enter a valid 4 digit vehicle year."), dismissButton: .default(Text("OK")))
+    
+    static let invalidMake = AlertItem(title: Text("Invalid Make"), message: Text("Make must not be empty."), dismissButton: .default(Text("OK")))
+    
+    static let invalidModel = AlertItem(title: Text("Invalid Model"), message: Text("Model must not be empty."), dismissButton: .default(Text("OK")))
 }

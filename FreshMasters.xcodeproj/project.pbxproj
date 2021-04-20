@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E139A1CA260BD6C30095A2BD /* VehicleTypeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */; };
+		E162FF09262DDC1E0003E070 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162FF08262DDC1E0003E070 /* StringExtension.swift */; };
+		E162FF0E262E1C920003E070 /* VehicleValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E162FF0D262E1C920003E070 /* VehicleValidation.swift */; };
 		E181DAA6262A88FC00CC5236 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E181DAA5262A88FC00CC5236 /* SafariView.swift */; };
 		E196E0C126094AD60078E9EA /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C026094AD60078E9EA /* Vehicle.swift */; };
 		E196E0C6260977230078E9EA /* Prices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E0C5260977230078E9EA /* Prices.swift */; };
@@ -73,6 +75,8 @@
 
 /* Begin PBXFileReference section */
 		E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTypeDetailView.swift; sourceTree = "<group>"; };
+		E162FF08262DDC1E0003E070 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E162FF0D262E1C920003E070 /* VehicleValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleValidation.swift; sourceTree = "<group>"; };
 		E181DAA5262A88FC00CC5236 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		E196E0C026094AD60078E9EA /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		E196E0C5260977230078E9EA /* Prices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prices.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E1ADA712260411FE008C0747 /* ColorExtension.swift */,
+				E162FF08262DDC1E0003E070 /* StringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				E1F0640D26164B2F005446AD /* AddressError.swift */,
 				E1D32DDF261E878100DE3678 /* EmailError.swift */,
 				E1B3F52726239B43004E4A56 /* FormValidation.swift */,
+				E162FF0D262E1C920003E070 /* VehicleValidation.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -466,12 +472,14 @@
 				E1CA542E2617D13900B679C8 /* ReminderUtility.swift in Sources */,
 				E1B3F52826239B43004E4A56 /* FormValidation.swift in Sources */,
 				E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */,
+				E162FF0E262E1C920003E070 /* VehicleValidation.swift in Sources */,
 				E1F0640E26164B2F005446AD /* AddressError.swift in Sources */,
 				E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */,
 				E1E3636C260EBB4A00E89C0D /* AddressView.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
 				E1F83CA2261A96C5004BADCC /* Hours.swift in Sources */,
+				E162FF09262DDC1E0003E070 /* StringExtension.swift in Sources */,
 				E1E36367260EA5E700E89C0D /* TitleText.swift in Sources */,
 				E1D32DE0261E878100DE3678 /* EmailError.swift in Sources */,
 				E1DC42F0261505D400C12550 /* FmError.swift in Sources */,
