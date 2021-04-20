@@ -88,7 +88,8 @@ struct AppointmentConfirmationView: View {
                             if(checkCalendarAuthorizationStatus()){
                                 //MARK: - todo check if successful
                                 addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
-                                            date: order.customer.appointmentDate)
+                                            date: order.customer.appointmentDate,
+                                            workHours: order.vehicle.hours.getTotalHoursHigh())
                                 
                                 alertItem = CalendarAlerts.calendarSet
                                

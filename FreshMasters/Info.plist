@@ -30,8 +30,6 @@
 	<string>$(MAILGUN_RECEIVER)</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>FreshMasters uses calendar information to aid in scheduling appointments and setting reminders</string>
-	<key>NSRemindersUsageDescription</key>
-	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
