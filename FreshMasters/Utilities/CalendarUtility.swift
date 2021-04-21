@@ -8,7 +8,7 @@
 import SwiftUI
 import EventKit
 
-func addCalendarEvent(title: String, note: String, date: Date, workHours: Int){
+func addCalendarEvent(title: String, note: String, date: Date, workHours: Int) -> Bool{
     let eventStore = EKEventStore()
     var hours = workHours
     var appointmentStartDate = Calendar.current.date(bySetting: .hour, value: 8, of: date)
@@ -20,37 +20,39 @@ func addCalendarEvent(title: String, note: String, date: Date, workHours: Int){
     }else{
         appointmentEndDate = Calendar.current.date(byAdding: .hour, value: hours, to: appointmentStartDate!)!
     }
-
-    eventStore.requestAccess(to: .event) { (granted, error) in
-        if (granted) && (error == nil) {
-
-            repeat{
-                let eventStore = EKEventStore()
-                let event = generateEvent(eventStore: eventStore,
-                                          title: title,
-                                          startDate: appointmentStartDate!,
-                                          endDate: appointmentEndDate,
-                                          note: note)
-                
-                do{
-                    try eventStore.save(event, span: .thisEvent)
-                }catch let error as NSError {
-                    print("failed to save event with error : \(error)")
-                }
-                
-                hours = hours - 9
-                if(hours > 0){
-                    appointmentStartDate = Calendar.current.date(byAdding: .day, value: 1, to: appointmentStartDate!)
-                    appointmentEndDate = Calendar.current.date(byAdding: .hour, value: (hours > 9 ? 9 : hours), to: appointmentStartDate!)!
-                }
-            }while hours > 0
+    
+    let authorized: Bool = checkCalendarAuthorizationStatus()
+    
+    if(authorized){
+        repeat{
+            let event = generateEvent(eventStore: eventStore,
+                                      title: title,
+                                      startDate: appointmentStartDate!,
+                                      endDate: appointmentEndDate,
+                                      note: note)
             
-            print("Saved Event")
-        }
-        else{
-            print("failed to save event with error : \(String(describing: error)) or access not granted")
-        }
+            do{
+                try eventStore.save(event, span: .thisEvent)
+            }catch let error as NSError {
+                print("failed to save event with error : \(error)")
+                return false
+            }
+            
+            hours = hours - 9
+            if(hours > 0){
+                appointmentStartDate = Calendar.current.date(byAdding: .day, value: 1, to: appointmentStartDate!)
+                appointmentEndDate = Calendar.current.date(byAdding: .hour, value: (hours > 9 ? 9 : hours), to: appointmentStartDate!)!
+            }
+        }while hours > 0
+        
+        print("Saved Event")
+        return true
+        
+    }else{
+        print("failed auth")
+        return false
     }
+    
 }
 
 private func generateEvent(eventStore: EKEventStore, title: String, startDate: Date, endDate: Date, note: String) -> EKEvent{

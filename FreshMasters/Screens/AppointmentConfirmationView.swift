@@ -88,12 +88,12 @@ struct AppointmentConfirmationView: View {
                             
                             if(checkCalendarAuthorizationStatus()){
                                 //MARK: - todo check if successful
-                                addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
+                                let calendarSet = addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
                                             date: order.customer.appointmentDate,
                                             workHours: order.vehicle.hours.getTotalHoursHigh())
                                 
-                                appointmentSaved = true
-                                alertItem = CalendarAlerts.calendarSet
+                                appointmentSaved = calendarSet
+                                alertItem = (calendarSet ? CalendarAlerts.calendarSet : CalendarAlerts.calendarError)
                                
                             }else{
                                 alertItem = CalendarAlerts.calendarNotAuthorized
