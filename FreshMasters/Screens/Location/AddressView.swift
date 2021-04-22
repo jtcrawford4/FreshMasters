@@ -19,6 +19,10 @@ struct AddressView: View {
     @State var alertOutOfServiceArea = false
     
     var body: some View {
+        
+        let address = order.customer.address
+        let prices = order.vehicle.prices
+        
         ZStack{
             
             Rectangle()
@@ -57,16 +61,16 @@ struct AddressView: View {
                 .disableAutocorrection(true)
                 
                 Button(action: {
-                    order.customer.address.streetAddress = street
-                    order.customer.address.city = city
-                    order.customer.address.state = state
-                    order.customer.address.zip = zip
-                    order.customer.address.getDistanceToCustomer(){ result in
+                    address.streetAddress = street
+                    address.city = city
+                    address.state = state
+                    address.zip = zip
+                    address.getDistanceToCustomer(){ result in
                         switch result {
                         case .success(let miles):
                             isValidated = true
-                            order.vehicle.prices.milesToCustomer = miles
-                            order.vehicle.prices.calculateMileageCost(milesToCustomer: miles)
+                            prices.milesToCustomer = miles
+                            prices.calculateMileageCost(milesToCustomer: miles)
                         case .failure(let error):
                             switch error {
                             case .invalidAddress:

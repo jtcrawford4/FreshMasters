@@ -12,6 +12,9 @@ struct ServiceLocationView: View {
     @EnvironmentObject var order: Order
     
     var body: some View {
+        
+        let vehicle = order.vehicle
+        
         ZStack{
             
             Rectangle()
@@ -25,13 +28,13 @@ struct ServiceLocationView: View {
                     NavLinkButtonVStack(image: Image(systemName: "mappin"), buttonText: "You Come To Us", isEnabled: true, content: {QuoteView()})
                         .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.mobileService = false
+                            vehicle.mobileService = false
                         })
                     
                     NavLinkButtonVStack(image: Image(systemName: "house.fill"), buttonText: "We Come To You", isEnabled: true, content: {AddressView()})
                         .frame(width: 150, height: 180)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.mobileService = true
+                            vehicle.mobileService = true
                         })
                 }
             }

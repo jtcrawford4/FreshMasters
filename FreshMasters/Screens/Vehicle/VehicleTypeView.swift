@@ -12,6 +12,9 @@ struct VehicleTypeView: View {
     @EnvironmentObject var order: Order
     
     var body: some View {
+        
+        let vehicle = order.vehicle
+        
         ZStack{
             
             Rectangle()
@@ -26,14 +29,14 @@ struct VehicleTypeView: View {
                     NavLinkButtonVStack(image: Image("icons8-car-50"), buttonText: "Car", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleTypes.car.rawValue
-                            order.vehicle.prices = CarPrices()
+                            vehicle.vehicleType = Vehicle.vehicleTypes.car.rawValue
+                            vehicle.prices = CarPrices()
                         })
                     NavLinkButtonVStack(image: Image("icons8-pickup-30"), buttonText: "Truck", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleTypes.truck.rawValue
-                            order.vehicle.prices = TruckPrices()
+                            vehicle.vehicleType = Vehicle.vehicleTypes.truck.rawValue
+                            vehicle.prices = TruckPrices()
                         })
                 }
                 .padding(.bottom, 30)
@@ -42,15 +45,15 @@ struct VehicleTypeView: View {
                     NavLinkButtonVStack(image: Image("icons8-vanpool-30"), buttonText: "Van", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleTypes.van.rawValue
-                            order.vehicle.prices = VanPrices()
+                            vehicle.vehicleType = Vehicle.vehicleTypes.van.rawValue
+                            vehicle.prices = VanPrices()
                         })
                     
                     NavLinkButtonVStack(image: Image("icons8-jeep-50-2"), buttonText: "SUV", isEnabled: true, content: {VehicleTypeDetailView()})
                         .frame(width: 120, height: 120)
                         .simultaneousGesture(TapGesture().onEnded{
-                            order.vehicle.vehicleType = Vehicle.vehicleTypes.suv.rawValue
-                            order.vehicle.prices = SuvPrices()
+                            vehicle.vehicleType = Vehicle.vehicleTypes.suv.rawValue
+                            vehicle.prices = SuvPrices()
                         })
                 }
                 Spacer()

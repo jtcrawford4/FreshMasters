@@ -45,7 +45,7 @@ struct ItemizedQuoteView: View {
                             .fontWeight(.semibold)
                         
                     }
-                    .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
+                    .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
                  
                     List{
                         QuoteCell(title: vehicle.serviceType,
@@ -95,12 +95,12 @@ struct ItemizedQuoteView: View {
                             .foregroundColor(.green)
 
                     }
-                    .padding(.top)
+                    .padding(.top, 5)
                     
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                         .frame(width: 280, height: 80)
                         .padding(.top, 40)
-                        .offset(y: -100)
+                        .offset(y: -50)
                 }
                 
             }
@@ -111,7 +111,27 @@ struct ItemizedQuoteView: View {
 
 struct ItemizedQuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemizedQuoteView()
-            .environmentObject(Order())
+        NavigationView{
+            ItemizedQuoteView()
+                .environmentObject(testOrder())
+        }
     }
+}
+
+func testOrder() -> Order{
+    let order = Order()
+    let vehicle = Vehicle()
+    vehicle.prices = CarPrices()
+    vehicle.engine = true
+    vehicle.glaze = true
+    vehicle.hasAgeSurcharge = true
+    vehicle.mobileService = true
+    vehicle.polish = true
+    vehicle.headlightRestore = true
+    vehicle.serviceType = Vehicle.serviceTypes.full.rawValue
+    vehicle.year = "2005"
+    vehicle.make = "Chevrolet"
+    vehicle.model = "Corvette"
+    order.vehicle = vehicle
+    return order
 }

@@ -17,6 +17,9 @@ struct VehicleTypeDetailView: View {
     @State var isValidated = false
     
     var body: some View {
+        
+        let vehicle = order.vehicle
+        
         ZStack{
             
             Rectangle()
@@ -25,7 +28,7 @@ struct VehicleTypeDetailView: View {
                         
             VStack{
                 
-                TitleText(text: "Tell us more about your \(order.vehicle.vehicleType.lowercased())")
+                TitleText(text: "Tell us more about your \(vehicle.vehicleType.lowercased())")
                 
                 VStack{
                     TextField("Year", text: $year)
@@ -57,16 +60,17 @@ struct VehicleTypeDetailView: View {
                     .padding(.top, 40)
                     .foregroundColor(.blue)
                     .simultaneousGesture(TapGesture().onEnded{
-                        order.vehicle.year = ""
-                        order.vehicle.make = ""
-                        order.vehicle.model = ""
+                        vehicle.year = ""
+                        vehicle.make = ""
+                        vehicle.model = ""
+                        vehicle.hasAgeSurcharge = false
                     })
                 
                 Button(action: {
-                    order.vehicle.year = year
-                    order.vehicle.make = make
-                    order.vehicle.model = model
-                    let validated = order.vehicle.isValidYearMakeModel()
+                    vehicle.year = year
+                    vehicle.make = make
+                    vehicle.model = model
+                    let validated = vehicle.isValidYearMakeModel()
                     switch validated {
                         case .valid:
                             isValidated = true
@@ -89,7 +93,7 @@ struct VehicleTypeDetailView: View {
                     .frame(width: 160, height: 80)
                     .opacity(isValidated ? 1 : 0)
                     .simultaneousGesture(TapGesture().onEnded{
-                        order.vehicle.hasAgeSurcharge = order.vehicle.prices.vehicleHasAgeSurcharge(year: order.vehicle.year)
+                        vehicle.hasAgeSurcharge = vehicle.prices.vehicleHasAgeSurcharge(year: vehicle.year)
                     })
 
             }

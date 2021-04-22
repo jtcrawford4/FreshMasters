@@ -17,6 +17,7 @@ struct AppointmentConfirmationView: View {
     
     var body: some View {
         var safariURL = ""
+        let vehicle = order.vehicle
         ZStack{
 
             Image("backgroundAppointmentImage")
@@ -88,9 +89,9 @@ struct AppointmentConfirmationView: View {
                             
                             if(checkCalendarAuthorizationStatus()){
                                 //MARK: - todo check if successful
-                                let calendarSet = addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(order.vehicle.year) \(order.vehicle.make) \(order.vehicle.model), \(order.vehicle.serviceType)",
+                                let calendarSet = addCalendarEvent(title: "FreshMasters Detailing Appointment", note: "\(vehicle.year) \(vehicle.make) \(vehicle.model), \(vehicle.serviceType)",
                                             date: order.customer.appointmentDate,
-                                            workHours: order.vehicle.hours.getTotalHoursHigh())
+                                            workHours: vehicle.hours.getTotalHoursHigh())
                                 
                                 appointmentSaved = calendarSet
                                 alertItem = (calendarSet ? CalendarAlerts.calendarSet : CalendarAlerts.calendarError)

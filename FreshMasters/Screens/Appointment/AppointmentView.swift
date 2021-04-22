@@ -14,10 +14,15 @@ struct AppointmentView: View {
     @State var alertItem: AlertItem?
     @State var isSendingAppointment = false
     let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    @State var firstName = ""
+    @State var lastName = ""
     @State var phone = ""
     @State var email = ""
         
     var body: some View {
+        
+        let customer = order.customer
+        
         ZStack{
             
             Rectangle()
@@ -27,8 +32,8 @@ struct AppointmentView: View {
             VStack{
                 Form{
                     Section(header: Text("Contact Info")){
-                        TextField("First Name", text: $order.customer.firstName)
-                        TextField("Last Name", text: $order.customer.lastName)
+                        TextField("First Name", text: $firstName)
+                        TextField("Last Name", text: $lastName)
                         TextField("Phone", text: $phone)
                             .keyboardType(.phonePad)
                         TextField("Email", text: $email)
@@ -52,8 +57,10 @@ struct AppointmentView: View {
                     
                     Section(){
                         Button(action: {
-                            order.customer.phone = phone
-                            order.customer.email = email
+                            customer.firstName = firstName
+                            customer.lastName = lastName
+                            customer.phone = phone
+                            customer.email = email
                             let validation = order.customer.isValidForm()
                             switch validation{
                                 case .valid:

@@ -15,6 +15,9 @@ struct ServiceTypeView: View {
     @State private var infoModalShowing = false
     
     var body: some View {
+        
+        let vehicle = order.vehicle
+        
         ZStack{
             
             Rectangle()
@@ -57,12 +60,10 @@ struct ServiceTypeView: View {
                             else if (interiorIsToggled){
                                 temp = Vehicle.serviceTypes.interior.rawValue
                             }
-                            order.vehicle.serviceType = temp
-                            let vtype = order.vehicle.vehicleType
-                            let stype = order.vehicle.serviceType
-                            order.vehicle.hours.setBaseHours(
-                                vehicleType: Vehicle.vehicleTypes(rawValue: vtype)!,
-                                serviceType: Vehicle.serviceTypes(rawValue: stype)!)
+                            vehicle.serviceType = temp                            
+                            vehicle.hours.setBaseHours(
+                                vehicleType: Vehicle.vehicleTypes(rawValue: vehicle.vehicleType)!,
+                                serviceType: Vehicle.serviceTypes(rawValue: vehicle.serviceType)!)
                         })
                         .disabled(!(exteriorIsToggled || interiorIsToggled))
                 }

@@ -12,6 +12,10 @@ struct QuoteView: View {
     @EnvironmentObject var order: Order
     
     var body: some View{
+        
+        let vehicle = order.vehicle
+        let hours = vehicle.hours
+        
         ZStack{
             
             Rectangle()
@@ -20,22 +24,22 @@ struct QuoteView: View {
          
             VStack{
                 
-                Text("$ \(order.vehicle.getTotalPrice(), specifier: "%.2f")")
+                Text("$ \(vehicle.getTotalPrice(), specifier: "%.2f")")
                     .font(.system(size: 60))
                     .fontWeight(.bold)
                     .padding(.bottom, 30)
                 
-                Text(order.vehicle.getYearMakeModel())
+                Text(vehicle.getYearMakeModel())
                     .font(.body)
                     .foregroundColor(.primary)
                     .fontWeight(.semibold)
                 
-                Text(order.vehicle.serviceType)
+                Text(vehicle.serviceType)
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.secondary)
                 
-                Text("Est Completion Time: \(order.vehicle.hours.getTotalHoursLow()) - \(order.vehicle.hours.getTotalHoursHigh()) hours")
+                Text("Est Completion Time: \(hours.getTotalHoursLow()) - \(hours.getTotalHoursHigh()) hours")
                     .font(.caption)
                     .fontWeight(.semibold)
                     .foregroundColor(.secondary)

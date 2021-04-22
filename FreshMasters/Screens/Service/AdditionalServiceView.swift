@@ -16,6 +16,9 @@ struct AdditionalServiceView: View {
     @State private var glazeIsToggled = false
     
     var body: some View {
+        
+        let vehicle = order.vehicle
+        
         ZStack{
             
             Rectangle()
@@ -26,7 +29,7 @@ struct AdditionalServiceView: View {
                 Spacer()
                 TitleText(text: "Any additional services needed?")
                          
-                if order.vehicle.serviceType != Vehicle.serviceTypes.interior.rawValue{
+                if vehicle.serviceType != Vehicle.serviceTypes.interior.rawValue{
                     HStack(spacing: 10){
                         ToggleButton(toggleState: $polishIsToggled, imageToggled: Image("icons8-sparkling-diamond-50-red"), imageNotToggled: Image("icons8-sparkling-diamond-50"), buttonText: "Paint Polish")
                             
@@ -45,7 +48,6 @@ struct AdditionalServiceView: View {
                     .frame(width: 160, height: 80)
                     .padding(.top, 40)
                     .simultaneousGesture(TapGesture().onEnded{
-                        let vehicle = order.vehicle
                         vehicle.polish = polishIsToggled
                         vehicle.glaze = glazeIsToggled
                         vehicle.engine = engineIsToggled
