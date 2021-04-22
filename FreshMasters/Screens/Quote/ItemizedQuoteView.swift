@@ -11,7 +11,7 @@ struct ItemizedQuoteView: View {
     
     @EnvironmentObject var order: Order
     @State var infoPresented = false
-    let ageSurchargeInfoText: String = "Vehicles older than 5 years, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nSurcharge can potentially be void after in-person vehicle inspection."
+    let ageSurchargeInfoText: String = "Vehicles older than 5 years, especially those that have never been professionally detailed, generally require more time and attention to complete. \n\nSurcharge can potentially be void after in-person vehicle inspection.\n\nSurcharge calculated as percentage of total service cost."
     
     init() {
         UITableView.appearance().backgroundColor = UIColor(Color.background)
@@ -19,6 +19,9 @@ struct ItemizedQuoteView: View {
     
     var body: some View {
 
+        let vehicle = order.vehicle
+        let prices = vehicle.prices
+        
             ZStack{
                 
                 Rectangle()
@@ -28,47 +31,45 @@ struct ItemizedQuoteView: View {
                 VStack{
                     
                     VStack{
-//                        LinearGradient(.red, .pink)
-//                            .mask(Image("icons8-pickup-90")
-//                                    .resizable()
-//                                    .scaledToFit()
-//                                    .frame(width:100, height: 125)
-//                            )
-//                            .frame(width:100, height: 125)
-//                            .shadow(color: .white, radius: 2, x: -3, y: -3)
-//                            .shadow(color: .gray, radius: 2, x: 3, y: 3)
+                        Image("logo")
+                            .resizable()
+                            .frame(width: 60, height: 40)
                         
-                        Text(order.vehicle.getYearMakeModel())
+                        Text("Itemized Quote")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                            .padding(.bottom, 20)
+                        
+                        Text(vehicle.getYearMakeModel())
                             .font(.body)
                             .fontWeight(.semibold)
                         
                     }
-                    .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
+                    .padding(.init(top: 10, leading: 0, bottom: 10, trailing: 0))
                  
                     List{
-                        //ugliest thing in the world
-                        QuoteCell(title: order.vehicle.serviceType,
-                                  value: order.vehicle.getServiceTypePrice(
-                                    service: Vehicle.serviceTypes(rawValue: order.vehicle.serviceType)!))
+                        QuoteCell(title: vehicle.serviceType,
+                                  value: vehicle.getServiceTypePrice(
+                                    service: Vehicle.serviceTypes(rawValue: vehicle.serviceType)!))
                         
-                        if (order.vehicle.polish){
-                            QuoteCell(title: "Paint Polish", value: order.vehicle.prices.polish)
+                        if (vehicle.polish){
+                            QuoteCell(title: "Paint Polish", value: prices.polish)
                         }
-                        if (order.vehicle.glaze){
-                            QuoteCell(title: "Paint Glaze", value: order.vehicle.prices.glaze)
+                        if (vehicle.glaze){
+                            QuoteCell(title: "Paint Glaze", value: prices.glaze)
                         }
-                        if (order.vehicle.engine){
-                            QuoteCell(title: "Engine Bay Detail", value: order.vehicle.prices.engine)
+                        if (vehicle.engine){
+                            QuoteCell(title: "Engine Bay Detail", value: prices.engine)
                         }
-                        if (order.vehicle.headlightRestore){
-                            QuoteCell(title: "Headlight Restoration", value: order.vehicle.prices.headlightRestoration)
-                        }
-                        
-                        if (order.vehicle.mobileService){
-                            QuoteCell(title: "Mobile Service", value: order.vehicle.prices.mileageSurcharge)
+                        if (vehicle.headlightRestore){
+                            QuoteCell(title: "Headlight Restoration", value: prices.headlightRestoration)
                         }
                         
-                        if (order.vehicle.hasAgeSurcharge){
+                        if (vehicle.mobileService){
+                            QuoteCell(title: "Mobile Service", value: prices.mileageSurcharge)
+                        }
+                        
+                        if (vehicle.hasAgeSurcharge){
                             HStack{
                                 Text("Vehicle Age Surcharge")
                                     .fontWeight(.regular)
@@ -84,18 +85,17 @@ struct ItemizedQuoteView: View {
                                 }
                                 
                                 Spacer()
-                                Text("$\(order.vehicle.prices.yearSurcharge, specifier: "%.2f")")
+                                Text("$\(prices.yearSurcharge, specifier: "%.2f")")
                             }
                             .listRowBackground(Color.background)
                         }
                         
-                        QuoteCell(title: "Total", value: order.vehicle.getTotalPrice())
+                        QuoteCell(title: "Total", value: vehicle.getTotalPrice())
                             .font(.title2)
                             .foregroundColor(.green)
 
                     }
                     .padding(.top)
-                    .navigationTitle("Itemized Quote")
                     
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                         .frame(width: 280, height: 80)

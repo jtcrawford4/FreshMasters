@@ -27,7 +27,6 @@
 		E1ADA713260411FE008C0747 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA712260411FE008C0747 /* ColorExtension.swift */; };
 		E1ADA71C26041241008C0747 /* SquareBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */; };
 		E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA72326041649008C0747 /* ToggleBtn.swift */; };
-		E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA728260418F1008C0747 /* ValidationView.swift */; };
 		E1ADA731260445DB008C0747 /* AppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA730260445DB008C0747 /* AppointmentView.swift */; };
 		E1B36C94262F4CA000E2CDB3 /* CalendarUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B36C93262F4CA000E2CDB3 /* CalendarUtility.swift */; };
 		E1B3F52826239B43004E4A56 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3F52726239B43004E4A56 /* FormValidation.swift */; };
@@ -36,6 +35,7 @@
 		E1CEE39C260AA463009726C0 /* VanPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE39B260AA463009726C0 /* VanPrices.swift */; };
 		E1CEE3A1260AA54F009726C0 /* SuvPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */; };
 		E1CEE3A6260ABA56009726C0 /* ItemizedQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */; };
+		E1D048682631C951005C29A1 /* ServiceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D048672631C951005C29A1 /* ServiceInfoView.swift */; };
 		E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */; };
 		E1D32DCB261E569200DE3678 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E1D32DCA261E569200DE3678 /* .gitignore */; };
 		E1D32DE0261E878100DE3678 /* EmailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D32DDF261E878100DE3678 /* EmailError.swift */; };
@@ -101,7 +101,6 @@
 		E1ADA712260411FE008C0747 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBtnStyle.swift; sourceTree = "<group>"; };
 		E1ADA72326041649008C0747 /* ToggleBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleBtn.swift; sourceTree = "<group>"; };
-		E1ADA728260418F1008C0747 /* ValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationView.swift; sourceTree = "<group>"; };
 		E1ADA730260445DB008C0747 /* AppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentView.swift; sourceTree = "<group>"; };
 		E1B36C93262F4CA000E2CDB3 /* CalendarUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarUtility.swift; sourceTree = "<group>"; };
 		E1B3F52726239B43004E4A56 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		E1CEE39B260AA463009726C0 /* VanPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A0260AA54F009726C0 /* SuvPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuvPrices.swift; sourceTree = "<group>"; };
 		E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemizedQuoteView.swift; sourceTree = "<group>"; };
+		E1D048672631C951005C29A1 /* ServiceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInfoView.swift; sourceTree = "<group>"; };
 		E1D0CCD9261CE0CF00636E3C /* EmailUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtility.swift; sourceTree = "<group>"; };
 		E1D32DCA261E569200DE3678 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E1D32DCF261E572A00DE3678 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -225,17 +225,11 @@
 			isa = PBXGroup;
 			children = (
 				E19B85A326004B5400C636B9 /* MainView.swift */,
-				E1A954162602AE05005CBE82 /* VehicleTypeView.swift */,
-				E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */,
-				E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */,
-				E1ADA728260418F1008C0747 /* ValidationView.swift */,
-				E1ADA730260445DB008C0747 /* AppointmentView.swift */,
-				E1E96D3526059A1500903599 /* QuoteView.swift */,
-				E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */,
-				E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */,
-				E1E3635C260E952100E89C0D /* ServiceLocationView.swift */,
-				E1E3636B260EBB4A00E89C0D /* AddressView.swift */,
-				E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */,
+				E1D0485F2631C706005C29A1 /* Vehicle */,
+				E1D048602631C717005C29A1 /* Service */,
+				E1D048612631C753005C29A1 /* Location */,
+				E1D048622631C764005C29A1 /* Quote */,
+				E1D0485E2631C661005C29A1 /* Appointment */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -281,6 +275,52 @@
 				E1ADA71B26041241008C0747 /* SquareBtnStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		E1D0485E2631C661005C29A1 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				E1ADA730260445DB008C0747 /* AppointmentView.swift */,
+				E1F0641226167C71005446AD /* AppointmentConfirmationView.swift */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		E1D0485F2631C706005C29A1 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				E1A954162602AE05005CBE82 /* VehicleTypeView.swift */,
+				E139A1C9260BD6C30095A2BD /* VehicleTypeDetailView.swift */,
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		E1D048602631C717005C29A1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E1A9541E2602DAB0005CBE82 /* ServiceTypeView.swift */,
+				E1D048672631C951005C29A1 /* ServiceInfoView.swift */,
+				E1ADA70526040E08008C0747 /* AdditionalServiceView.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E1D048612631C753005C29A1 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				E1E3635C260E952100E89C0D /* ServiceLocationView.swift */,
+				E1E3636B260EBB4A00E89C0D /* AddressView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		E1D048622631C764005C29A1 /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				E1E96D3526059A1500903599 /* QuoteView.swift */,
+				E1CEE3A5260ABA56009726C0 /* ItemizedQuoteView.swift */,
+			);
+			path = Quote;
 			sourceTree = "<group>";
 		};
 		E1DC42F426150B0B00C12550 /* Error */ = {
@@ -444,7 +484,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1ADA729260418F1008C0747 /* ValidationView.swift in Sources */,
 				E1E3635D260E952100E89C0D /* ServiceLocationView.swift in Sources */,
 				E1ADA70626040E08008C0747 /* AdditionalServiceView.swift in Sources */,
 				E1ADA72426041649008C0747 /* ToggleBtn.swift in Sources */,
@@ -480,6 +519,7 @@
 				E1F0640E26164B2F005446AD /* AddressError.swift in Sources */,
 				E1D0CCDA261CE0CF00636E3C /* EmailUtility.swift in Sources */,
 				E1E3636C260EBB4A00E89C0D /* AddressView.swift in Sources */,
+				E1D048682631C951005C29A1 /* ServiceInfoView.swift in Sources */,
 				E196E0C6260977230078E9EA /* Prices.swift in Sources */,
 				E19B857526004ADF00C636B9 /* FreshMastersApp.swift in Sources */,
 				E1F83CA2261A96C5004BADCC /* Hours.swift in Sources */,
