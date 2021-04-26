@@ -106,6 +106,9 @@ struct VehicleTypeDetailView: View {
             })
 
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }
 }
 

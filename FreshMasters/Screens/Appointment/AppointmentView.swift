@@ -123,6 +123,9 @@ struct AppointmentView: View {
                     .zIndex(1)
             }
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }
 }
 

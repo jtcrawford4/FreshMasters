@@ -111,6 +111,9 @@ struct AddressView: View {
                 isValidated = false
             })
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }
 }
 
