@@ -69,6 +69,6 @@ struct QuoteView: View {
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
         QuoteView()
-            .environmentObject(Order())
+            .environmentObject(Order().sampleOrder())
     }
 }

@@ -98,8 +98,7 @@ struct AddressView: View {
                 
                                 
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Get Quote", isEnabled: true, content: {QuoteView()})
-                    .frame(width: 200, height: 80)
-                    .padding(.top, 40)
+                    .frame(width: 200, height: 10)
                     .opacity(isValidated ? 1 : 0)
                 }
                 .offset(y: -60)

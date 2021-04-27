@@ -113,25 +113,7 @@ struct ItemizedQuoteView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             ItemizedQuoteView()
-                .environmentObject(testOrder())
+                .environmentObject(Order().sampleOrder())
         }
     }
-}
-
-func testOrder() -> Order{
-    let order = Order()
-    let vehicle = Vehicle()
-    vehicle.prices = CarPrices()
-    vehicle.engine = true
-    vehicle.glaze = true
-    vehicle.hasAgeSurcharge = true
-    vehicle.mobileService = true
-    vehicle.polish = true
-    vehicle.headlightRestore = true
-    vehicle.serviceType = Vehicle.serviceTypes.full.rawValue
-    vehicle.year = "2005"
-    vehicle.make = "Chevrolet"
-    vehicle.model = "Corvette"
-    order.vehicle = vehicle
-    return order
 }
