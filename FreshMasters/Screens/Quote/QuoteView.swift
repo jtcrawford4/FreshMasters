@@ -10,6 +10,7 @@ import SwiftUI
 struct QuoteView: View {
     
     @EnvironmentObject var order: Order
+    @State var promoModalShowing = false
     
     var body: some View{
         
@@ -54,12 +55,24 @@ struct QuoteView: View {
                     }
                 )
                 
+                Button(action: {
+                    promoModalShowing = true
+                }, label: {
+                    Text("Promo Code")
+                        .fontWeight(.semibold)
+                        .font(.footnote)
+                })
+                .padding(.top, 5)
+                
                 NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                     .frame(width: 280, height: 80)
                     .padding(.top, 40)
                 
             }
-            .offset(y: -50)
+            .offset(y: -30)
+            .sheet(isPresented: $promoModalShowing, content: {
+                PromoCodeView(modalShowing: $promoModalShowing)
+            })
             
         }
     }

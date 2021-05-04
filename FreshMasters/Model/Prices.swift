@@ -82,4 +82,9 @@ class Prices{
         }
     }
     
+    func submitPromoCode(code: String) -> Bool {
+        print("testing promo code")
+        return true
+    }
+    
 }
