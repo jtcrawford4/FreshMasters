@@ -9,10 +9,11 @@ import SwiftUI
 
 struct PromoCodeView: View {
     
-    @EnvironmentObject var order: Order
+    @ObservedObject var order: Order
     @State var promoCode = ""
-    @State var validCode = false
+    @State var isValidCode = false
     @Binding var modalShowing: Bool
+    @Binding var totalPrice: Double
     
     var body: some View {
         
@@ -30,14 +31,15 @@ struct PromoCodeView: View {
                     .padding(.bottom, 40)
                     .brightness(1)
                 
-                Text("Promo Code")
-                    .foregroundColor(.white)
-                    .fontWeight(.light)
-                    .font(.title2)
+//                Text("Promo Code")
+//                    .foregroundColor(.white)
+//                    .fontWeight(.light)
+//                    .font(.title2)
                 
-                TextField("Code", text: $promoCode)
+                TextField("Promo Code", text: $promoCode)
+                    .frame(width: 280, height: 40)
                     .padding(.trailing)
-                    .font(.title)
+                    .font(.body)
                     .multilineTextAlignment(.center)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
@@ -46,9 +48,9 @@ struct PromoCodeView: View {
                     .padding(.horizontal, 60)
                     .font(.body)
                     .onChange(of: promoCode, perform: { value in
-                        self.promoCode = promoCode.limit(characterLimit: 30, string: value)
+                        self.promoCode = promoCode.limit(characterLimit: 20, string: value)
                     })
-                    .contrast(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+//                    .contrast(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
                     .padding(.bottom, 20)
                 
 //                Text("Invalid Code")
@@ -57,7 +59,14 @@ struct PromoCodeView: View {
                 
                 VStack{
                     Button(action: {
-                        validCode = order.vehicle.prices.submitPromoCode(code: promoCode)
+                        let vehicle = order.vehicle
+                        let prices = order.vehicle.prices
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
+                        isValidCode = prices.checkPromoCode(code: promoCode)
+                        vehicle.hasValidPromoCode = isValidCode
+                        vehicle.totalPrice = vehicle.getTotalPrice()
+                        totalPrice = vehicle.totalPrice
                     }, label: {
                         Text("Apply")
                             .fontWeight(.semibold)
@@ -90,6 +99,6 @@ struct PromoCodeView: View {
 
 struct PromoCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        PromoCodeView(modalShowing: .constant(true))
+        PromoCodeView(order: Order().sampleOrder(), modalShowing: .constant(true), totalPrice: .constant(0))
     }
 }

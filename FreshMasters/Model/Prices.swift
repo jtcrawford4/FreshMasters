@@ -25,6 +25,9 @@ class Prices{
     var yearSurcharge: Double = 0
     var yearSurchargePercentage: Float = 15
     
+    var hasValidPromoCode = false
+    var promoCode = ""
+    
     init(){
         self.interiorDetail = 0
         self.exteriorDetail = 0
@@ -52,12 +55,20 @@ class Prices{
     }
     
     func calculateAgeSurcharge(totalPrice: Double) -> Double{
+//        if(hasValidPromoCode){
+//            self.yearSurcharge = 0
+//            return 0
+//        }
         let surcharge = totalPrice * Double((self.yearSurchargePercentage / 100))
         self.yearSurcharge = surcharge
         return surcharge
     }
     
     func calculateMileageCost(milesToCustomer: Double){
+//        if(hasValidPromoCode){
+//            self.mileageSurcharge = 0
+//            return
+//        }
         switch milesToCustomer{
             case 0..<10:
                 self.mileageSurcharge = 0
@@ -82,9 +93,18 @@ class Prices{
         }
     }
     
-    func submitPromoCode(code: String) -> Bool {
-        print("testing promo code")
-        return true
+    func checkPromoCode(code: String) -> Bool {
+        if (!code.isEmpty && promoCodes.contains(code.lowercased())){
+            print("code valid")
+            self.hasValidPromoCode = true
+            self.promoCode = code
+            return true
+        }
+        print("invalid code")
+        self.hasValidPromoCode = false
+        self.promoCode = ""
+        return false
     }
     
+    private var promoCodes = ["fmfamily","devtestonly"]
 }

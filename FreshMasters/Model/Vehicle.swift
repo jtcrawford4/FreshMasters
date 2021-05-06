@@ -20,14 +20,17 @@ final class Vehicle: ObservableObject{
     @Published var engine = false
     @Published var mobileService = false
     @Published var hasAgeSurcharge = false
+    @Published var hasValidPromoCode = false
+    @Published var totalPrice: Double = 0
     
     var prices =  Prices()
     var hours = Hours()
-    var totalPrice: Double = 0
     
     func getTotalPrice() -> Double{
-        var total = 0.00
+        hasValidPromoCode = prices.hasValidPromoCode
         hours.additionalHours = 0
+        var total = 0.00
+        var ageSurcharge = 0.00
         total += getServiceTypePrice(service: serviceTypes(rawValue: self.serviceType)!)
         if (polish){
             total += prices.polish
@@ -45,8 +48,18 @@ final class Vehicle: ObservableObject{
             total += prices.engine
             hours.addAdditionalHours(hours: 1)
         }
+
         total += mobileService ? prices.mileageSurcharge : 0
-        total += hasAgeSurcharge ? prices.calculateAgeSurcharge(totalPrice: total) : 0
+        
+        if (hasAgeSurcharge){
+            ageSurcharge = prices.calculateAgeSurcharge(totalPrice: total)
+            total += ageSurcharge
+        }
+
+        if(hasValidPromoCode){
+            total -= mobileService ? prices.mileageSurcharge : 0
+            total -= hasAgeSurcharge ? ageSurcharge : 0
+        }
         return total
     }
     
@@ -85,7 +98,7 @@ final class Vehicle: ObservableObject{
             let yearInt = Int(year)!
             let currentYear = Calendar.current.component(.year, from: Date())
             let maxModelYear = currentYear + 1
-            if (1900 < yearInt && yearInt < maxModelYear){
+            if (1900 <= yearInt && yearInt <= maxModelYear){
                 return true
             }else{
                 return false

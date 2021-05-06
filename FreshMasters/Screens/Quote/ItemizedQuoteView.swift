@@ -21,6 +21,8 @@ struct ItemizedQuoteView: View {
 
         let vehicle = order.vehicle
         let prices = vehicle.prices
+        let hasValidPromoCode = prices.hasValidPromoCode
+//        let hasValidPromoCode = true
         
             ZStack{
                 
@@ -66,7 +68,9 @@ struct ItemizedQuoteView: View {
                         }
                         
                         if (vehicle.mobileService){
-                            QuoteCell(title: "Mobile Service", value: prices.mileageSurcharge)
+//                            QuoteCell(title: "Mobile Service", value: prices.mileageSurcharge)
+                            
+                            getMobileCell(hasValidPromoCode: hasValidPromoCode, prices: prices)
                         }
                         
                         if (vehicle.hasAgeSurcharge){
@@ -74,6 +78,7 @@ struct ItemizedQuoteView: View {
                                 Text("Vehicle Age Surcharge")
                                     .fontWeight(.regular)
                                     .foregroundColor(.secondary)
+                                    .strikethrough(hasValidPromoCode, color: Color.brandPrimary)
                                 
                                 Button(action: {
                                     infoPresented.toggle()
@@ -86,11 +91,13 @@ struct ItemizedQuoteView: View {
                                 
                                 Spacer()
                                 Text("$\(prices.yearSurcharge, specifier: "%.2f")")
+                                    .strikethrough(hasValidPromoCode, color: Color.brandPrimary)
                             }
                             .listRowBackground(Color.background)
+                            
                         }
                         
-                        QuoteCell(title: "Total", value: vehicle.getTotalPrice())
+                        QuoteCell(title: "Total", value: vehicle.totalPrice)
                             .font(.title2)
                             .foregroundColor(.green)
 
@@ -106,6 +113,25 @@ struct ItemizedQuoteView: View {
             }
             .background(Color.clear)
         
+    }
+}
+
+struct getMobileCell: View{
+    var hasValidPromoCode: Bool
+    var prices: Prices
+    var body: some View{
+        HStack{
+            Text("Mobile Service")
+                .fontWeight(.regular)
+                .foregroundColor(.secondary)
+                .strikethrough(hasValidPromoCode, color: Color.brandPrimary)
+            
+            Spacer()
+            
+            Text("$\(prices.mileageSurcharge, specifier: "%.2f")")
+                .strikethrough(hasValidPromoCode, color: Color.brandPrimary)
+        }
+        .listRowBackground(Color.background)
     }
 }
 

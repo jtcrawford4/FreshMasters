@@ -11,6 +11,7 @@ struct QuoteView: View {
     
     @EnvironmentObject var order: Order
     @State var promoModalShowing = false
+    @State var totalPrice: Double = 0
     
     var body: some View{
         
@@ -25,7 +26,7 @@ struct QuoteView: View {
          
             VStack{
                 
-                Text("$ \(vehicle.getTotalPrice(), specifier: "%.2f")")
+                Text("$ \(totalPrice, specifier: "%.2f")")
                     .font(.system(size: 60))
                     .fontWeight(.bold)
                     .padding(.bottom, 30)
@@ -71,12 +72,14 @@ struct QuoteView: View {
             }
             .offset(y: -30)
             .sheet(isPresented: $promoModalShowing, content: {
-                PromoCodeView(modalShowing: $promoModalShowing)
+                PromoCodeView(order: self.order, modalShowing: $promoModalShowing, totalPrice: $totalPrice)
             })
             
         }
+        .onAppear(perform: {
+            self.totalPrice = vehicle.getTotalPrice()
+        })
     }
-    
 }
 
 struct QuoteView_Previews: PreviewProvider {
