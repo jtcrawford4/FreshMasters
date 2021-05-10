@@ -16,6 +16,8 @@ final class Order: ObservableObject{
         let order = Order()
         let vehicle = Vehicle()
         vehicle.prices = CarPrices()
+        vehicle.prices.hasValidPromoCode = true
+        vehicle.prices.promoCode = "devtestonly"
         vehicle.engine = true
         vehicle.glaze = true
         vehicle.hasAgeSurcharge = true

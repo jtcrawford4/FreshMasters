@@ -48,6 +48,7 @@ struct ItemizedQuoteView: View {
                         
                     }
                     .padding(.init(top: 0, leading: 0, bottom: 10, trailing: 0))
+                    .offset(y: -60)
                  
                     List{
                         QuoteCell(title: vehicle.serviceType,
@@ -97,16 +98,26 @@ struct ItemizedQuoteView: View {
                             
                         }
                         
+                        if(hasValidPromoCode){
+                            HStack{
+                                Text("Promo Code \(vehicle.prices.promoCode.uppercased())")
+                                Spacer()
+                                Text("-$\(vehicle.prices.promoCodeSavings, specifier: "%.2f")")
+                            }
+                            .foregroundColor(.brandPrimary)
+                            .listRowBackground(Color.background)
+                        }
+                        
                         QuoteCell(title: "Total", value: vehicle.totalPrice)
                             .font(.title2)
                             .foregroundColor(.green)
 
                     }
-                    .padding(.top, 5)
+                    .offset(y: -80)
                     
                     NavigationLinkButton(image: Image(systemName: "chevron.right.circle.fill"), buttonText: "Schedule Appointment", isEnabled: true, content: {AppointmentView()})
                         .frame(width: 280, height: 80)
-                        .padding(.top, 40)
+                        .padding(.top, 20)
                         .offset(y: -50)
                 }
                 

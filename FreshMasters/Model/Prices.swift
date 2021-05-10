@@ -27,6 +27,7 @@ class Prices{
     
     var hasValidPromoCode = false
     var promoCode = ""
+    var promoCodeSavings: Double = 0
     
     init(){
         self.interiorDetail = 0

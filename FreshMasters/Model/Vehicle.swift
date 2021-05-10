@@ -58,7 +58,10 @@ final class Vehicle: ObservableObject{
 
         if(hasValidPromoCode){
             total -= mobileService ? prices.mileageSurcharge : 0
+            prices.promoCodeSavings += prices.mileageSurcharge
+            
             total -= hasAgeSurcharge ? ageSurcharge : 0
+            prices.promoCodeSavings += ageSurcharge
         }
         return total
     }

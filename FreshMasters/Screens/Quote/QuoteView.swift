@@ -29,12 +29,59 @@ struct QuoteView: View {
                 Text("$ \(totalPrice, specifier: "%.2f")")
                     .font(.system(size: 60))
                     .fontWeight(.bold)
-                    .padding(.bottom, 30)
+//                    .padding(.bottom, 30)
+                
+                if(vehicle.prices.hasValidPromoCode){
+                    VStack{
+                        
+                        Text("\(vehicle.prices.promoCode.uppercased())")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding(.top, 2)
+                        
+                        Text("Promo Code Active")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .padding(.bottom, 0.25)
+                            .foregroundColor(.black)
+
+//                            .padding(.bottom, 2)
+                        
+//                        Text("Savings ") +
+//                        Text("$\(vehicle.prices.promoCodeSavings, specifier: "%.2f")")
+//                            .font(.title2)
+//                            .fontWeight(.bold)
+//                            .foregroundColor(.teal)
+//                        +
+                        Text("$\(vehicle.prices.promoCodeSavings, specifier: "%.2f")")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.teal)
+                        
+                        Text("Total Saved!")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .padding(.bottom, 1)
+                    }
+                    .padding(5)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(
+                        Rectangle()
+                            .fill(Color.pink)
+                            .shadow(color: .black,
+                                     radius: 10, x: 0, y: 5)
+                    )
+                    .foregroundColor(.white)
+//                    .padding(.top, 10)
+                }
                 
                 Text(vehicle.getYearMakeModel())
                     .font(.body)
                     .foregroundColor(.primary)
                     .fontWeight(.semibold)
+                    .padding(.top, 10)
                 
                 Text(vehicle.serviceType)
                     .font(.caption)
@@ -78,6 +125,7 @@ struct QuoteView: View {
         }
         .onAppear(perform: {
             self.totalPrice = vehicle.getTotalPrice()
+            vehicle.totalPrice = self.totalPrice
         })
     }
 }

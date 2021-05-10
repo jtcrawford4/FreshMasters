@@ -64,6 +64,8 @@ struct PromoCodeView: View {
                         let impactMed = UIImpactFeedbackGenerator(style: .medium)
                         impactMed.impactOccurred()
                         isValidCode = prices.checkPromoCode(code: promoCode)
+                        vehicle.prices.promoCodeSavings = 0
+//                        vehicle.prices.hasValidPromoCode = isValidCode
                         vehicle.hasValidPromoCode = isValidCode
                         vehicle.totalPrice = vehicle.getTotalPrice()
                         totalPrice = vehicle.totalPrice
